@@ -11,13 +11,13 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#" id="title">Covid-19 Stats</a>
+            <a class="navbar-brand" href="{{ route("home") }}" id="title">Covid-19 Stats</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Tyler</a></li>
-            <li><a href="#">Alex</a></li>
-            <li><a href="#">Kareem</a></li>
-            <li><a href="#">Page 4</a></li>
+            <li><a class="nav-link" href="{{ route("page1") }}">Tyler</a></li>
+            <li><a class="nav-link" href="{{ route("page2") }}">Alex</a></li>
+            <li><a class="nav-link" href="{{ route("page3") }}">Kareem</a></li>
+            <li><a class="nav-link"     href="#">Page 4</a></li>
         </ul>
     </div>
 </nav>

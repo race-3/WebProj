@@ -20,7 +20,7 @@
         </style>
     </head>
     <body>
-        <h3 id="title1">Home Page!!!</h3>
+        <h3 id="title1">Alex's Page!!!</h3>
     </body>
 </html>
 @endsection
