@@ -3,24 +3,6 @@
 @section('content')
 
 <head>
-    <script type="text/javascript">
-        var req = new XMLHttpRequest();
-        var URLhost = 'https://swapi.dev/api/planets/';
-        var response;
-
-        req.open('GET', URLhost, true);
-        req.addEventListener('load',function(){
-            if(req.status >= 200 && req.status < 400){
-                response = JSON.parse(req.responseText);
-                console.log(response);
-            } else {
-                console.log('Error in network request: ' + req.statusText);
-            }
-        });
-
-        //response.results[0].name;
-    </script>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -49,10 +31,6 @@
             color: black;
         }
 
-        #item1 {
-            height: 500px;
-        }
-
     </style>
 </head>
 
@@ -61,7 +39,8 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-8" id="item1">1</div>
+            <div class="col-lg-8" id="item1">
+                <img src="https://www.mapquestapi.com/staticmap/v5/map?key=N6KGlsCYB61vGPtH7xR9mbYTNkyvGeHE&center=Portland&size=500,500@2x" alt="Traffic Map" class="img-responsive fit-image"></div>
             <div class="col-lg-4 col-md-6" id="item2">2</div>
         </div>
         <div class="row">
@@ -71,5 +50,12 @@
         </div>
     </div>
 </body>
+
+<script type="text/javascript">
+    fetch('https://swapi.dev/api/planets/')
+        .then(res => res.json())
+        .then(data => console.log(data))
+
+</script>
 
 @endsection
