@@ -21,20 +21,13 @@
             display: grid;
         }
 
-        * {
-            box-sizing: border-box;
-        }
-
         .row > div[class^='col'] {
             padding: 10px;
             border: 1px solid black;
             color: black;
         }
 
-        div {
-            position: relative;
-            display: inline;
-        }
+
         #traffic {
             position: absolute;
             padding: 10px;
