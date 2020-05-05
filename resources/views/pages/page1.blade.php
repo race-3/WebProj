@@ -44,9 +44,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-6" id="item1">
-                <img src="https://www.mapquestapi.com/staticmap/v5/map?key=N6KGlsCYB61vGPtH7xR9mbYTNkyvGeHE&center=Portland&size=400,400" alt="Traffic Map" class="img-responsive fit-image">
-                <img src="https://www.mapquestapi.com/traffic/v2/flow?key=N6KGlsCYB61vGPtH7xR9mbYTNkyvGeHE&mapLat=45.523064&mapLng=-122.676483&mapHeight=400&mapWidth=400&mapScale=108335" id="traffic" alt="Traffic Map" class="img-responsive fit-image"></div>
+            <div class="col-lg-6" id="map" style="width: 500px; height: 500px"></div>
             <div class="col-lg-4 col-md-6" id="item2">2</div>
         </div>
         <div class="row">
@@ -57,11 +55,21 @@
     </div>
 </body>
 
-<script type="text/javascript">
-    fetch('https://swapi.dev/api/planets/')
-        .then(res => res.json())
-        .then(data => console.log(data))
+<script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+<link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
 
+<script type="text/javascript">
+    window.onload = function() {
+        L.mapquest.key = 'N6KGlsCYB61vGPtH7xR9mbYTNkyvGeHE';
+
+        var map = L.mapquest.map('map', {
+            center: [45.523064, -122.676483],
+            layers: L.mapquest.tileLayer('map'),
+            zoom: 12
+        });
+
+        map.addLayer(L.mapquest.trafficLayer());
+    }
 </script>
 
 @endsection
