@@ -31,6 +31,18 @@
             color: black;
         }
 
+        div {
+            position: relative;
+            display: inline;
+        }
+        #traffic {
+            position: absolute;
+            padding: 10px;
+            top: 0;
+            left: 0;
+            opacity: 0.7;
+        }
+
     </style>
 </head>
 
@@ -39,8 +51,9 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-8" id="item1">
-                <img src="https://www.mapquestapi.com/staticmap/v5/map?key=N6KGlsCYB61vGPtH7xR9mbYTNkyvGeHE&center=Portland&size=500,500@2x" alt="Traffic Map" class="img-responsive fit-image"></div>
+            <div class="col-lg-6" id="item1">
+                <img src="https://www.mapquestapi.com/staticmap/v5/map?key=N6KGlsCYB61vGPtH7xR9mbYTNkyvGeHE&center=Portland&size=400,400" alt="Traffic Map" class="img-responsive fit-image">
+                <img src="https://www.mapquestapi.com/traffic/v2/flow?key=N6KGlsCYB61vGPtH7xR9mbYTNkyvGeHE&mapLat=45.523064&mapLng=-122.676483&mapHeight=400&mapWidth=400&mapScale=108335" id="traffic" alt="Traffic Map" class="img-responsive fit-image"></div>
             <div class="col-lg-4 col-md-6" id="item2">2</div>
         </div>
         <div class="row">
