@@ -14,6 +14,8 @@ class Controller extends BaseController
     }
 
     public function page1() {
+        // api key and stuff
+
         return view('pages.page1');
     }
 
