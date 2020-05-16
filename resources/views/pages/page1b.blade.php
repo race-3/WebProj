@@ -14,8 +14,6 @@
 
     <title>Bare - Start Bootstrap Template</title>
 
-    <!-- Bootstrap core CSS -->
-
 </head>
 
 <body>
