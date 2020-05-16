@@ -13,8 +13,8 @@
 
     <!-- Styles -->
     <style>
-        #title1 {
-            color: blue;
+        #map {
+            height: 500px;
         }
 
         .container {
@@ -23,27 +23,42 @@
 
         .row > div[class^='col'] {
             padding: 10px;
-            border: 1px solid black;
             color: black;
-            margin: 10px;
         }
-
+        #image {
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+        #staticmap {
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+        #traffic {
+            position: absolute;
+            padding: 10px;
+            top: 0;
+            left: 0;
+        }
     </style>
 </head>
 
 <body>
-    <h3 id="title1">Tyler's Page!!!</h3>
-
     <div class="container">
+        <!--<div class="row">
+            <div class="col-lg-12" id="map"></div>
+        </div>-->
         <div class="row">
-            <div class="col-lg-6" id="map" style="width: 500px; height: 500px"></div>
-            <div class="col-lg-6 col-md-6" id="item2">
-                <canvas id="barChart" width="400" height="350px"></canvas>
+            <div class="col-lg-12" id="image">
+                <img src="https://www.mapquestapi.com/staticmap/v5/map?key=N6KGlsCYB61vGPtH7xR9mbYTNkyvGeHE&center=45.523064,-122.676483&size=600,300@2x&zoom=11&type=light" alt="Traffic Map" class="img-responsive fit-image" id="staticmap">
+                <img src="https://www.mapquestapi.com/traffic/v2/flow?key=N6KGlsCYB61vGPtH7xR9mbYTNkyvGeHE&mapLat=45.523064&mapLng=-122.676483&mapHeight=600&mapWidth=1200&mapScale=108335" id="traffic" alt="Traffic Map" class="img-responsive fit-image">
             </div>
         </div>
         <div class="row">
-            <div class="col-6 col-md-4" id="item3">3</div>
-            <div class="col-6 col-md-4" id="item4">4</div>
+            <div class="col-lg-6" id="barchart">
+                <canvas id="barChart"></canvas>
+            </div>
             <div class="col-6 col-md-4" id="item5">5</div>
         </div>
     </div>
