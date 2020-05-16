@@ -2,39 +2,50 @@
 
 @section('content')
 
-    <!DOCTYPE html>
-<html lang="en">
 
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Bare - Start Bootstrap Template</title>
-
+    <meta name="Tyler Race" content="">
+    <title>Covid Page 1</title>
 </head>
+
+<style>
+    .page-header {
+        text-align: center;
+    }
+    [class*="item"] {
+        border: 1px solid black;
+    }
+</style>
 
 <body>
 
-<!-- Page Content -->
+<div class="page-header">
+    <h1>Environmental Effects of COVID-19</h1>
+</div>
+
 <div class="container">
     <div class="row">
-        <div class="col-lg-12 text-center">
-            <h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
-            <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-            <ul class="list-unstyled">
-                <li>Bootstrap 4.3.1</li>
-                <li>jQuery 3.4.1</li>
-            </ul>
+        <div class="col-sm-4 border border-dark rounded" id="item1">
+            <h3>Column 1</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        </div>
+        <div class="col-sm-4" id="item2">
+            <h3>Column 2</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        </div>
+        <div class="col-sm-4" id="item3">
+            <h3>Column 3</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
         </div>
     </div>
 </div>
 
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.slim.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+
+</script>
 
 </body>
 
