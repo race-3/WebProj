@@ -12,6 +12,9 @@
     .page-header {
         text-align: center;
     }
+    #mainPageContainer {
+        margin: 40px;
+    }
     [id*='item'] {
         border-radius: 8px;
         border: 1px solid black;
@@ -25,7 +28,7 @@
     <h1>Environmental Effects of COVID-19</h1>
 </div>
 
-<div class="container">
+<div class="container-fluid" id="mainPageContainer">
     <div class="row">
         <div class="col-sm-4">
             <div id="item1">
