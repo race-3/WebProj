@@ -23,6 +23,9 @@
         -moz-box-shadow: 0 8px 6px -6px black;
         box-shadow: 0 8px 6px -6px black;
     }
+    .row {
+        margin-top: 20px;
+    }
 </style>
 
 <body>
@@ -35,42 +38,42 @@
     <div class="row">
         <div class="col-sm-6">
             <div id="item1">
-                <canvas id="barChart"></canvas>
+                <canvas id="linechart1"></canvas>
             </div>
         </div>
         <div class="col-sm-6">
             <div id="item3">
-                <canvas id="linechart"></canvas>
+                <canvas id="linechart2"></canvas>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <div id="item3">
-                    <h3>Column 3</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div id="item3">
+                <h3>Stuff</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
             </div>
         </div>
     </div>
 </div>
 
 <script type="text/javascript">
-    const xLabels = [];
-    const yTemps =[];
+    const epa_url = 'https://aqs.epa.gov/data/api/sampleData/byState?email=tylerrrace@gmail.com&key=greenmouse56&param=45201&bdate=20180401&edate=20180501&state=53';
 
-    createChart();
+    createChart2();
+    createChart1();
 
-    async function createChart() {
-        await getChartData();
-        const ctx = document.getElementById('linechart');
+    async function createChart1() {
+        const data = await getChart1Data();
+        const ctx = document.getElementById('linechart1');
         const myChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: xLabels,
+                labels: data.xs,
                 datasets: [{
-                    label: 'Global Average Temperature',
-                    data: yTemps,
+                    label: 'AQI Index in Washington',
+                    data: data.ys,
                     fill: false,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255, 99, 132, 1)',
@@ -79,8 +82,48 @@
             }
         });
     }
+    async function getChart1Data() {
+        const xs =[];
+        const ys = [];
 
-    async function getChartData() {
+        const response = await fetch(epa_url);
+        const data = await response.json();
+        data['Data'].forEach(obj => {
+            /*
+            Object.entries(obj).forEach(([key, value]) => {
+                console.log(`${key} ${value}`);
+            });*/
+
+            xs.push(obj['date_local']);
+            ys.push(parseFloat(obj['sample_measurement']));
+        });
+
+        console.log(xs, ys);
+        return {xs, ys};
+    }
+
+    async function createChart2() {
+        const data = await getChart2Data();
+        const ctx = document.getElementById('linechart2');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.xs,
+                datasets: [{
+                    label: 'Global Average Temperature',
+                    data: data.ys,
+                    fill: false,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            }
+        });
+    }
+    async function getChart2Data() {
+        const xs = [];
+        const ys =[];
+
         const response = await fetch('data.csv');
         const data = await response.text();
 
@@ -89,10 +132,11 @@
             const columns = row.split(',');
             const year = columns[0];
             const temp = columns[1];
-            xLabels.push(year);
-            yTemps.push(parseFloat(temp) + 14);
-            console.log(year, temp);
+            xs.push(year);
+            ys.push(parseFloat(temp) + 14);
         });
+
+        return {xs, ys};
     }
 </script>
 
