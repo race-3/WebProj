@@ -72,7 +72,7 @@
             data: {
                 labels: data.xs,
                 datasets: [{
-                    label: 'AQI Index in Washington',
+                    label: 'AQI Index in Washington (Parts per billion Carbon)',
                     data: data.ys,
                     fill: false,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
