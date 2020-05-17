@@ -71,13 +71,29 @@
             data: {
                 labels: data.xs,
                 datasets: [{
-                    label: 'AQI Index in Washington (Parts per billion Carbon)',
+                    label: 'AQI Index in Washington State',
                     data: data.ys,
                     fill: false,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(140, 140, 140, 0.2)',
+                    borderColor: 'rgba(0, 0, 0, 1)',
                     borderWidth: 1
                 }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Parts per billion of Carbon'
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Date of sample'
+                        }
+                    }]
+                }
             }
         });
     }
