@@ -59,7 +59,7 @@
 </div>
 
 <script type="text/javascript">
-    const epa_url = 'https://aqs.epa.gov/data/api/sampleData/byState?email=tylerrrace@gmail.com&key=greenmouse56&param=45201&bdate=20180401&edate=20180501&state=53';
+    const epa_url = 'https://aqs.epa.gov/data/api/sampleData/byState?email=tylerrrace@gmail.com&key=greenmouse56&param=45201&bdate=20190101&edate=20191201&state=53';
 
     createChart2();
     createChart1();
