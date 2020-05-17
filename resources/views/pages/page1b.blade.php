@@ -13,7 +13,8 @@
         text-align: center;
     }
     #mainPageContainer {
-        margin: 40px;
+        margin-left: 40px;
+        margin-right: 40px;
     }
     [id*='item'] {
         border-radius: 8px;
@@ -22,8 +23,6 @@
         -webkit-box-shadow: 0 8px 6px -6px black;
         -moz-box-shadow: 0 8px 6px -6px black;
         box-shadow: 0 8px 6px -6px black;
-    }
-    .row {
         margin-top: 20px;
     }
 </style>
@@ -36,19 +35,19 @@
 
 <div class="container-fluid" id="mainPageContainer">
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-md-6">
             <div id="item1">
                 <canvas id="linechart1"></canvas>
             </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-md-6">
             <div id="item3">
                 <canvas id="linechart2"></canvas>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-md-4">
             <div id="item3">
                 <h3>Stuff</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
