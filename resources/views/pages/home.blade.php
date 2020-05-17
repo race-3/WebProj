@@ -12,12 +12,28 @@
 
     <!-- Styles -->
     <style>
-        #title1 {
-            color: red;
+        #hometitle {
+            text-align: center;
+            font-size: 40pt;
+        }
+        #description {
+            font-size: 16pt;
         }
     </style>
+
 </head>
 <body>
-    <h3 id="title1">Home Page!!!</h3>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container" id="hometitle">Impacts of COVID-19</div>
+</div>
+
+<div class="container">
+    <div class="col-s-12" id="description">
+        This is a website dedicated to exploring some of the effects COVID-19 have contributed to.
+        Instead of infection or death rates, we explore other effects, such as changes in the stock market or air quality.
+    </div>
+</div>
+
 </body>
 @endsection
