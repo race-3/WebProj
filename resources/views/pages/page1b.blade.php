@@ -65,11 +65,7 @@
             </div>
         </div>
         <div class="col-md-2">
-<<<<<<< HEAD
-            <div id="item3">
-=======
             <div id="item5">
->>>>>>> c64ea4203731daa2a39bea6a468885b0f46ee372
                 <h3>Stuff</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
