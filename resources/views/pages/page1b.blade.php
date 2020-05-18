@@ -25,6 +25,7 @@
         box-shadow: 0 8px 6px -6px black;
         margin-top: 20px;
     }
+
 </style>
 
 <body>
@@ -41,7 +42,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div id="item3">
+            <div id="item2">
                 <canvas id="linechart2"></canvas>
             </div>
         </div>
@@ -57,12 +58,21 @@
         <div class="col-md-6">
             <div id="item4">
                 <h4>Average nitrogen dioxide concentrations</h4>
+<<<<<<< HEAD
                 <iframe frameborder="0" class="juxtapose" width="100%" height="670" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=287d6648-97ff-11ea-a879-0edaf8f81e27">
+=======
+                <iframe frameborder="0" class="juxtapose" width="100%" height="670"
+                    src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=287d6648-97ff-11ea-a879-0edaf8f81e27">
+>>>>>>> c64ea4203731daa2a39bea6a468885b0f46ee372
                 </iframe>
             </div>
         </div>
         <div class="col-md-2">
+<<<<<<< HEAD
             <div id="item3">
+=======
+            <div id="item5">
+>>>>>>> c64ea4203731daa2a39bea6a468885b0f46ee372
                 <h3>Stuff</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
