@@ -58,10 +58,8 @@
         <div class="col-md-6">
             <div id="item4">
                 <h4>Average nitrogen dioxide concentrations</h4>
-                <iframe frameborder="0" class="juxtapose" width="100%" height="670" src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=287d6648-97ff-11ea-a879-0edaf8f81e27">
                 <iframe frameborder="0" class="juxtapose" width="100%" height="670"
-                    src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=287d6648-97ff-11ea-a879-0edaf8f81e27">
-                </iframe>
+                    src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=287d6648-97ff-11ea-a879-0edaf8f81e27"></iframe>
             </div>
         </div>
         <div class="col-md-2">
