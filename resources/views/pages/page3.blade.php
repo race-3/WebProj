@@ -18,7 +18,14 @@
                 color: black;
                 text-align: center;
                 padding: 10px;
-                border-bottom: 1px solid gray;
+                font-weight: 700;
+            }
+
+            #title-footnote {
+                text-align: center;
+                padding: 3px;
+                font-style: italic;
+                color: darkgray;
             }
 
             #headerTitle {
@@ -56,13 +63,14 @@
 
     <body>
         <h3 id="title1">Economic Impacts of COVID-19</h3>
+        <h4 id="title-footnote">Non-stock market related economic changes since the start of the coronavirus pandemic</h4><hr color="'darkgray">
 
         <div class="container-fluid" id="mainContainer">
             <div class="row">
                 <div class="col-md-12">
                     <div id="item1">
                         <h3>About this Data</h3>
-                        <p>This data uses charts that gather data from between X years to present. As such, not all of it is relevant to the ongoing coronavirus pandemic. As such, there will be statistical information listed as such:</p>
+                        <p>This data uses charts that gather data from between X years to present. As such, not all of it is relevant to the ongoing coronavirus pandemic. To distinguish between relevant and irrelevant data, the information and any analysis of the data will be listed as such:</p>
                         <p><b>Pre-Coronavirus</b>: Anything prior to January 2020, when the first case was confirmed in the United States</p>
                         <p><b>During the pandemic</b>: Anything from January 2020 onward</p>
                     </div>
@@ -84,6 +92,13 @@
                     <div id="item3">
                         <h4 id="headerTitle">US Wage Growth, April 2019 - April 2020</h4>
                         <iframe src='https://tradingeconomics.com/embed/?s=unitedstawaggro&v=202004301856v20191105&h=300&w=600&ref=/united-states/wage-growth' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
+                        <br />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="item3">
+                        <h4 id="headerTitle">US Consumer Spending, January 2017 - April 2020</h4>
+                        <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=unitedstaconspe&v=202004291429V20191105&type=type=line&h=300&w=600' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
                         <br />
                     </div>
                 </div>
