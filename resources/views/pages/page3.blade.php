@@ -15,7 +15,6 @@
         <!-- Styles -->
         <style>
             #title1 {
-                color: black;
                 text-align: center;
                 padding: 10px;
                 font-weight: 700;
@@ -40,6 +39,14 @@
                 padding-bottom: 5px;
                 font-weight: 700;
                 color: darkgray;
+            }
+
+            #switchText {
+                text-align: center;
+                padding-top: 10px;
+                padding-bottom: 5px;
+                font-weight: 700;
+                font-size: 150%;
             }
 
             #subtitle {
@@ -69,8 +76,8 @@
             .switch {
                 position: relative;
                 display: inline-block;
-                width: 60px;
-                height: 34px;
+                width: 55px;
+                height: 25px;
             }
 
             .switch input {
@@ -94,8 +101,8 @@
             .slider:before {
                 position: absolute;
                 content: "";
-                height: 26px;
-                width: 26px;
+                height: 18px;
+                width: 18px;
                 left: 4px;
                 bottom: 4px;
                 background-color: white;
@@ -107,14 +114,10 @@
                 background-color: #DC143C;
             }
 
-            input:focus + .slider {
-                box-shadow: 0 0 1px #DC143C;
-            }
-
             input:checked + .slider:before {
-                -webkit-transform: translateX(26px);
-                -ms-transform: translateX(26px);
-                transform: translateX(26px);
+                -webkit-transform: translateX(28px);
+                -ms-transform: translateX(28px);
+                transform: translateX(28px);
             }
 
             .slider.round {
@@ -126,8 +129,8 @@
             }
 
             .darkmode {
-                background-color: #404040;
-                color: #E0E0E0;
+                background-color: #353535;
+                color: #D0D0D0;
             }
 
         </style>
@@ -135,11 +138,13 @@
 
     <body>
         <h3 id="title1">Economic Impacts of COVID-19</h3>
-        <h4 id="title-footnote">Non-stock market related economic changes since the start of the coronavirus pandemic</h4><hr color="'darkgray">
-        <label class="switch">
+        <h4 id="title-footnote">Non-stock market related economic changes since the start of the coronavirus pandemic</h4>
+        <h4 id="switchText">Dark Mode  <label class="switch">
             <input type="checkbox" onclick="darkmode()">
             <span class="slider round"></span>
         </label>
+        </h4>
+        <hr color="darkgray">
         <div class="container-fluid" id="mainContainer">
             <div class="row">
                 <div class="col-md-12">
