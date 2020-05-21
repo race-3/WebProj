@@ -208,7 +208,11 @@
                         <h4 id="subtitle">Average Change Per Year</h4>
                         <p><b>Pre-Coronavirus</b>: -.16% per month (about +4 growth per month overall)</p>
                         <p><b>During the pandemic</b>: -2.265% per month</p>
-                        <h4 id="footnote">Before the pandemic, wages were growing between 4 and 5 percent consistently per month, estimated. While the growth has been gradually decreasing, the jump between Fedbruary and March, after the pandemic,
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <br><h4 id="footnote">Before the pandemic, wages were growing between 4 and 5 percent consistently per month, estimated. While the growth has been gradually decreasing, the jump between Fedbruary and March, after the pandemic,
                             is over 4 percent. Wages shrank for the first time for the first time since the Great Recession in 2008.</h4>
                     </div>
                 </div>
@@ -220,6 +224,10 @@
                          <h4 id="subtitle">Average Change Per Week</h4>
                          <p><b>Pre-Coronavirus (Average)</b>: 210,000</p>
                          <p><b>During the pandemic (average)</b>: 2,046,000</p>
+
+                         <button class="button" id="footnotebtn" onclick="fade()"></button>
+                         <span id="btnText">Hide Footnote</span>
+
                          <h4 id="footnote">The largest drops occurred in mid March, when two things happened: </h4>
                          <h4 id="footnote">1. The stock market fell to its lowest level since 2016</h4>
                          <h4 id="footnote">2. The US began approaching the start of the exponential growth in coronavirus cases</h4>
