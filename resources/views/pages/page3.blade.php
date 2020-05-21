@@ -73,6 +73,10 @@
                 margin-top: 20px;
             }
 
+            [id*='item']:hover {
+                background-color: #999999;
+            }
+
             .switch {
                 position: relative;
                 display: inline-block;
@@ -198,6 +202,7 @@
                             remains to be seen.</h4>
                      </div>
             </div>
+
             <div class="row">
                 <div class="col-md-4">
                     <div id="item5">
