@@ -64,6 +64,11 @@
                 opacity: 0;
             }
 
+            #btnText {
+                vertical-align: bottom;
+                font-size: small;
+            }
+
             #mainContainer {
                 margin-left: 50px;
                 margin-right: 50px;
@@ -145,11 +150,15 @@
 
             .button {
                 border: solid black;
-                border-width: 0 3px 3px 0;
+                border-width: 0 7px 7px 0;
+                margin: 5px;
                 display: inline-block;
                 padding: 3px;
                 background-color: transparent;
+                transform: rotate(-135deg);
+                -webkit-transform: rotate(-135deg);
             }
+
         </style>
     </head>
 
@@ -183,9 +192,12 @@
                         <h4 id="subtitle">Average Change Per Year</h4>
                         <p><b>Pre-Coronavirus</b>: 6.67% per month</p>
                         <p><b>During the pandemic</b>: 36% per month</p>
-                        <button class="button" id="footnotebtn" onclick="fade()" value="Show Footnote"></button>
-                        <span id="footnote">Average is defined as the change month over month divided by the total number of months. This is focused on the <b>change</b>, not the direction of the change. For "During the pandemic", the greatest
-                            change is between March and April, where unemployment jumps over 330%</span>
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <br><h4 id="footnote">Average is defined as the change month over month divided by the total number of months. This is focused on the <b>change</b>, not the direction of the change. For "During the pandemic", the greatest
+                            change is between March and April, where unemployment jumps over 330%</h4>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -247,14 +259,15 @@
             function fade(){
                 var toFade = document.getElementById("footnote");
                 var updatebtn = document.getElementById("footnotebtn");
+                //var updateText = document.getElementById("btnText")
                 if (toFade.classList.contains("hide")){
-                    updatebtn.value = "Hide Footnote"
-                    //updatebtn.style.backgroundColor = "#0000FF";
+                    document.getElementById("btnText").innerHTML = "Hide Footnote";
+                    updatebtn.style.transform = "rotate(-135deg)";
                     toFade.classList.remove("hide");
                 }
                 else {
-                    updatebtn.value = "Show Footnote";
-                    //updatebtn.style.backgroundColor = "#FF0000";
+                    document.getElementById("btnText").innerHTML = "Show Footnote";
+                    updatebtn.style.transform = "rotate(45deg)";
                     toFade.classList.add("hide");
                 }
             }
