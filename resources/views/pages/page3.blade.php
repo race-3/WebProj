@@ -66,13 +66,80 @@
                 margin-top: 20px;
             }
 
+            .switch {
+                position: relative;
+                display: inline-block;
+                width: 60px;
+                height: 34px;
+            }
+
+            .switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+
+            .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #ccc;
+                -webkit-transition: .4s;
+                transition: .4s;
+            }
+
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                -webkit-transition: .4s;
+                transition: .4s;
+            }
+
+            input:checked + .slider {
+                background-color: #DC143C;
+            }
+
+            input:focus + .slider {
+                box-shadow: 0 0 1px #DC143C;
+            }
+
+            input:checked + .slider:before {
+                -webkit-transform: translateX(26px);
+                -ms-transform: translateX(26px);
+                transform: translateX(26px);
+            }
+
+            .slider.round {
+                border-radius: 35px;
+            }
+
+            .slider.round:before {
+                border-radius: 50%;
+            }
+
+            .darkmode {
+                background-color: #404040;
+                color: #E0E0E0;
+            }
+
         </style>
     </head>
 
     <body>
         <h3 id="title1">Economic Impacts of COVID-19</h3>
         <h4 id="title-footnote">Non-stock market related economic changes since the start of the coronavirus pandemic</h4><hr color="'darkgray">
-
+        <label class="switch">
+            <input type="checkbox" onclick="darkmode()">
+            <span class="slider round"></span>
+        </label>
         <div class="container-fluid" id="mainContainer">
             <div class="row">
                 <div class="col-md-12">
@@ -146,6 +213,14 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            function darkmode(){
+                var element = document.body;
+                element.classList.toggle("darkmode");
+            }
+
+        </script>
         </body>
 </html>
 @endsection
