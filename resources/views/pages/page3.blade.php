@@ -189,6 +189,7 @@
                         <h4 id="headerTitle">US Unemployment Rate, April 2019 - April 2020</h4>
                         <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=usurtot&v=202005081237V20191105&d1=20190519&h=300&w=600' height='300px' width='100%'  frameborder='0' scrolling='no'></iframe>
                         <br />
+
                         <h4 id="subtitle">Average Change Per Year</h4>
                         <p><b>Pre-Coronavirus</b>: 6.67% per month</p>
                         <p><b>During the pandemic</b>: 36% per month</p>
@@ -205,6 +206,7 @@
                         <h4 id="headerTitle">US Wage Growth, April 2019 - March 2020</h4>
                         <iframe src='https://tradingeconomics.com/embed/?s=unitedstawaggro&v=202004301856v20191105&h=300&w=600&ref=/united-states/wage-growth' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
                         <br />
+
                         <h4 id="subtitle">Average Change Per Year</h4>
                         <p><b>Pre-Coronavirus</b>: -.16% per month (about +4 growth per month overall)</p>
                         <p><b>During the pandemic</b>: -2.265% per month</p>
@@ -221,6 +223,7 @@
                          <h4 id="headerTitle">US Initial Jobless Claims, January 2020 - April 2020 (in thousands of claims)</h4>
                          <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=ijcusa&v=202005211247V20191105&d1=20200101&d2=20200521&h=300&w=600' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
                          <br />
+                         
                          <h4 id="subtitle">Average Change Per Week</h4>
                          <p><b>Pre-Coronavirus (Average)</b>: 210,000</p>
                          <p><b>During the pandemic (average)</b>: 2,046,000</p>
