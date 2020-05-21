@@ -56,6 +56,12 @@
             #footnote {
                 color: lightslategray;
                 font-style: italic;
+                opacity: 1;
+                transition: opacity 1s;
+            }
+
+            #footnote.hide {
+                opacity: 0;
             }
 
             #mainContainer {
@@ -137,6 +143,13 @@
                 color: #D0D0D0;
             }
 
+            .button {
+                border: solid black;
+                border-width: 0 3px 3px 0;
+                display: inline-block;
+                padding: 3px;
+                background-color: transparent;
+            }
         </style>
     </head>
 
@@ -170,8 +183,9 @@
                         <h4 id="subtitle">Average Change Per Year</h4>
                         <p><b>Pre-Coronavirus</b>: 6.67% per month</p>
                         <p><b>During the pandemic</b>: 36% per month</p>
-                        <h4 id="footnote">Average is defined as the change month over month divided by the total number of months. This is focused on the <b>change</b>, not the direction of the change. For "During the pandemic", the greatest
-                            change is between March and April, where unemployment jumps over 330%</h4>
+                        <button class="button" id="footnotebtn" onclick="fade()" value="Show Footnote"></button>
+                        <span id="footnote">Average is defined as the change month over month divided by the total number of months. This is focused on the <b>change</b>, not the direction of the change. For "During the pandemic", the greatest
+                            change is between March and April, where unemployment jumps over 330%</span>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -228,6 +242,21 @@
             function darkmode(){
                 var element = document.body;
                 element.classList.toggle("darkmode");
+            }
+
+            function fade(){
+                var toFade = document.getElementById("footnote");
+                var updatebtn = document.getElementById("footnotebtn");
+                if (toFade.classList.contains("hide")){
+                    updatebtn.value = "Hide Footnote"
+                    //updatebtn.style.backgroundColor = "#0000FF";
+                    toFade.classList.remove("hide");
+                }
+                else {
+                    updatebtn.value = "Show Footnote";
+                    //updatebtn.style.backgroundColor = "#FF0000";
+                    toFade.classList.add("hide");
+                }
             }
 
         </script>
