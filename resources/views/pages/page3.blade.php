@@ -46,7 +46,7 @@
                 padding-top: 10px;
                 padding-bottom: 5px;
                 font-weight: 700;
-                font-size: 150%;
+                font-size: 175%;
             }
 
             #subtitle {
