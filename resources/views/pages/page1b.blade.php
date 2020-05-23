@@ -40,7 +40,7 @@
             <div id="item1">
                 <div class="dropdown">
                     Select a state:
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="caret"></span></button>
                     <ul class="dropdown-menu">
                         <li><a href="#">Washington</a></li>
@@ -50,6 +50,7 @@
                         <li><a href="#">California</a></li>
                     </ul>
                 </div>
+                <h2 id="loader" style="display: none">LOADING DATA FROM API...</h2>
                 <div id="item1Chart">
                     <canvas id="linechart1"></canvas>
                 </div>
@@ -88,6 +89,7 @@
 
 <script type="text/javascript">
     let co2_url = 'https://aqs.epa.gov/data/api/sampleData/byState?email=tylerrrace@gmail.com&key=greenmouse56&param=45201&bdate=20190101&edate=20191201&state=';
+    let state = '';
 
     function selectState(state) {
         built_url = co2_url + state;
@@ -95,7 +97,9 @@
     }
 
     $('.dropdown-menu a').on('click', function(){
-        let state = $(this).html();
+        $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+        $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+        state = $(this).html();
         switch(state) {
             case 'Washington':
                 selectState(53);
@@ -118,7 +122,6 @@
     });
 
     createChart2();
-    createChart1();
 
     async function createChart1() {
         $('#linechart1').remove();
@@ -130,7 +133,7 @@
             data: {
                 labels: data.xs,
                 datasets: [{
-                    label: 'AQI Index in Washington State',
+                    label: 'AQI Index in ' + state,
                     data: data.ys,
                     fill: false,
                     backgroundColor: 'rgba(140, 140, 140, 0.2)',
@@ -160,8 +163,10 @@
         const xs =[];
         const ys = [];
 
+        document.getElementById('loader').style.display = 'block';
         const response = await fetch(built_url);
         const data = await response.json();
+        document.getElementById('loader').style.display = 'none';
         data['Data'].forEach(obj => {
             /*
             Object.entries(obj).forEach(([key, value]) => {
