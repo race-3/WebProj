@@ -38,7 +38,21 @@
     <div class="row">
         <div class="col-md-6">
             <div id="item1">
-                <canvas id="linechart1"></canvas>
+                <div class="dropdown">
+                    Select a state:
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Washington</a></li>
+                        <li><a href="#">Oregon</a></li>
+                        <li><a href="#">Idaho</a></li>
+                        <li><a href="#">New York</a></li>
+                        <li><a href="#">California</a></li>
+                    </ul>
+                </div>
+                <div id="item1Chart">
+                    <canvas id="linechart1"></canvas>
+                </div>
             </div>
         </div>
         <div class="col-md-6">
@@ -73,12 +87,42 @@
 </div>
 
 <script type="text/javascript">
-    const epa_url = 'https://aqs.epa.gov/data/api/sampleData/byState?email=tylerrrace@gmail.com&key=greenmouse56&param=45201&bdate=20190101&edate=20191201&state=53';
+    let co2_url = 'https://aqs.epa.gov/data/api/sampleData/byState?email=tylerrrace@gmail.com&key=greenmouse56&param=45201&bdate=20190101&edate=20191201&state=';
+
+    function selectState(state) {
+        built_url = co2_url + state;
+        createChart1();
+    }
+
+    $('.dropdown-menu a').on('click', function(){
+        let state = $(this).html();
+        switch(state) {
+            case 'Washington':
+                selectState(53);
+                break;
+            case 'Oregon':
+                selectState(41);
+                break;
+            case 'Idaho':
+                selectState(16);
+                break;
+            case 'New York':
+                selectState(36);
+                break;
+            case 'California':
+                selectState(0o6);
+                break;
+            default:
+                break;
+        }
+    });
 
     createChart2();
     createChart1();
 
     async function createChart1() {
+        $('#linechart1').remove();
+        $('#item1Chart').html('<canvas id="linechart1"></canvas>');
         const data = await getChart1Data();
         const ctx = document.getElementById('linechart1');
         const myChart = new Chart(ctx, {
@@ -116,7 +160,7 @@
         const xs =[];
         const ys = [];
 
-        const response = await fetch(epa_url);
+        const response = await fetch(built_url);
         const data = await response.json();
         data['Data'].forEach(obj => {
             /*
@@ -128,7 +172,6 @@
             ys.push(parseFloat(obj['sample_measurement']));
         });
 
-        console.log(xs, ys);
         return {xs, ys};
     }
 
