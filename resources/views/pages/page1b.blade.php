@@ -88,11 +88,13 @@
 </div>
 
 <script type="text/javascript">
-    let co2_url = 'https://aqs.epa.gov/data/api/sampleData/byState?email=tylerrrace@gmail.com&key=greenmouse56&param=45201&bdate=20180101&edate=20181230&state=';
-    let state = '';
+    let co2_2018_url = 'https://aqs.epa.gov/data/api/sampleData/byState?email=tylerrrace@gmail.com&key=greenmouse56&param=45201&bdate=20180101&edate=20181230&state=';
+    let co2_2019_url = 'https://aqs.epa.gov/data/api/sampleData/byState?email=tylerrrace@gmail.com&key=greenmouse56&param=45201&bdate=20190101&edate=20191230&state=';
+    let state = '', built_url1, built_url2;
 
     function selectState(state) {
-        built_url = co2_url + state;
+        built_url1 = co2_2018_url + state;
+        built_url2 = co2_2019_url + state;
         createChart1();
     }
 
@@ -121,7 +123,7 @@
         }
     });
 
-    createChart2();
+    //createChart2();
 
     async function createChart1() {
         $('#linechart1').remove();
@@ -137,6 +139,14 @@
                     data: data.ys,
                     fill: false,
                     backgroundColor: 'rgba(140, 140, 140, 0.2)',
+                    borderColor: 'rgba(0, 0, 0, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'AQI Index in ' + state,
+                    data: data.ys2,
+                    fill: false,
+                    backgroundColor: 'rgba(0, 200, 140, 0.2)',
                     borderColor: 'rgba(0, 0, 0, 1)',
                     borderWidth: 1
                 }]
@@ -162,10 +172,14 @@
     async function getChart1Data() {
         const xs =[];
         const ys = [];
+        const xs2 =[];
+        const ys2 = [];
 
         document.getElementById('loader').style.display = 'block';
-        const response = await fetch(built_url);
+        const response = await fetch(built_url1);
+        const response2 = await fetch(built_url2);
         const data = await response.json();
+        const data2 = await response2.json();
         document.getElementById('loader').style.display = 'none';
         data['Data'].forEach(obj => {
             /*
@@ -176,11 +190,20 @@
             xs.push(obj['date_local']);
             ys.push(parseFloat(obj['sample_measurement']));
         });
+        data2['Data'].forEach(obj => {
+            /*
+            Object.entries(obj).forEach(([key, value]) => {
+                console.log(`${key} ${value}`);
+            });*/
 
-        return {xs, ys};
+            xs2.push(obj['date_local']);
+            ys2.push(parseFloat(obj['sample_measurement']));
+        });
+
+        return {xs, ys, xs2, ys2};
     }
 
-    async function createChart2() {
+    /*async function createChart2() {
         const data = await getChart2Data();
         const ctx = document.getElementById('linechart2');
         const myChart = new Chart(ctx, {
@@ -215,7 +238,7 @@
         });
 
         return {xs, ys};
-    }
+    }*/
 </script>
 
 </body>
