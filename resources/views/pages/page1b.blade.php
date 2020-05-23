@@ -88,7 +88,7 @@
 </div>
 
 <script type="text/javascript">
-    let co2_url = 'https://aqs.epa.gov/data/api/sampleData/byState?email=tylerrrace@gmail.com&key=greenmouse56&param=45201&bdate=20190101&edate=20191201&state=';
+    let co2_url = 'https://aqs.epa.gov/data/api/sampleData/byState?email=tylerrrace@gmail.com&key=greenmouse56&param=45201&bdate=20180101&edate=20181230&state=';
     let state = '';
 
     function selectState(state) {
@@ -114,7 +114,7 @@
                 selectState(36);
                 break;
             case 'California':
-                selectState(0o6);
+                selectState('06');
                 break;
             default:
                 break;
