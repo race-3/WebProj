@@ -93,7 +93,7 @@
                                 src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=be6bf3aa-9d62-11ea-a7cb-0edaf8f81e27"></iframe>
                     </div>
                     <div id="chinaNOX" class="tab-pane fade" role="tabpanel">
-                        <img src="NOx_emission_changes_in_East_China.jpg" width="100%" height="100%">
+                        <img src="images/NOx_emission_changes_in_East_China.jpg" width="100%" height="100%">
                         By Envsciguy - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=89921168
                     </div>
                 </div>
