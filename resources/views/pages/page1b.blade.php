@@ -59,6 +59,7 @@
                         <li><a href="#">Oregon</a></li>
                         <li><a href="#">Missouri</a></li>
                         <li><a href="#">New York</a></li>
+                        <li><a href="#">Illinois</a></li>
                     </ul>
                 </div>
                 <h2 id="loader" style="display: none">LOADING DATA FROM API...</h2>
@@ -79,6 +80,7 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" data-target="#italy">Italy</a></li>
                     <li><a data-toggle="tab" data-target="#china">China</a></li>
+                    <li><a data-toggle="tab" data-target="#chinaNOX">China NOX</a></li>
                 </ul>
 
                 <div class="tab-content">
@@ -89,6 +91,10 @@
                     <div id="china" class="tab-pane fade" role="tabpanel">
                         <iframe class="juxtapose" width="100%" height="100%"
                                 src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=be6bf3aa-9d62-11ea-a7cb-0edaf8f81e27"></iframe>
+                    </div>
+                    <div id="chinaNOX" class="tab-pane fade" role="tabpanel">
+                        <img src="NOx_emission_changes_in_East_China.jpg" width="100%" height="100%">
+                        By Envsciguy - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=89921168
                     </div>
                 </div>
             </div>
@@ -152,6 +158,9 @@
                 break;
             case 'New York':
                 selectState(36);
+                break;
+            case 'Illinois':
+                selectState(17);
                 break;
             default:
                 break;
