@@ -25,6 +25,20 @@
         box-shadow: 0 8px 6px -6px black;
         margin-top: 20px;
     }
+    .tab-pane {
+        overflow: hidden;
+        padding-top: 56.25%;
+        position: relative;
+    }
+
+    .tab-pane iframe {
+        border: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
 </style>
 
 <body>
@@ -52,7 +66,7 @@
                     <canvas id="linechart1"></canvas>
                 </div>
                 <div id="item1Description">
-                    While a general decrease in CO2 is observed in many places, it's definitely not all.
+                    While a general decrease in CO2 is observed in many places, it's not seen everywhere yet.
                     This data unfortunately is somewhat old, and a better idea of the effects of COVID-19 on CO2 emissions
                     would be seen if data was available for 2020. While this data may not illustrate the expected trend,
                     it was chosen because it is from the EPA, and as time goes on, the effects will likel become more apparent.
@@ -61,19 +75,19 @@
         </div>
         <div class="col-md-6">
             <div id="item2">
-                <h2>Average nitrogen dioxide concentrations</h2>
+                <h4>Average nitrogen dioxide concentrations</h4>
                 <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#italy">Italy</a></li>
-                    <li><a data-toggle="tab" href="#china">China</a></li>
+                    <li class="active"><a data-toggle="tab" data-target="#italy">Italy</a></li>
+                    <li><a data-toggle="tab" data-target="#china">China</a></li>
                 </ul>
 
                 <div class="tab-content">
-                    <div id="italy" class="tab-pane fade in active">
-                        <iframe frameborder="0" class="juxtapose" width="100%" height="670"
+                    <div id="italy" class="tab-pane fade in active" role="tabpanel">
+                        <iframe class="juxtapose" width="100%" height="100%"
                                 src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=287d6648-97ff-11ea-a879-0edaf8f81e27"></iframe>
                     </div>
-                    <div id="china" class="tab-pane fade">
-                        <iframe frameborder="0" class="juxtapose" width="100%" height="670"
+                    <div id="china" class="tab-pane fade" role="tabpanel">
+                        <iframe class="juxtapose" width="100%" height="100%"
                                 src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=be6bf3aa-9d62-11ea-a7cb-0edaf8f81e27"></iframe>
                     </div>
                 </div>
@@ -82,10 +96,8 @@
     </div>
     <div class="row">
         <div class="col-md-4">
-            <div id="item2">
-                <h3>Stuff</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            <div id="item3">
+
             </div>
         </div>
         <div class="col-md-6">
