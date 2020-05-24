@@ -25,7 +25,6 @@
         box-shadow: 0 8px 6px -6px black;
         margin-top: 20px;
     }
-
 </style>
 
 <body>
@@ -37,9 +36,8 @@
 <div class="container-fluid" id="mainPageContainer">
     <div class="row">
         <div class="col-md-6">
-            <div id="item1">
-                <div class="dropdown">
-                    Select a state:
+            <div id="item1" class="text-center">
+                <div class="dropdown btn-group">
                     <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="caret"></span></button>
                     <ul class="dropdown-menu">
@@ -53,11 +51,32 @@
                 <div id="item1Chart">
                     <canvas id="linechart1"></canvas>
                 </div>
+                <div id="item1Description">
+                    While a general decrease in CO2 is observed in many places, it's definitely not all.
+                    This data unfortunately is somewhat old, and a better idea of the effects of COVID-19 on CO2 emissions
+                    would be seen if data was available for 2020. While this data may not illustrate the expected trend,
+                    it was chosen because it is from the EPA, and as time goes on, the effects will likel become more apparent.
+                </div>
             </div>
         </div>
         <div class="col-md-6">
             <div id="item2">
-                <canvas id="linechart2"></canvas>
+                <h2>Average nitrogen dioxide concentrations</h2>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#italy">Italy</a></li>
+                    <li><a data-toggle="tab" href="#china">China</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="italy" class="tab-pane fade in active">
+                        <iframe frameborder="0" class="juxtapose" width="100%" height="670"
+                                src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=287d6648-97ff-11ea-a879-0edaf8f81e27"></iframe>
+                    </div>
+                    <div id="china" class="tab-pane fade">
+                        <iframe frameborder="0" class="juxtapose" width="100%" height="670"
+                                src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=be6bf3aa-9d62-11ea-a7cb-0edaf8f81e27"></iframe>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -71,26 +90,32 @@
         </div>
         <div class="col-md-6">
             <div id="item4">
-                <h4>Average nitrogen dioxide concentrations</h4>
-                <iframe frameborder="0" class="juxtapose" width="100%" height="670"
-                    src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=287d6648-97ff-11ea-a879-0edaf8f81e27"></iframe>
+                <h3>Stuff</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
             </div>
         </div>
         <div class="col-md-2">
             <div id="item5">
-                <h3>Stuff</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+
             </div>
         </div>
     </div>
 </div>
 
 <script type="text/javascript">
-    let co2_2017_url = 'https://aqs.epa.gov/data/api/sampleData/byState?email=tylerrrace@gmail.com&key=greenmouse56&param=45201&bdate=20170101&edate=20171230&state=';
-    let co2_2018_url = 'https://aqs.epa.gov/data/api/sampleData/byState?email=tylerrrace@gmail.com&key=greenmouse56&param=45201&bdate=20180101&edate=20181230&state=';
-    let co2_2019_url = 'https://aqs.epa.gov/data/api/sampleData/byState?email=tylerrrace@gmail.com&key=greenmouse56&param=45201&bdate=20190101&edate=20191230&state=';
+    let co2_2017_url = 'https://aqs.epa.gov/data/api/sampleData/byState?email=tylerrrace@gmail.com&key=greenmouse56&param=45201&bdate=20170801&edate=20171230&state=';
+    let co2_2018_url = 'https://aqs.epa.gov/data/api/sampleData/byState?email=tylerrrace@gmail.com&key=greenmouse56&param=45201&bdate=20180801&edate=20181230&state=';
+    let co2_2019_url = 'https://aqs.epa.gov/data/api/sampleData/byState?email=tylerrrace@gmail.com&key=greenmouse56&param=45201&bdate=20190801&edate=20191230&state=';
     let state, built_url1, built_url2, built_url3;
+
+    $(document).ready(function(){
+        $(".dropdown-menu li a").click(function(){
+            var text = $(this).text();
+            $(this).parents('.btn-group').find('.dropdown-toggle').html(text + ' <span class="caret"></span>');
+        });
+        $(".dropdown-menu li a")[0].click();
+    });
 
     function selectState(state) {
         built_url1 = co2_2018_url + state;
