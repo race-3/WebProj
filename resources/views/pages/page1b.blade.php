@@ -27,7 +27,6 @@
     }
     .tab-pane {
         overflow: hidden;
-        padding-top: 56.25%;
         position: relative;
     }
 
@@ -35,7 +34,6 @@
         border: 0;
         height: 100%;
         left: 0;
-        position: absolute;
         top: 0;
         width: 100%;
     }
@@ -83,17 +81,17 @@
                 <h4>Average nitrogen dioxide concentrations</h4>
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" data-target="#italy">Italy</a></li>
-                    <li><a data-toggle="tab" data-target="#china">China</a></li>
+                    <li><a data-toggle="tab" data-target="#china" onClick="refreshTab2()">China</a></li>
                     <li><a data-toggle="tab" data-target="#chinaNOX">China NOX</a></li>
                 </ul>
 
                 <div class="tab-content">
-                    <div id="italy" class="tab-pane fade in active" role="tabpanel">
-                        <iframe class="juxtapose" width="100%" height="100%"
+                    <div id="italy" class="tab-pane fade in active embed-responsive embed-responsive-16by9" role="tabpanel">
+                        <iframe class="juxtapose" width="100%" height="540" scrolling="no"
                                 src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=287d6648-97ff-11ea-a879-0edaf8f81e27"></iframe>
                     </div>
-                    <div id="china" class="tab-pane fade" role="tabpanel">
-                        <iframe class="juxtapose" width="100%" height="100%"
+                    <div id="china" class="tab-pane fade embed-responsive embed-responsive-16by9" role="tabpanel">
+                        <iframe id="chinaFrame" class="juxtapose" width="100%" height="540"
                                 src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=be6bf3aa-9d62-11ea-a7cb-0edaf8f81e27"></iframe>
                     </div>
                     <div id="chinaNOX" class="tab-pane fade" role="tabpanel">
@@ -174,6 +172,10 @@
                 break;
         }
     });
+
+    function refreshTab2() {
+        $( '#chinaFrame' ).attr( 'src', function ( i, val ) { return val; });
+    }
 
     async function createChart1() {
         $('#linechart1').remove();
