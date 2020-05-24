@@ -167,8 +167,6 @@
         }
     });
 
-    //createChart2();
-
     async function createChart1() {
         $('#linechart1').remove();
         $('#item1Chart').html('<canvas id="linechart1"></canvas>');
@@ -277,42 +275,6 @@
         return {xs, ys, xs2, ys2, xs3, ys3};
     }
 
-    /*async function createChart2() {
-        const data = await getChart2Data();
-        const ctx = document.getElementById('linechart2');
-        const myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: data.xs,
-                datasets: [{
-                    label: 'Global Average Temperature',
-                    data: data.ys,
-                    fill: false,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1
-                }]
-            }
-        });
-    }
-    async function getChart2Data() {
-        const xs = [];
-        const ys =[];
-
-        const response = await fetch('data.csv');
-        const data = await response.text();
-
-        const table = data.split("\n").slice(1);
-        table.forEach(row => {
-            const columns = row.split(',');
-            const year = columns[0];
-            const temp = columns[1];
-            xs.push(year);
-            ys.push(parseFloat(temp) + 14);
-        });
-
-        return {xs, ys};
-    }*/
 </script>
 
 </body>
