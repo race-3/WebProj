@@ -39,6 +39,10 @@
         top: 0;
         width: 100%;
     }
+
+    #mainPageContainer {
+        margin-bottom: 20px;
+    }
 </style>
 
 <body>
@@ -103,7 +107,9 @@
     <div class="row">
         <div class="col-md-4">
             <div id="item3">
-
+                <h3>Stuff</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
             </div>
         </div>
         <div class="col-md-6">
@@ -115,7 +121,9 @@
         </div>
         <div class="col-md-2">
             <div id="item5">
-
+                <h3>Stuff</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
             </div>
         </div>
     </div>
