@@ -20,7 +20,8 @@ class Controller extends BaseController
     }
 
     public function page2() {
-        return view('pages.page2');
+        $api_key = "br3gesfrh5rai6tghlig";
+        return view('pages.page2', compact("api_key"));
     }
 
     public function page3() {
