@@ -1,8 +1,6 @@
 @extends('layout.master')
 
 @section('content')
-
-
 <head>
     <meta name="Tyler Race" content="">
     <title>Covid Page 1</title>
@@ -18,8 +16,8 @@
     }
     [id*='item'] {
         border-radius: 8px;
-        border: 1px solid black;
         padding: 10px;
+        background: #F3F3F3;
         -webkit-box-shadow: 0 8px 6px -6px black;
         -moz-box-shadow: 0 8px 6px -6px black;
         box-shadow: 0 8px 6px -6px black;
@@ -41,6 +39,10 @@
     #mainPageContainer {
         margin-bottom: 20px;
     }
+
+    #linechart1 {
+        padding: 20px;
+    }
 </style>
 
 <body>
@@ -54,7 +56,7 @@
         <div class="col-md-6">
             <div id="item1" class="text-center">
                 <div class="dropdown btn-group">
-                    <button class="btn btn-secondary dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-primary dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="caret"></span></button>
                     <ul class="dropdown-menu">
                         <li><a href="#">Washington</a></li>
@@ -65,10 +67,10 @@
                     </ul>
                 </div>
                 <h2 id="loader" style="display: none">LOADING DATA FROM API...</h2>
-                <div id="item1Chart">
+                <div id="i1Chart">
                     <canvas id="linechart1"></canvas>
                 </div>
-                <div id="item1Description">
+                <div id="i1Description">
                     While a general decrease in CO2 is observed in many places, it's not seen everywhere yet.
                     This data unfortunately is somewhat old, and a better idea of the effects of COVID-19 on CO2 emissions
                     would be seen if data was available for 2020. While this data may not illustrate the expected trend,
@@ -179,7 +181,7 @@
 
     async function createChart1() {
         $('#linechart1').remove();
-        $('#item1Chart').html('<canvas id="linechart1"></canvas>');
+        $('#i1Chart').html('<canvas id="linechart1"></canvas>');
         const data = await getChart1Data();
         const ctx = document.getElementById('linechart1');
         const myChart = new Chart(ctx, {
