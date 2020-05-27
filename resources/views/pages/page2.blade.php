@@ -4,18 +4,15 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+      <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-
-
-
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,9 +30,39 @@
         </style>
 
   <script type="text/javascript">
+    var dataPoints = [];
+    var chart;
     $(function() {
       $('#datetimepicker1').datetimepicker();
       $('#datetimepicker2').datetimepicker();
+      chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        theme: "light2", // "light1", "light2", "dark1", "dark2"
+        exportEnabled: true,
+        title: {
+          text: "6"
+        },
+        subtitles: [{
+          text: "Weekly Averages"
+        }],
+        axisX: {
+          interval: 1,
+          valueFormatString: "MMM"
+        },
+        axisY: {
+          includeZero: false,
+          prefix: "$",
+          title: "Price"
+        },
+        toolTip: {
+          content: "Date: {x}<br /><strong>Price:</strong><br />Open: {y[0]}, Close: {y[3]}<br />High: {y[1]}, Low: {y[2]}"
+        },
+        data: [{
+          type: "candlestick",
+          yValueFormatString: "$##0.00",
+          dataPoints: dataPoints
+        }]
+      });
     });
 
     function getUnixDate() {
@@ -53,29 +80,52 @@
     }
 
     function loadStock(start, end){
-      var test = [];
-      console.log(start,end);
       var data = $.getJSON("https://finnhub.io/api/v1/stock/candle?symbol=AAPL&resolution=1&from="+start+"&to="+end+"&token={{$api_key}}", function(dat){
-          test.push(dat);
+          loadCandle(dat);
       });
-      console.log(test);
+    }
+
+    
+
+    function loadCandle(data) {
+      //dataPoints = [];
+      console.log(data);
+      if (data['s'] == "ok") {
+        for (var i = 0; i < data['c'].length; i++) {
+          dataPoints.push({
+            x: new Date(//var date = new Date(unix_timestamp * 1000);
+                data['t'][i] * 1000
+              // parseInt(points[0].split("-")[0]),
+              // parseInt(points[0].split("-")[1]),
+              // parseInt(points[0].split("-")[2])
+            ),
+            y: [
+              parseFloat(data['o'][i]),
+              parseFloat(data['h'][i]),
+              parseFloat(data['l'][i]),
+              parseFloat(data['c'][i])
+            ]
+          });
+        }
+      }
+      chart.render();
     }
 
   </script>
     </head>
     <body>
       <div class="row">
-        <div class="col-6 col-sm-3">.col-6 .col-sm-3
+        <div class="col-6 col-lg-3">.col-6 .col-sm-3
         </div>
-        <div class="col-6 col-sm-3">.col-6 .col-sm-3
+        <div class="col-6 col-lg-3">.col-6 .col-sm-3
         </div>
 
   <!-- Force next columns to break to new line -->
         <div class="w-100">
-          
+          <br>
         </div>
 
-        <div class="col-6 col-sm-3">
+        <div class="col-6 col-lg-3">
           <div class="container">
             <div class="row">
               <div class='col-sm-6'>
@@ -107,7 +157,7 @@
         </div>
         <br>
         <input type="button" name="submit" value="Submit" onclick="getUnixDate();return false">
-        <div class="col-6 col-sm-3">
+        <div class="col-6 col-lg-3">
           <div id="chartContainer" style="height: 370px; width: 100%;"></div>
         </div>
       </div>
