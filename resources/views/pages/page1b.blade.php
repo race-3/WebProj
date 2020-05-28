@@ -10,10 +10,7 @@
     .page-header {
         text-align: center;
     }
-    #mainPageContainer {
-        margin-left: 40px;
-        margin-right: 40px;
-    }
+
     [id*='item'] {
         border-radius: 8px;
         padding: 10px;
