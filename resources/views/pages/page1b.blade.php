@@ -77,66 +77,31 @@
         </div>
         <div class="col-md-6">
 
-            <!--
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" data-target="#italy">Italy</a></li>
-                <li><a data-toggle="tab" data-target="#china" onClick="refreshTab2()">China</a></li>
-                <li><a data-toggle="tab" data-target="#chinaNOX">China NOX</a></li>
-            </ul>-->
-
-
-
             <div id="item2">
                 <h4>Average nitrogen dioxide concentrations</h4>
-
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link active" id="italyTab" data-toggle="tab" href="#nav-italy" role="tab" aria-controls="nav-italy" aria-selected="true">Italy</a>
-                        <a class="nav-item nav-link" id="nav-china-tab" data-toggle="tab" href="#nav-china" role="tab" aria-controls="nav-china" aria-selected="false">China</a>
+                        <a class="nav-item nav-link" id="nav-china-tab" data-toggle="tab" href="#nav-china" role="tab" aria-controls="nav-china" aria-selected="false" onClick="refreshTab2()">China</a>
                         <a class="nav-item nav-link" id="nav-chinaNOX-tab" data-toggle="tab" href="#nav-chinaNOX" role="tab" aria-controls="nav-chinaNOX" aria-selected="false">China NOx</a>
                     </div>
                 </nav>
                 <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-italy" role="tabpanel" aria-labelledby="italyTab">
-                        <iframe class="juxtapose" width="100%" height="540" scrolling="no"
-                                src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=287d6648-97ff-11ea-a879-0edaf8f81e27"></iframe>                    </div>
-                    <div class="tab-pane fade" id="nav-china" role="tabpanel" aria-labelledby="nav-china-tab">
-                        <iframe id="chinaFrame" class="juxtapose" width="100%" height="540"
-                                src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=be6bf3aa-9d62-11ea-a7cb-0edaf8f81e27"></iframe>                    </div>
-                    <div class="tab-pane fade" id="nav-chinaNOX" role="tabpanel" aria-labelledby="nav-chinaNOX-tab">
-                        <img src="images/NOx_emission_changes_in_East_China.jpg" width="100%" height="100%">
-                        By Envsciguy - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=89921168                    </div>
-
-                </div>
-
-                <!--
-                <ul class="nav nav-tabs" id="tabList" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="italyTab" data-toggle="tab" href="#italy" role="tab" aria-controls="One" aria-selected="true">Italy</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="chinaTab" data-toggle="tab" href="#china" role="tab" aria-controls="Two" aria-selected="false">China</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="chinaNOXTab" data-toggle="tab" href="#chinaNOX" role="tab" aria-controls="Three" aria-selected="false">China NOx</a>
-                    </li>
-                </ul>
-
-                <div class="tab-content">
-                    <div id="italy" class="tab-pane fade in active" role="tabpanel" aria-labelledby="italyTab">
-                        <iframe class="juxtapose" width="100%" height="540" scrolling="no"
+                        <iframe id="italyFrame" class="juxtapose" width="100%" height="540" scrolling="no"
                                 src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=287d6648-97ff-11ea-a879-0edaf8f81e27"></iframe>
                     </div>
-                    <div id="china" class="tab-pane fade" role="tabpanel" aria-labelledby="chinaTab">
+                    <div class="tab-pane fade" id="nav-china" role="tabpanel" aria-labelledby="nav-china-tab">
                         <iframe id="chinaFrame" class="juxtapose" width="100%" height="540"
                                 src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=be6bf3aa-9d62-11ea-a7cb-0edaf8f81e27"></iframe>
                     </div>
-                    <div id="chinaNOX" class="tab-pane fade" role="tabpanel" aria-labelledby="chinaNOXTab">
+                    <div class="tab-pane fade" id="nav-chinaNOX" role="tabpanel" aria-labelledby="nav-chinaNOX-tab">
                         <img src="images/NOx_emission_changes_in_East_China.jpg" width="100%" height="100%">
                         By Envsciguy - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=89921168
                     </div>
+
                 </div>
-                -->
+
             </div>
         </div>
     </div>
