@@ -28,6 +28,11 @@
         height: 100%;
     }
 
+    .cardTitle {
+        text-align: center;
+        padding: 5px;
+    }
+
     iframe {
         border: 0;
         left: 0;
@@ -68,13 +73,13 @@
 
 <div class="page-header">
     <h1>Environmental Effects of COVID-19</h1>
-    Checklist: Redo pictures to be more readable. Squeeze in another API? Make another graph from AQI API?
 </div>
 
 <div class="container-fluid" id="mainPageContainer">
     <div class="row">
         <div class="col-lg-6">
             <div id="item1" class="text-center">
+                <h4 class="cardTitle">AQI index 2017-2019 around end of year</h4>
                 <div class="dropdown">
                     <button class="btn btn-primary dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     </button>
@@ -101,7 +106,7 @@
         </div>
         <div class="col-lg-6">
             <div id="item2">
-                <h4>NO2 Emissions in Italy</h4>
+                <h4 class="cardTitle">NO2 Emissions in Italy</h4>
                 <iframe frameborder="0" class="juxtapose" width="100%" height="369.2479674796748" scrolling="no"
                         src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=7ecb8488-a2bf-11ea-a7cb-0edaf8f81e27"></iframe>
             </div>
@@ -110,7 +115,7 @@
     <div class="row">
         <div class="col-lg-4">
             <div id="item3">
-                <h4>NOx Concentrations in China</h4>
+                <h4 class="cardTitle">NOx Concentrations in China</h4>
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link active" id="nav-china-tab" data-toggle="tab" href="#nav-china" role="tab" aria-controls="nav-china" aria-selected="false" onClick="refreshTab2()">China</a>
@@ -131,9 +136,9 @@
         </div>
         <div class="col-md-6">
             <div id="item4">
-                <h3>Stuff</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                <h4 class="cardTitle">With the distraction of Covid 19, illegal deforestation has spiked</h4>
+                <img src="images/deforestation.jpg" alt="Amazon deforestation August through March 2008 through 2020" id="deforestationImg">
+                by Rhett A. Butler on 11 April 2020 "Despite COVID, Amazon deforestation races higher" https://news.mongabay.com/
             </div>
         </div>
         <div class="col-md-2">
