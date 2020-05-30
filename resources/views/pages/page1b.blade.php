@@ -109,6 +109,7 @@
                 <h4 class="cardTitle">NO2 Emissions in Italy</h4>
                 <iframe frameborder="0" class="juxtapose" width="100%" height="369.2479674796748" scrolling="no"
                         src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=7ecb8488-a2bf-11ea-a7cb-0edaf8f81e27"></iframe>
+                <div>Credit: NASA</div>
             </div>
         </div>
     </div>
@@ -132,6 +133,7 @@
                         By Envsciguy - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=89921168
                     </div>
                 </div>
+                <div id="nasaCredit">Credit: NASA</div>
             </div>
         </div>
         <div class="col-md-6">
@@ -159,6 +161,14 @@
 
     $(document).ready(function(){
         $(".dropdown-menu a")[0].click();
+    });
+
+    $("#nav-chinaNOX-tab").click(function() {
+        $("#nasaCredit").hide();
+    });
+
+    $("#nav-china-tab").click(function() {
+        $("#nasaCredit").show();
     });
 
     function selectState(state) {
