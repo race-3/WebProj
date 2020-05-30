@@ -13,10 +13,8 @@ class Controller extends BaseController
         return view('pages.home');
     }
 
-    public function page1() {
-        // api key and stuff
-
-        return view('pages.page1b');
+    public function environment() {
+        return view('pages.environment');
     }
 
     public function page2() {
