@@ -20,17 +20,15 @@
         box-shadow: 0 8px 6px -6px black;
         margin-top: 20px;
     }
-    .tab-pane {
-        overflow: hidden;
-        position: relative;
+
+    .tab-content {
+        height: 100%;
     }
 
     .tab-pane iframe {
         border: 0;
-        height: 100%;
         left: 0;
         top: 0;
-        width: 100%;
     }
 
     #mainPageContainer {
@@ -40,6 +38,16 @@
     #linechart1 {
         padding: 20px;
     }
+
+    img {
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    #item2 {
+        height: 65vh;
+    }
+
 </style>
 
 <body>
@@ -52,18 +60,19 @@
     <div class="row">
         <div class="col-md-6">
             <div id="item1" class="text-center">
-                <div class="dropdown btn-group">
+                <div class="dropdown">
                     <button class="btn btn-primary dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Washington</a></li>
-                        <li><a href="#">Oregon</a></li>
-                        <li><a href="#">Missouri</a></li>
-                        <li><a href="#">New York</a></li>
-                        <li><a href="#">Illinois</a></li>
-                    </ul>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a href="#" class="dropdown-item">Washington</a>
+                        <a href="#" class="dropdown-item">Oregon</a>
+                        <a href="#" class="dropdown-item">Missouri</a>
+                        <a href="#" class="dropdown-item">New York</a>
+                        <a href="#" class="dropdown-item">Illinois</a>
+                    </div>
                 </div>
                 <h2 id="loader" style="display: none">LOADING DATA FROM API...</h2>
+                <h2 id="errorMsg" style="display: none">ERROR LOADING DATA FROM API...</h2>
                 <div id="i1Chart">
                     <canvas id="linechart1"></canvas>
                 </div>
@@ -86,9 +95,9 @@
                         <a class="nav-item nav-link" id="nav-chinaNOX-tab" data-toggle="tab" href="#nav-chinaNOX" role="tab" aria-controls="nav-chinaNOX" aria-selected="false">China NOx</a>
                     </div>
                 </nav>
-                <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-italy" role="tabpanel" aria-labelledby="italyTab">
-                        <iframe id="italyFrame" class="juxtapose" width="100%" height="540" scrolling="no"
+                        <iframe id="italyFrame" class="juxtapose" width="100%" height="540"
                                 src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=287d6648-97ff-11ea-a879-0edaf8f81e27"></iframe>
                     </div>
                     <div class="tab-pane fade" id="nav-china" role="tabpanel" aria-labelledby="nav-china-tab">
@@ -96,7 +105,7 @@
                                 src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=be6bf3aa-9d62-11ea-a7cb-0edaf8f81e27"></iframe>
                     </div>
                     <div class="tab-pane fade" id="nav-chinaNOX" role="tabpanel" aria-labelledby="nav-chinaNOX-tab">
-                        <img src="images/NOx_emission_changes_in_East_China.jpg" width="100%" height="100%">
+                        <img src="images/NOx_emission_changes_in_East_China.jpg" alt="China NOx emissions during COVID-19" id="chinaIMG">
                         By Envsciguy - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=89921168
                     </div>
 
@@ -137,11 +146,7 @@
     let state, built_url1, built_url2, built_url3;
 
     $(document).ready(function(){
-        $(".dropdown-menu li a").click(function(){
-            var text = $(this).text();
-            $(this).parents('.btn-group').find('.dropdown-toggle').html(text + ' <span class="caret"></span>');
-        });
-        $(".dropdown-menu li a")[0].click();
+        $(".dropdown-menu a")[0].click();
     });
 
     function selectState(state) {
@@ -151,7 +156,7 @@
         createChart1();
     }
 
-    $('.dropdown-menu a').on('click', function(){
+    $(".dropdown-menu a ").click(function () {
         $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
         $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
         state = $(this).html();
@@ -183,63 +188,68 @@
     async function createChart1() {
         $('#linechart1').remove();
         $('#i1Chart').html('<canvas id="linechart1"></canvas>');
-        const data = await getChart1Data();
-        const ctx = document.getElementById('linechart1');
-        const myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: data.xs,
-                datasets: [{
-                    label: '2017 AQI Index in ' + state,
-                    data: data.ys3,
-                    fill: false,
-                    borderColor: 'rgba(234, 152, 0, 1)',
-                    borderWidth: 1
-                },
-                {
-                    label: '2018 AQI Index in ' + state,
-                    data: data.ys,
-                    fill: false,
-                    borderColor: 'rgba(234, 0, 3, 1)',
-                    borderWidth: 1
-                },
-                {
-                    label: '2019 AQI Index in ' + state,
-                    data: data.ys2,
-                    fill: false,
-                    borderColor: 'rgba(0, 24, 209, 1)',
-                    borderWidth: 1
-                }
-                ]
-            },
-            options: {
-                elements: {
-                    point:{
-                        radius: 0
-                    }
-                },
-                scales: {
-                    yAxes: [{
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Parts per billion of Carbon'
-                        }
-                    }],
-                    xAxes: [{
-                        ticks: {
-                            callback: function(value, index, values) {
-                                let arr = value.split("-");
-                                    return arr[1] + "-" + arr[2];
-                            }
+        try {
+            const data = await getChart1Data();
+            const ctx = document.getElementById('linechart1');
+            const myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.xs,
+                    datasets: [{
+                        label: '2017 AQI Index in ' + state,
+                        data: data.ys3,
+                        fill: false,
+                        borderColor: 'rgba(234, 152, 0, 1)',
+                        borderWidth: 1
+                    },
+                        {
+                            label: '2018 AQI Index in ' + state,
+                            data: data.ys,
+                            fill: false,
+                            borderColor: 'rgba(234, 0, 3, 1)',
+                            borderWidth: 1
                         },
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Date of sample'
+                        {
+                            label: '2019 AQI Index in ' + state,
+                            data: data.ys2,
+                            fill: false,
+                            borderColor: 'rgba(0, 24, 209, 1)',
+                            borderWidth: 1
                         }
-                    }]
+                    ]
+                },
+                options: {
+                    elements: {
+                        point: {
+                            radius: 0
+                        }
+                    },
+                    scales: {
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Parts per billion of Carbon'
+                            }
+                        }],
+                        xAxes: [{
+                            ticks: {
+                                callback: function (value, index, values) {
+                                    let arr = value.split("-");
+                                    return arr[1] + "-" + arr[2];
+                                }
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Date of sample'
+                            }
+                        }]
+                    }
                 }
-            }
-        });
+            });
+        } catch(error) {
+            document.getElementById('errorMsg').style.display = 'block';
+            console.log(error);
+        }
     }
     async function getChart1Data() {
         const xs =[];
@@ -249,6 +259,7 @@
         const xs3 =[];
         const ys3 = [];
 
+        document.getElementById('errorMsg').style.display = 'none';
         document.getElementById('loader').style.display = 'block';
         const response = await fetch(built_url1);
         const response2 = await fetch(built_url2);
