@@ -24,13 +24,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <li class="{{ Request::is('page1') ? 'active' : '' }}"><a class="nav-link" href="{{ route("page1") }}">Tyler</a></li>
+                <li class="{{ Request::is('page1') ? 'active' : '' }}"><a class="nav-link" href="{{ route("page1") }}">Environmental Effects</a></li>
             </li>
             <li class="nav-item">
-                <li class="{{ Request::is('page2') ? 'active' : '' }}"><a class="nav-link" href="{{ route("page2") }}">Alex</a></li>
+                <li class="{{ Request::is('page2') ? 'active' : '' }}"><a class="nav-link" href="{{ route("page2") }}">Stock Market Effects</a></li>
             </li>
             <li class="nav-item">
-                <li class="{{ Request::is('page3') ? 'active' : '' }}"><a class="nav-link" href="{{ route("page3") }}">Kareem</a></li>
+                <li class="{{ Request::is('page3') ? 'active' : '' }}"><a class="nav-link" href="{{ route("page3") }}">Economic Effects</a></li>
             </li>
         </ul>
     </div>

@@ -106,8 +106,8 @@
         </div>
         <div class="col-lg-6">
             <div id="item2">
-                <h4 class="cardTitle">NO2 Emissions in Italy</h4>
-                <iframe frameborder="0" class="juxtapose" width="100%" height="369.2479674796748" scrolling="no"
+                <h4 class="cardTitle">NO2 Concentrations in Italy</h4>
+                <iframe frameborder="0" class="juxtapose" width="100%" height="369.2479674796748" scrolling="no" title="Italy Juxtapose"
                         src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=7ecb8488-a2bf-11ea-a7cb-0edaf8f81e27"></iframe>
                 <div>Credit: NASA</div>
             </div>
@@ -125,7 +125,7 @@
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-china" role="tabpanel" aria-labelledby="nav-china-tab">
-                        <iframe frameborder="0" class="juxtapose" width="100%" height="560.871485943775" scrolling="no"
+                        <iframe frameborder="0" class="juxtapose" width="100%" height="560.871485943775" scrolling="no" title="China Juxtapose"
                                 src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=097fe0ce-a2c0-11ea-a7cb-0edaf8f81e27"></iframe>
                     </div>
                     <div class="tab-pane fade" id="nav-chinaNOX" role="tabpanel" aria-labelledby="nav-chinaNOX-tab">
