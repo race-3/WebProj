@@ -1,6 +1,7 @@
 @extends('layout.master')
 
 @section('content')
+
 <head>
     <meta name="Tyler Race" content="">
     <title>Covid Page 1</title>
@@ -48,6 +49,8 @@
 
     #item2 {
         height: 65vh;
+        display: flex;
+        flex-direction: column;
     }
     #item3 {
         height: 65vh;
@@ -65,7 +68,7 @@
 
 <div class="page-header">
     <h1>Environmental Effects of COVID-19</h1>
-    Checklist: Fix sizing in item1 and item2. Redo pictures to be more readable. Squeeze in another API? Make another graph from AQI API?
+    Checklist: Redo pictures to be more readable. Squeeze in another API? Make another graph from AQI API?
 </div>
 
 <div class="container-fluid" id="mainPageContainer">
@@ -98,15 +101,16 @@
         </div>
         <div class="col-lg-6">
             <div id="item2">
-                <iframe id="italyFrame" class="juxtapose" width="100%" height="100%" scrolling="no"
-                        src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=287d6648-97ff-11ea-a879-0edaf8f81e27"></iframe>
+                <h4>NO2 Emissions in Italy</h4>
+                <iframe frameborder="0" class="juxtapose" width="100%" height="369.2479674796748" scrolling="no"
+                        src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=7ecb8488-a2bf-11ea-a7cb-0edaf8f81e27"></iframe>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-4">
             <div id="item3">
-                <h4>Average nitrogen dioxide concentrations</h4>
+                <h4>NOx Concentrations in China</h4>
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link active" id="nav-china-tab" data-toggle="tab" href="#nav-china" role="tab" aria-controls="nav-china" aria-selected="false" onClick="refreshTab2()">China</a>
@@ -115,8 +119,8 @@
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-china" role="tabpanel" aria-labelledby="nav-china-tab">
-                        <iframe id="chinaFrame" class="juxtapose" width="100%" height="100%" scrolling="no"
-                                src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=be6bf3aa-9d62-11ea-a7cb-0edaf8f81e27"></iframe>
+                        <iframe frameborder="0" class="juxtapose" width="100%" height="560.871485943775" scrolling="no"
+                                src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=097fe0ce-a2c0-11ea-a7cb-0edaf8f81e27"></iframe>
                     </div>
                     <div class="tab-pane fade" id="nav-chinaNOX" role="tabpanel" aria-labelledby="nav-chinaNOX-tab">
                         <img src="images/NOx_emission_changes_in_East_China.jpg" alt="China NOx emissions during COVID-19" id="chinaIMG">
