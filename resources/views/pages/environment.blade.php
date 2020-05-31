@@ -72,18 +72,6 @@
         height: 100%;
     }
 
-    #item7 {
-        text-align: center;
-        background-color: #343a40;
-        color: white;
-    }
-
-    #imgContainer {
-        display: grid;
-        grid-template-columns: 25% 25% 25% 25%;
-        grid-template-rows: auto;
-    }
-
     #imgContainer img {
         width: 100%;
         height: 200%;
@@ -96,6 +84,16 @@
 
     #trafficHeader {
         font-size: xx-large !important;
+    }
+
+    #pageFooter {
+        text-align: center;
+        font-size: 40pt;
+        color: white;
+    }
+
+    #footerJumbo {
+        background-color: #343a40;
     }
 
 </style>
@@ -245,11 +243,10 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12">
-            <div id="item7"><h2>As time goes on, we will continue to discover new effects Covid-19 has impacted the environment, both positively and negatively.</h2></div>
-        </div>
-    </div>
+</div>
+
+<div class="jumbotron jumbotron-fluid" id="footerJumbo">
+    <div class="container" id="pageFooter">As time goes on, we will continue to discover new impacts Covid-19 has had on the environment, both positive and negative.</div>
 </div>
 
 <script type="text/javascript">
