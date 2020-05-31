@@ -188,52 +188,52 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="image1">
-                                <img class="image__image" src="https://webassets.tomtom.com/m/fca5824cdb1ffe3/original/Blog-body-image-traffic-data-corona-fig1_1440x850.jpg" alt="Traffic in Milan, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
-                                <div>Milan, January 24, 2020. Before COVID-19 restrictions.</div>
-                                <img class="image__image" src="https://webassets.tomtom.com/m/4c4afc257915a43b/original/Blog-body-image-traffic-data-corona-fig2_1440x850.jpg" alt="Traffic in Milan, April 6, 2020. During COVID-19 restrictions." width="1440" height="850">
-                                <div>Milan, April 6, 2020. During COVID-19 restrictions.</div>
+                                <img id="img1a" class="image__image" src="https://webassets.tomtom.com/m/fca5824cdb1ffe3/original/Blog-body-image-traffic-data-corona-fig1_1440x850.jpg" alt="Traffic in Milan, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
+                                <label for="img1a">Milan, January 24, 2020. Before COVID-19 restrictions.</label>
+                                <img id="img1b" class="image__image" src="https://webassets.tomtom.com/m/4c4afc257915a43b/original/Blog-body-image-traffic-data-corona-fig2_1440x850.jpg" alt="Traffic in Milan, April 6, 2020. During COVID-19 restrictions." width="1440" height="850">
+                                <label for="img1b">Milan, April 6, 2020. During COVID-19 restrictions.</label>
                             </div><hr>
                         </div>
                         <div class="col-lg-4">
                             <div class="image2">
-                                <img class="image__image" src="https://webassets.tomtom.com/m/c3c1d823c69e8e1/original/Blog-body-image-trafic-data-corona-fig3_1440x850.jpg" alt="Traffic in Rome, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
-                                <div>Rome, January 24, 2020. Before COVID-19 restrictions.</div>
-                                <img class="image__image" src="https://webassets.tomtom.com/m/56b18ad13e6aca06/original/Blog-body-image-traffic-data-corona-fig4_1440x850.jpg" alt="Traffic in Rome, April 6, 2020. During COVID-19 restrictions." width="1440" height="850">
-                                <div>Rome, April 6, 2020. During COVID-19 restrictions.</div>
+                                <img id="img2a" class="image__image" src="https://webassets.tomtom.com/m/c3c1d823c69e8e1/original/Blog-body-image-trafic-data-corona-fig3_1440x850.jpg" alt="Traffic in Rome, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
+                                <label for="img2a">Rome, January 24, 2020. Before COVID-19 restrictions.</label>
+                                <img id="img2b" class="image__image" src="https://webassets.tomtom.com/m/56b18ad13e6aca06/original/Blog-body-image-traffic-data-corona-fig4_1440x850.jpg" alt="Traffic in Rome, April 6, 2020. During COVID-19 restrictions." width="1440" height="850">
+                                <label for="img2b">Rome, April 6, 2020. During COVID-19 restrictions.</label>
                             </div><hr>
                         </div>
                         <div class="col-lg-4">
                             <div class="image3">
-                                <img class="image__image" src="https://webassets.tomtom.com/m/49d80424e577c4d6/original/Blog-body-image-traffic-data-corona-fig5_1440x850.jpg" alt="Traffic in Los Angeles, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
-                                <div>Los Angeles, January 24, 2020. Before COVID-19 restrictions.</div>
-                                <img class="image__image" src="https://webassets.tomtom.com/m/443fc4e50b3d9a/original/Blog-body-image-traffic-data-corona-fig6_1440x850.jpg" alt="Traffic in Los Angeles, April 6, 2020. During COVID-19 restrictions." width="1440" height="850">
-                                <div>Los Angeles, April 6, 2020. During COVID-19 restrictions.</div>
+                                <img id="img3a" class="image__image" src="https://webassets.tomtom.com/m/49d80424e577c4d6/original/Blog-body-image-traffic-data-corona-fig5_1440x850.jpg" alt="Traffic in Los Angeles, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
+                                <label for="img3a">Los Angeles, January 24, 2020. Before COVID-19 restrictions.</label>
+                                <img id="img3b" class="image__image" src="https://webassets.tomtom.com/m/443fc4e50b3d9a/original/Blog-body-image-traffic-data-corona-fig6_1440x850.jpg" alt="Traffic in Los Angeles, April 6, 2020. During COVID-19 restrictions." width="1440" height="850">
+                                <label for="img3b">Los Angeles, April 6, 2020. During COVID-19 restrictions.</label>
                             </div><hr>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="image4">
-                                <img class="image__image" src="https://webassets.tomtom.com/m/4a0f88c907227248/original/Blog-body-image-traffic-data-corona-fig7_1440x850.jpg" alt="Traffic in San Francisco, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
-                                <div>San Francisco, January 24, 2020. Before COVID-19 restrictions.</div>
-                                <img class="image__image" src="https://webassets.tomtom.com/m/4395ef7b1bb93b20/original/Blog-body-image-traffic-data-corona-fig8_1440x850.jpg" alt="Traffic in San Francisco, April 6, 2020. During COVID-19 restrictions." width="1440" height="850">
-                                <div>San Francisco, April 6, 2020. During COVID-19 restrictions.</div>
+                                <img id="img4a" class="image__image" src="https://webassets.tomtom.com/m/4a0f88c907227248/original/Blog-body-image-traffic-data-corona-fig7_1440x850.jpg" alt="Traffic in San Francisco, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
+                                <label for="img4a">San Francisco, January 24, 2020. Before COVID-19 restrictions.</label>
+                                <img id="img4b" class="image__image" src="https://webassets.tomtom.com/m/4395ef7b1bb93b20/original/Blog-body-image-traffic-data-corona-fig8_1440x850.jpg" alt="Traffic in San Francisco, April 6, 2020. During COVID-19 restrictions." width="1440" height="850">
+                                <label for="img4b">San Francisco, April 6, 2020. During COVID-19 restrictions.</label>
                             </div><hr>
                         </div>
                         <div class="col-lg-4">
                             <div class="image5">
-                                <img class="image__image" src="https://webassets.tomtom.com/m/796ff15ab5838ed4/original/Blog-body-image-traffic-data-corona-fig9_1440x850.jpg" alt="Traffic in London, Easter weekend 2019." width="1440" height="850">
-                                <div>London, Easter weekend 2019.</div>
-                                <img class="image__image" src="https://webassets.tomtom.com/m/225dac3ed8d13ed8/original/Blog-body-image-traffic-data-corona-fig10_1440x850.jpg" alt="Traffic in London, Easter weekend 2020." width="1440" height="850">
-                                <div>London, Easter weekend 2020.</div>
+                                <img id="img5a" class="image__image" src="https://webassets.tomtom.com/m/796ff15ab5838ed4/original/Blog-body-image-traffic-data-corona-fig9_1440x850.jpg" alt="Traffic in London, Easter weekend 2019." width="1440" height="850">
+                                <label for="img5a">London, Easter weekend 2019.</label>
+                                <img id="img5b" class="image__image" src="https://webassets.tomtom.com/m/225dac3ed8d13ed8/original/Blog-body-image-traffic-data-corona-fig10_1440x850.jpg" alt="Traffic in London, Easter weekend 2020." width="1440" height="850">
+                                <label for="img5b">London, Easter weekend 2020.</label>
                             </div><hr>
                         </div>
                         <div class="col-lg-4">
                             <div class="image6">
-                                <img class="image__image" src="https://webassets.tomtom.com/m/7d6d4db44c5fa865/original/Blog-body-image-traffic-data-corona-fig11_1440x850.jpg" alt="Traffic in Birmingham, Easter weekend 2019." width="1440" height="850">
-                                <div>Birmingham, Easter weekend 2019.</div>
-                                <img class="image__image" src="https://webassets.tomtom.com/m/701709a25944103/original/Blog-body-image-traffic-data-a-corona-fig12_1440x850.jpg" alt="Traffic in Birmingham, Easter weekend 2020." width="1440" height="850">
-                                <div>Birmingham, Easter weekend 2020.</div>
+                                <img id="img6a" class="image__image" src="https://webassets.tomtom.com/m/7d6d4db44c5fa865/original/Blog-body-image-traffic-data-corona-fig11_1440x850.jpg" alt="Traffic in Birmingham, Easter weekend 2019." width="1440" height="850">
+                                <label for="img6a">Birmingham, Easter weekend 2019.</label>
+                                <img id="img6b" class="image__image" src="https://webassets.tomtom.com/m/701709a25944103/original/Blog-body-image-traffic-data-a-corona-fig12_1440x850.jpg" alt="Traffic in Birmingham, Easter weekend 2020." width="1440" height="850">
+                                <label for="img6b">Birmingham, Easter weekend 2020.</label>
                             </div><hr>
                         </div>
                     </div>
