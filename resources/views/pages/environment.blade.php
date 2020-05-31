@@ -4,7 +4,7 @@
 
 <head>
     <meta name="Tyler Race" content="">
-    <title>Covid Page 1</title>
+    <title>Covid Environmental Effects</title>
 </head>
 
 <style>
