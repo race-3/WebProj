@@ -12,6 +12,11 @@
         text-align: center;
     }
 
+    hr {
+        height: 2px;
+        background: black;
+    }
+
     html, body, iframe { height: 100%; }
 
     [id*='item'] {
@@ -65,6 +70,32 @@
 
     #nav-tabContent, #nav-china {
         height: 100%;
+    }
+
+    #item7 {
+        text-align: center;
+        background-color: #343a40;
+        color: white;
+    }
+
+    #imgContainer {
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: auto;
+    }
+
+    #imgContainer img {
+        width: 100%;
+        height: 200%;
+    }
+
+    div[class^="image"] img {
+        width: 100%;
+        height: auto;
+    }
+
+    #trafficHeader {
+        font-size: xx-large !important;
     }
 
 </style>
@@ -136,19 +167,87 @@
                 <div id="nasaCredit">Credit: NASA</div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-lg-5">
             <div id="item4">
                 <h4 class="cardTitle">With the distraction of Covid 19, illegal deforestation has spiked</h4>
                 <img src="images/deforestation.jpg" alt="Amazon deforestation August through March 2008 through 2020" id="deforestationImg">
                 by Rhett A. Butler on 11 April 2020 "Despite COVID, Amazon deforestation races higher" https://news.mongabay.com/
             </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
             <div id="item5">
                 <h3>Stuff</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div id="item9">
+                <h4 class="cardTitle" id="trafficHeader">Differences in traffic around the world</h4>
+                <div class="container-fluid" id="imgContainer2">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="image1">
+                                <img class="image__image" src="https://webassets.tomtom.com/m/fca5824cdb1ffe3/original/Blog-body-image-traffic-data-corona-fig1_1440x850.jpg" alt="Traffic in Milan, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
+                                <div>Milan, January 24, 2020. Before COVID-19 restrictions.</div>
+                                <img class="image__image" src="https://webassets.tomtom.com/m/4c4afc257915a43b/original/Blog-body-image-traffic-data-corona-fig2_1440x850.jpg" alt="Traffic in Milan, April 6, 2020. During COVID-19 restrictions." width="1440" height="850">
+                                <div>Milan, April 6, 2020. During COVID-19 restrictions.</div>
+                            </div><hr>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="image2">
+                                <img class="image__image" src="https://webassets.tomtom.com/m/c3c1d823c69e8e1/original/Blog-body-image-trafic-data-corona-fig3_1440x850.jpg" alt="Traffic in Rome, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
+                                <div>Rome, January 24, 2020. Before COVID-19 restrictions.</div>
+                                <img class="image__image" src="https://webassets.tomtom.com/m/56b18ad13e6aca06/original/Blog-body-image-traffic-data-corona-fig4_1440x850.jpg" alt="Traffic in Rome, April 6, 2020. During COVID-19 restrictions." width="1440" height="850">
+                                <div>Rome, April 6, 2020. During COVID-19 restrictions.</div>
+                            </div><hr>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="image3">
+                                <img class="image__image" src="https://webassets.tomtom.com/m/49d80424e577c4d6/original/Blog-body-image-traffic-data-corona-fig5_1440x850.jpg" alt="Traffic in Los Angeles, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
+                                <div>Los Angeles, January 24, 2020. Before COVID-19 restrictions.</div>
+                                <img class="image__image" src="https://webassets.tomtom.com/m/443fc4e50b3d9a/original/Blog-body-image-traffic-data-corona-fig6_1440x850.jpg" alt="Traffic in Los Angeles, April 6, 2020. During COVID-19 restrictions." width="1440" height="850">
+                                <div>Los Angeles, April 6, 2020. During COVID-19 restrictions.</div>
+                            </div><hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="image4">
+                                <img class="image__image" src="https://webassets.tomtom.com/m/4a0f88c907227248/original/Blog-body-image-traffic-data-corona-fig7_1440x850.jpg" alt="Traffic in San Francisco, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
+                                <div>San Francisco, January 24, 2020. Before COVID-19 restrictions.</div>
+                                <img class="image__image" src="https://webassets.tomtom.com/m/4395ef7b1bb93b20/original/Blog-body-image-traffic-data-corona-fig8_1440x850.jpg" alt="Traffic in San Francisco, April 6, 2020. During COVID-19 restrictions." width="1440" height="850">
+                                <div>San Francisco, April 6, 2020. During COVID-19 restrictions.</div>
+                            </div><hr>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="image5">
+                                <img class="image__image" src="https://webassets.tomtom.com/m/796ff15ab5838ed4/original/Blog-body-image-traffic-data-corona-fig9_1440x850.jpg" alt="Traffic in London, Easter weekend 2019." width="1440" height="850">
+                                <div>London, Easter weekend 2019.</div>
+                                <img class="image__image" src="https://webassets.tomtom.com/m/225dac3ed8d13ed8/original/Blog-body-image-traffic-data-corona-fig10_1440x850.jpg" alt="Traffic in London, Easter weekend 2020." width="1440" height="850">
+                                <div>London, Easter weekend 2020.</div>
+                            </div><hr>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="image6">
+                                <img class="image__image" src="https://webassets.tomtom.com/m/7d6d4db44c5fa865/original/Blog-body-image-traffic-data-corona-fig11_1440x850.jpg" alt="Traffic in Birmingham, Easter weekend 2019." width="1440" height="850">
+                                <div>Birmingham, Easter weekend 2019.</div>
+                                <img class="image__image" src="https://webassets.tomtom.com/m/701709a25944103/original/Blog-body-image-traffic-data-a-corona-fig12_1440x850.jpg" alt="Traffic in Birmingham, Easter weekend 2020." width="1440" height="850">
+                                <div>Birmingham, Easter weekend 2020.</div>
+                            </div><hr>
+                        </div>
+                    </div>
+                </div>
+                </br>
+                <div>Source TomTom url: https://www.tomtom.com/blog/moving-world/covid-19-traffic/</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div id="item7"><h2>As time goes on, we will continue to discover new effects Covid-19 has impacted the environment, both positively and negatively.</h2></div>
         </div>
     </div>
 </div>
