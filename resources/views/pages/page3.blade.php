@@ -38,7 +38,7 @@
                 padding-top: 10px;
                 padding-bottom: 5px;
                 font-weight: 700;
-                color: darkgray;
+                color: gray();
             }
 
             #switchText {
@@ -72,6 +72,7 @@
             #mainContainer {
                 margin-left: 50px;
                 margin-right: 50px;
+                top: 100px;
             }
 
             [id*='item'] {
@@ -159,6 +160,61 @@
                 -webkit-transform: rotate(-135deg);
             }
 
+            #topbtn {
+                position: fixed;
+                bottom: 20px;
+                right: 30px;
+                z-index: 2;
+                font-size: 20px;
+                background-color: darkturquoise;
+                color: black;
+                padding: 15px;
+                transition: 0.3s;
+            }
+
+            #nextbtn {
+                position: fixed;
+                bottom: 20px;
+                right: 120px;
+                z-index: 2;
+                font-size: 20px;
+                background-color: darkturquoise;
+                color: black;
+                padding: 15px;
+                transition: 0.3s;
+            }
+
+            #prevbtn {
+                position: fixed;
+                bottom: 20px;
+                right: 210px;
+                z-index: 2;
+                font-size: 20px;
+                background-color: darkturquoise;
+                color: black;
+                padding: 15px;
+                transition: 0.3s;
+            }
+
+            #homebtn {
+                position: fixed;
+                bottom: 20px;
+                right: 300px;
+                z-index: 2;
+                font-size: 20px;
+                background-color: darkturquoise;
+                color: black;
+                padding: 15px;
+                transition: 0.3s;
+            }
+
+            #topbtn:hover,
+            #prevbtn:hover,
+            #nextbtn:hover,
+            #homebtn:hover {
+                background-color: darkcyan;
+            }
+
         </style>
     </head>
 
@@ -170,6 +226,12 @@
             <span class="slider round"></span>
         </label>
         </h4>
+
+        <button onclick="toTop()" id="topbtn">Top</button>
+        <button onclick="toNext()" id="nextbtn">Next</button>
+        <button onclick="toPrev()" id="prevbtn">Prev</button>
+        <button onclick="toHome()" id="homebtn">Home</button>
+
         <hr color="darkgray">
         <div class="container-fluid" id="mainContainer">
             <div class="row">
@@ -182,11 +244,14 @@
                     </div>
                 </div>
             </div>
+
+            <br>
             <div class="row">
                 <div class="col-md-12">
                     <h4 id="sectionTitle">Coronavirus Employment Effects</h4>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-4">
                     <div id="item2">
@@ -222,8 +287,8 @@
                             is over 4 percent. Wages shrank for the first time for the first time since the Great Recession in 2008.</h4>
                     </div>
                 </div>
-                <div class="col-md-4"
-                     <div id="item3">
+                <div class="col-md-4">
+                     <div id="item4">
                          <h4 id="headerTitle">US Initial Jobless Claims, January 2020 - April 2020 (in thousands of claims)</h4>
                          <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=ijcusa&v=202005211247V20191105&d1=20200101&d2=20200521&h=300&w=600' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
                          <br />
@@ -242,51 +307,278 @@
                             over the course of the last 2 months, it is still very high and could go up further if there is a second wave. Whether everyone who lost their job will get it back wgen the pandemic is over is something that still
                             remains to be seen.</h4>
                      </div>
+                </div>
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 id="sectionTitle">Coronavirus Government Spending Effects</h4>
+                </div>
             </div>
 
             <div class="row">
                 <div class="col-md-4">
                     <div id="item5">
-                        <h4 id="headerTitle">nationL DEBT</h4>
-
+                        <h4 id="headerTitle">US National Debt (in millions of dollars)</h4>
                         <iframe src='https://tradingeconomics.com/embed/?s=unitedstagovdeb&v=202005091013v20191105&h=300&w=600&ref=/united-states/government-debt' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
                         <br />
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <br><h4 id="footnote">The CARES Act, signed by Congress on March 25th and by the President on March 27th, was an almost $2 trillion dollar spending package that added a significant amount to the national debt between the months
+                                of March and April. The US National Debt exceeded $25 trillion in May.</h4>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div id="item4">
+                    <div id="item6">
+                        <h4 id="headerTitle">US Government Debt to GDP (Percent)</h4>
+                        <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=usadebt2gdp&v=202002101806V20191105&d1=20100604&h=300&w=600' height='300' width='600'  frameborder='0' scrolling='no'></iframe><br />
+                        <br />
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <br><h4 id="footnote">While the coronavirus hasn't had the biggest impact on the debt to GDP ratio, it has been steadily rising over the course of the past decade, reaching a high not seen before since the Great Depression.
+                                While we are still experiencing the effects of the coronavirus and with discussion of another possible spending package, it is possible that we might get close to exceeding the all time high of 118.9%, as the
+                                coronavirus has not only increased government debt, but has also shrank the economy.</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="item6">
+                        <h4 id="headerTitle">US Government Spending (in billions of dollars)</h4>
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstagovspe&v=202006011208v20191105&h=300&w=600&ref=/united-states/government-spending' height='300' width='600'  frameborder='0' scrolling='no'></iframe><br />
+                        <br />
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <br><h4 id="footnote">US Government spending has increased significantly higher after the Republicans passed the Tax Cuts bill in 2018, but the coronavirus pandemic has also added a $2.4 trillion spending package on top of
+                                any spending package that Congress passed previously.</h4>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 id="sectionTitle">Coronavirus Consumer Related Effects</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="item7">
                         <h4 id="headerTitle">US Consumer Spending, January 2017 - April 2020 (in millions of dollars)</h4>
                         <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=unitedstaconspe&v=202004291429V20191105&type=type=line&h=300&w=600' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
                         <br />
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
                         <h4 id="footnote">Consumer spending (both for essential goods and non essential goods) makes up 70% of the US economy (Per Marketplace). It is often a good indicator of how the economy is expected to grow. It has been rising
                             consistently the last few years, but up to January of this year, it takes a sharp downturn. This is related to the unemployment rate - people are not getting paid, so they can't spend money. </h4>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div id="item8">
+                        <h4 id="headerTitle">Gas Prices (in cents per liter)</h4>
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstgaspri&v=202005272252v20191105&h=300&w=600&ref=/united-states/gasoline-prices' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <br />
+
+                        <h4 id="subtitle">Average Cost per Liter (4 liters = 1 gallon)</h4>
+                        <p><b>Pre-Coronavirus</b>: 69 cents per liter</p>
+                        <p><b>During the pandemic</b>: 58 cents per liter</p>
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <br><h4 id="footnote">Travel being limited meant that gas prices were inevitably going to go down. The pollution maps show just how much emissions have reduced during the pandemic, and gas prices have also followed accordingly.
+                                While some of this is to blame on the Russia-Saudi Arabia oil dispute, the coronavirus tanking the oil market is what lead to the sharp drop in prices. The price of oil per barrel fell to a low of -$35 </h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="item9">
+                        <h4 id="headerTitle">US 30-Year Mortgage Interest Rate (Percent)</h4>
+                        <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=unitedstamorrat&v=202005271133V20191105&d1=20190602&h=300&w=600' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <br />
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <br><h4 id="footnote">The 30 year mortgage yield hit its all time low on May 6th (3.4%). While the rate has been dropping steadily, primarily due to uncertainty over an impending recession, the rate dropped significantly after the
+                                coronavirus became more of an issue in the US. There was a temporary spike in March, but it later declined back to its level around 3.4 - 3.6%. Should we officially enter a recession, it is likely that the rate will drop
+                                even further.</h4>
+                    </div>
+                </div>
             </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="item10">
+                        <h4 id="headerTitle">US Consumer Spending Growth, April 2019 - April 2020 (Percent)</h4>
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstaperspe&v=202005291252v20191105&h=300&w=600&ref=/united-states/personal-spending' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <br />
+
+                        <h4 id="subtitle">Average Change</h4>
+                        <p><b>Pre-Coronavirus</b>: +.34%</p>
+                        <p><b>During the pandemic</b>: -4.975%</p>
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <h4 id="footnote">US consumer spending has been rising steadily as the economy grew consistently. Despite people spending more on food, cleaning supplies, and other essentials, entertainment, travel, and non essential spending
+                            dropped significantly after quarantines were in order across the country. The largest growth was between March and April, where it dropped over 13% compared to the previous month. As states starts to open, this could improve
+                            slightly, but a second wave and quarantine could still prevent growth in consumer spending</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="item11">
+                        <h4 id="headerTitle">US Retail Sales Growth, April 2019 - April 2020 (Percent)</h4>
+                        <iframe src='https://tradingeconomics.com/embed/?s=usaretailsalesyoy&v=202005151251v20191105&h=300&w=600&ref=/united-states/retail-sales-annual' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <br />
+
+                        <h4 id="subtitle">Average Change</h4>
+                        <p><b>Pre-Coronavirus</b>: +3.84%</p>
+                        <p><b>During the pandemic</b>: -4.475%</p>
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <h4 id="footnote">Despite online shopping taking over significant sales from retail, it has been growing consistently prior to the coronavirus pandemic, which lead to malls shutting down and stores only allowing limited numbers of people
+                            into stores at the same time to prevent the spread. The single largest drop, 21.6% between March and April, is the single largest month to month drop since the data was first taken back in 1990.</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="item12">
+                        <h4 id="headerTitle">US Housing Value Growth, April 2019 - April 2020 (Percent)</h4>
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstahouind&v=202005261310v20191105&h=300&w=600&ref=/united-states/housing-index' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <br />
+
+                        <h4 id="subtitle">Average Change</h4>
+                        <p><b>Pre-Coronavirus</b>: +.475%</p>
+                        <p><b>During the pandemic</b>: +.43%</p>
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+                        <h4 id="footnote">The coronavirus has not had as large of an impact on home value. This could be due to the drop in mortgate interest percent - as that drops, more people are inclined to take out a loan and buy a house. However, the rate of
+                            growth did drop to its lowest percent over the course of the last year, which could be signs of slowdown or decline.</h4>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <script>
-            function darkmode(){
+            //Javascript code. Miscellaneous effect functions.
+
+            //Activate dark mode!
+            function darkmode() {
                 var element = document.body;
                 element.classList.toggle("darkmode");
             }
 
-            function fade(){
+            //Hide subtitles and fade text
+            function fade() {
                 var toFade = document.getElementById("footnote");
                 var updatebtn = document.getElementById("footnotebtn");
                 //var updateText = document.getElementById("btnText")
-                if (toFade.classList.contains("hide")){
+                if (toFade.classList.contains("hide")) {
                     document.getElementById("btnText").innerHTML = "Hide Footnote";
                     updatebtn.style.transform = "rotate(-135deg)";
                     toFade.classList.remove("hide");
-                }
-                else {
+                } else {
                     document.getElementById("btnText").innerHTML = "Show Footnote";
                     updatebtn.style.transform = "rotate(45deg)";
                     toFade.classList.add("hide");
                 }
             }
 
+            //If the user scrolls past a certain point, display the button
+            window.onscroll = function() {
+                scroll();
+            };
+
+            //If the user scrolls past a certain point, display the button
+            function scroll() {
+                var topbutton = document.getElementById("topbtn");
+                var nextbutton = document.getElementById("nextbtn");
+                var prevbutton = document.getElementById("prevbtn");
+                var homebutton = document.getElementById("homebtn");
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    topbutton.style.display = "block";
+                    nextbutton.style.display = "block";
+                    prevbutton.style.display = "block";
+                    homebutton.style.display = "block";
+                }
+                else {
+                    topbutton.style.display = "none";
+                    nextbutton.style.display = "none";
+                    prevbutton.style.display = "none";
+                    homebutton.style.display = "none";
+                }
+            }
+
+            //If user clicks on 'top' button, advance to top of document.
+            function toTop() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+
+            //If user clicks on 'next' button, advance to next page (environmental)
+            function toNext() {
+                window.location.href = "{{ route("environment") }}"
+            }
+
+            //If user clicks on 'prev' button, advance to previous page (stock market)
+            function toPrev() {
+                window.location.href = "{{ route("page2") }}"
+            }
+
+            //If user clicks on 'home' button, advance to home page
+            function toHome(){
+                window.location.href = "{{ route("home") }}"
+            }
+
+            /*
+            function advanceLeft() {
+                current = document.getElementsByClassName("nav-item");
+                if(current.length) {
+                    window.location.href = "route("page2")";
+                }
+                else {
+                    current = document.getElementsByClassName("nav-item");
+                    if (current.length) {
+                        window.location.href = "route("page3")";
+                    }
+                    else {
+                        current = document.getElementsByClassName("nav-item");
+                        if (current.length) {
+                            window.location.href = "route("page1")";
+                        }
+                    }
+                }
+            }
+
+            function advanceRight() {
+                current = document.getElementsByClassName("nav-item");
+                if(current.length) {
+                    window.location.href = "route("page3")";
+                }
+                else {
+                    current = document.getElementsByClassName("nav-item");
+                    if (current.length) {
+                        window.location.href = "route("page1")";
+                    }
+                    else {
+                        current = document.getElementsByClassName("nav-item");
+                        if (current.length) {
+                            window.location.href = "route("page2")";
+                        }
+                    }
+                }
+            }
+            */
         </script>
         </body>
 </html>
