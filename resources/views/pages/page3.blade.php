@@ -164,14 +164,36 @@
                 position: fixed;
                 bottom: 20px;
                 right: 30px;
-                z-index: 99;
+                z-index: 2;
                 font-size: 20px;
                 background-color: darkturquoise;
                 color: black;
                 padding: 15px;
             }
 
-            #topbtn:hover {
+            #nextbtn {
+                position: fixed;
+                bottom: 20px;
+                right: 120px;
+                z-index: 2;
+                font-size: 20px;
+                background-color: darkturquoise;
+                color: black;
+                padding: 15px;
+            }
+
+            #prevbtn {
+                position: fixed;
+                bottom: 20px;
+                right: 210px;
+                z-index: 2;
+                font-size: 20px;
+                background-color: darkturquoise;
+                color: black;
+                padding: 15px;
+            }
+
+            #topbtn:hover, #prevbtn:hover, #nextbtn:hover {
                 background-color: darkcyan;
             }
 
@@ -188,6 +210,9 @@
         </h4>
 
         <button onclick="toTop()" id="topbtn">Top</button>
+        <button onclick="toNext()" id="nextbtn">Next</button>
+        <button onclick="toPrev()" id="prevbtn">Previous</button>
+        <button onclick="toHome()" id="prevbtn">Home</button>
 
         <hr color="darkgray">
         <div class="container-fluid" id="mainContainer">
@@ -459,18 +484,29 @@
             //If the user scrolls past a certain point, display the button
             function scroll() {
                 var topbutton = document.getElementById("topbtn");
+                var nextbutton = document.getElementById("nextbtn");
+                var prevbutton = document.getElementById("prevbtn");
                 if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                     topbutton.style.display = "block";
+                    nextbutton.style.display = "block";
+                    prevbutton.style.display = "block";
                 }
                 else {
                     topbutton.style.display = "none";
+                    nextbutton.style.display = "none";
+                    prevbutton.style.display = "none";
                 }
             }
 
-            //If user clicks on button, advance to top of document.
+            //If user clicks on 'top' button, advance to top of document.
             function toTop() {
                 document.body.scrollTop = 0;
                 document.documentElement.scrollTop = 0;
+            }
+
+            //If user clicks on 'next' button, advance to next page (environmental)
+            function toNext(){
+                window.location.href = "{{ route("environment") }}"
             }
 
             /*
