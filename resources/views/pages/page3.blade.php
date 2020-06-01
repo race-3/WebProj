@@ -271,21 +271,21 @@
                 element.classList.toggle("darkmode");
             }
 
-            function fade(){
+            function fade() {
                 var toFade = document.getElementById("footnote");
                 var updatebtn = document.getElementById("footnotebtn");
                 //var updateText = document.getElementById("btnText")
-                if (toFade.classList.contains("hide")){
+                if (toFade.classList.contains("hide")) {
                     document.getElementById("btnText").innerHTML = "Hide Footnote";
                     updatebtn.style.transform = "rotate(-135deg)";
                     toFade.classList.remove("hide");
-                }
-                else {
+                } else {
                     document.getElementById("btnText").innerHTML = "Show Footnote";
                     updatebtn.style.transform = "rotate(45deg)";
                     toFade.classList.add("hide");
                 }
             }
+        </script>
 
         </script>
         </body>
