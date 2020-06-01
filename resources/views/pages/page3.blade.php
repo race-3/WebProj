@@ -202,6 +202,7 @@
                 </div>
             </div>
 
+            <br>
             <div class="row">
                 <div class="col-md-12">
                     <h4 id="sectionTitle">Coronavirus Employment Effects</h4>
@@ -266,6 +267,7 @@
                 </div>
             </div>
 
+            <br>
             <div class="row">
                 <div class="col-md-12">
                     <h4 id="sectionTitle">Coronavirus Government Spending Effects</h4>
@@ -315,6 +317,7 @@
                 </div>
             </div>
 
+            <br>
             <div class="row">
                 <div class="col-md-12">
                     <h4 id="sectionTitle">Coronavirus Consumer Related Effects</h4>
