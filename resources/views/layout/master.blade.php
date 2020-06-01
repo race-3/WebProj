@@ -15,10 +15,15 @@
     #title {
         font-size: x-large;
     }
+
+    #nav-item-btn {
+        position: absolute;
+        float: right;
+    }
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{{ route("home") }}" id="title">Covid-19 Stats</a>
+    <a class="nav-link" href="{{ route("home") }}" id="title">Covid-19 Stats</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -26,16 +31,61 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <li class="{{ Request::is('environment') ? 'active' : '' }}"><a class="nav-link" href="{{ route("environment") }}">Environmental Effects</a></li>
+                <li class="{{ Request::is('environment') ? 'active' : '' }}"><a class="nav-link" id="p1" href="{{ route("environment") }}">Environmental Effects</a></li>
             </li>
             <li class="nav-item">
-                <li class="{{ Request::is('page2') ? 'active' : '' }}"><a class="nav-link" href="{{ route("page2") }}">Stock Market Effects</a></li>
+                <li class="{{ Request::is('page2') ? 'active' : '' }}"><a class="nav-link" id="p2" href="{{ route("page2") }}">Stock Market Effects</a></li>
             </li>
             <li class="nav-item">
-                <li class="{{ Request::is('page3') ? 'active' : '' }}"><a class="nav-link" href="{{ route("page3") }}">Economic Effects</a></li>
+                <li class="{{ Request::is('page3') ? 'active' : '' }}"><a class="nav-link" id="p3" href="{{ route("page3") }}">Economic Effects</a></li>
+            </li>
+            <li class="nav-item-btn">
+                <!-- <button onclick="location.href = '{{route("page3")}}'" id="myButton" class="float-left submit-button" >Home</button>
+                    <button onclick="location.href = '{{route("page3")}}'" id="myButton" class="float-left submit-button" >Home</button>
+                -->
             </li>
         </ul>
     </div>
+
+    <script>
+        function advanceLeft() {
+            current = document.getElementsByClassName("nav-item");
+            if(current.length) {
+                window.location.href = "{{route("page2")}}";
+            }
+            else {
+                current = document.getElementsByClassName("nav-item");
+                if (current.length) {
+                    window.location.href = "{{route("page3")}}";
+                } else {
+                    current = document.getElementsByClassName("nav-item");
+                    if (current.length) {
+                        window.location.href = "{{route("page1")}}";
+                    }
+                }
+            }
+        }
+
+        function advanceRight() {
+            current = document.getElementsByClassName("nav-item");
+            if(current.length) {
+                window.location.href = "{{route("page3")}}";
+            }
+            else {
+                current = document.getElementsByClassName("nav-item");
+                if (current.length) {
+                    window.location.href = "{{route("page1")}}";
+                } else {
+                    current = document.getElementsByClassName("nav-item");
+                    if (current.length) {
+                        window.location.href = "{{route("page2")}}";
+                    }
+                }
+            }
+        }
+
+
+    </script>
 </nav>
 
 @yield('content')
