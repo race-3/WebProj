@@ -193,7 +193,21 @@
                 padding: 15px;
             }
 
-            #topbtn:hover, #prevbtn:hover, #nextbtn:hover {
+            #homebtn {
+                position: fixed;
+                bottom: 20px;
+                right: 300px;
+                z-index: 2;
+                font-size: 20px;
+                background-color: darkturquoise;
+                color: black;
+                padding: 15px;
+            }
+
+            #topbtn:hover,
+            #prevbtn:hover,
+            #nextbtn:hover,
+            #homebtn:hover {
                 background-color: darkcyan;
             }
 
@@ -211,8 +225,8 @@
 
         <button onclick="toTop()" id="topbtn">Top</button>
         <button onclick="toNext()" id="nextbtn">Next</button>
-        <button onclick="toPrev()" id="prevbtn">Previous</button>
-        <button onclick="toHome()" id="prevbtn">Home</button>
+        <button onclick="toPrev()" id="prevbtn">Prev</button>
+        <button onclick="toHome()" id="homebtn">Home</button>
 
         <hr color="darkgray">
         <div class="container-fluid" id="mainContainer">
@@ -486,15 +500,18 @@
                 var topbutton = document.getElementById("topbtn");
                 var nextbutton = document.getElementById("nextbtn");
                 var prevbutton = document.getElementById("prevbtn");
+                var homebutton = document.getElementById("homebtn");
                 if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                     topbutton.style.display = "block";
                     nextbutton.style.display = "block";
                     prevbutton.style.display = "block";
+                    homebutton.style.display = "block";
                 }
                 else {
                     topbutton.style.display = "none";
                     nextbutton.style.display = "none";
                     prevbutton.style.display = "none";
+                    homebutton.style.display = "none";
                 }
             }
 
@@ -505,8 +522,18 @@
             }
 
             //If user clicks on 'next' button, advance to next page (environmental)
-            function toNext(){
+            function toNext() {
                 window.location.href = "{{ route("environment") }}"
+            }
+
+            //If user clicks on 'prev' button, advance to previous page (stock market)
+            function toPrev() {
+                window.location.href = "{{ route("page2") }}"
+            }
+
+            //If user clicks on 'home' button, advance to home page
+            function toHome(){
+                window.location.href = "{{ route("home") }}"
             }
 
             /*
