@@ -451,7 +451,6 @@
             //If the user scrolls past a certain point, display the button
             window.onscroll = function() {
                 scroll();
-                myFunction();
             };
 
             //If the user scrolls past a certain point, display the button
@@ -471,7 +470,44 @@
                 document.documentElement.scrollTop = 0;
             }
 
-        </script>
+
+            function advanceLeft() {
+                current = document.getElementsByClassName("nav-item");
+                if(current.length) {
+                    window.location.href = "{{route("page2")}}";
+                }
+                else {
+                    current = document.getElementsByClassName("nav-item");
+                    if (current.length) {
+                        window.location.href = "{{route("page3")}}";
+                    }
+                    else {
+                        current = document.getElementsByClassName("nav-item");
+                        if (current.length) {
+                            window.location.href = "{{route("page1")}}";
+                        }
+                    }
+                }
+            }
+
+            function advanceRight() {
+                current = document.getElementsByClassName("nav-item");
+                if(current.length) {
+                    window.location.href = "{{route("page3")}}";
+                }
+                else {
+                    current = document.getElementsByClassName("nav-item");
+                    if (current.length) {
+                        window.location.href = "{{route("page1")}}";
+                    }
+                    else {
+                        current = document.getElementsByClassName("nav-item");
+                        if (current.length) {
+                            window.location.href = "{{route("page2")}}";
+                        }
+                    }
+                }
+            }
 
         </script>
         </body>
