@@ -169,6 +169,7 @@
                 background-color: darkturquoise;
                 color: black;
                 padding: 15px;
+                transition: 0.3s;
             }
 
             #nextbtn {
@@ -180,6 +181,7 @@
                 background-color: darkturquoise;
                 color: black;
                 padding: 15px;
+                transition: 0.3s;
             }
 
             #prevbtn {
@@ -191,6 +193,7 @@
                 background-color: darkturquoise;
                 color: black;
                 padding: 15px;
+                transition: 0.3s;
             }
 
             #homebtn {
@@ -202,6 +205,7 @@
                 background-color: darkturquoise;
                 color: black;
                 padding: 15px;
+                transition: 0.3s;
             }
 
             #topbtn:hover,
