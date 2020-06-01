@@ -38,7 +38,7 @@
                 padding-top: 10px;
                 padding-bottom: 5px;
                 font-weight: 700;
-                color: darkgray;
+                color: gray();
             }
 
             #switchText {
@@ -159,6 +159,26 @@
                 -webkit-transform: rotate(-135deg);
             }
 
+            #topbtn {
+                display: none;
+                position: fixed;
+                bottom: 20px;
+                right: 30px;
+                z-index: 99;
+                font-size: 20px;
+                border: none;
+                outline: none;
+                background-color: darkturquoise;
+                color: black;
+                cursor: pointer;
+                padding: 15px;
+                border-radius: 4px;
+            }
+
+            #topbtn:hover {
+                background-color: darkcyan;
+            }
+
         </style>
     </head>
 
@@ -170,6 +190,9 @@
             <span class="slider round"></span>
         </label>
         </h4>
+
+        <button onclick="toTop()" id="topbtn">Top</button>
+
         <hr color="darkgray">
         <div class="container-fluid" id="mainContainer">
             <div class="row">
@@ -402,15 +425,18 @@
                 </div>
             </div>
 
-
         </div>
 
         <script>
-            function darkmode(){
+            //Javascript code. Miscellaneous effect functions.
+
+            //Activate dark mode!
+            function darkmode() {
                 var element = document.body;
                 element.classList.toggle("darkmode");
             }
 
+            //Hide subtitles and fade text
             function fade() {
                 var toFade = document.getElementById("footnote");
                 var updatebtn = document.getElementById("footnotebtn");
@@ -425,6 +451,29 @@
                     toFade.classList.add("hide");
                 }
             }
+
+            //Scroll to top of page button instantly
+            var topbutton = document.getElementById("topbtn");
+
+            //If the user scrolls past a certain point, display the button
+            window.onscroll = function() { scroll() };
+
+            //If the user scrolls past a certain point, display the button
+            function scroll() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    topbutton.style.display = "block";
+                }
+                else {
+                    topbutton.style.display = "none";
+                }
+            }
+
+            //If user clicks on button, advance to top of document.
+            function toTop() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+
         </script>
 
         </script>
