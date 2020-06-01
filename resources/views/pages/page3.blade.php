@@ -176,14 +176,18 @@
                 <div class="col-md-12">
                     <div id="item1">
                         <h3>About this Data</h3>
-                        <p>This data uses charts that gather data from between X years to present. As such, not all of it is relevant to the ongoing coronavirus pandemic. To distinguish between relevant and irrelevant data, the information and any analysis of the data will be listed as such:</p>
+                        <p>This data uses charts that gather data from between 1 - 3 years to present. As such, not all of it is relevant to the ongoing coronavirus pandemic. To distinguish between relevant and irrelevant data, the information and any analysis of the data will be listed as such:</p>
                         <p><b>Pre-Coronavirus</b>: Anything prior to January 2020, when the first case was confirmed in the United States</p>
                         <p><b>During the pandemic</b>: Anything from January 2020 onward</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <h4 id="sectionTitle">Coronavirus Employment Effects</h4>
+                <div class="col-md-12">
+                    <h4 id="sectionTitle">Coronavirus Employment Effects</h4>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-4">
                     <div id="item2">
                         <h4 id="headerTitle">US Unemployment Rate, April 2019 - April 2020</h4>
@@ -214,7 +218,7 @@
                         <button class="button" id="footnotebtn" onclick="fade()"></button>
                         <span id="btnText">Hide Footnote</span>
 
-                        <br><h4 id="footnote">Before the pandemic, wages were growing between 4 and 5 percent consistently per month, estimated. While the growth has been gradually decreasing, the jump between Fedbruary and March, after the pandemic,
+                        <br><h4 id="footnote">Before the pandemic, wages were growing between 4 and 5 percent consistently per month, estimated. While the growth has been gradually decreasing, the jump between February and March, after the pandemic,
                             is over 4 percent. Wages shrank for the first time for the first time since the Great Recession in 2008.</h4>
                     </div>
                 </div>
@@ -223,7 +227,7 @@
                          <h4 id="headerTitle">US Initial Jobless Claims, January 2020 - April 2020 (in thousands of claims)</h4>
                          <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=ijcusa&v=202005211247V20191105&d1=20200101&d2=20200521&h=300&w=600' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
                          <br />
-                         
+
                          <h4 id="subtitle">Average Change Per Week</h4>
                          <p><b>Pre-Coronavirus (Average)</b>: 210,000</p>
                          <p><b>During the pandemic (average)</b>: 2,046,000</p>
