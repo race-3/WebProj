@@ -32,6 +32,10 @@
   <script type="text/javascript">
     var dataPoints = [];
     var chart;
+    var stockName;
+    var theStock;
+    var curDate = Math.round((new Date()).getTime() / 1000);
+    var times = [1577865651,1580603364 ,1583108964,1585783779,1588375764,1591054179 ];
     $(function() {
       $('#datetimepicker1').datetimepicker();
       $('#datetimepicker2').datetimepicker();
@@ -39,15 +43,13 @@
         animationEnabled: true,
         theme: "light2", // "light1", "light2", "dark1", "dark2"
         exportEnabled: true,
-        title: {
-          text: "6"
-        },
+        title: stockName,
         subtitles: [{
-          text: "Weekly Averages"
+          text: ""
         }],
         axisX: {
           interval: 1,
-          valueFormatString: "MMM"
+          valueFormatString: "MMM DD HH:00"
         },
         axisY: {
           includeZero: false,
@@ -63,41 +65,52 @@
           dataPoints: dataPoints
         }]
       });
-    });
+      $('#sym').val("AAPL");
+      loadStock(times[0] ,curDate,$('#sym').val()).then(function(){loadCandle(theStock);});
+
+    }); // end of 
 
     function getUnixDate() {
       var date1 = $('#datetimepicker1').data("DateTimePicker").date();
       var date2 = $('#datetimepicker2').data("DateTimePicker").date();
+      var sym = $('#sym').val();
+      console.log(date1,date2);
+      console.log(sym);
       if( date1 && date2 ){
         date1 = date1.unix();
         date2 = date2.unix();
         if (date2 > date1){
-          loadStock(date1,date2);
+          loadStock(date1,date2,sym).then(function(){loadCandle(theStock);});
         }else{
           alert("Second date has to be after the first.");
         }
       }
     }
 
-    function loadStock(start, end){
-      var data = $.getJSON("https://finnhub.io/api/v1/stock/candle?symbol=AAPL&resolution=1&from="+start+"&to="+end+"&token={{$api_key}}", function(dat){
-          loadCandle(dat);
-      });
+    function loadStock(start, end, sym){
+      console.log(start,end,sym);
+      var data = $.getJSON("https://finnhub.io/api/v1/stock/candle?symbol="+sym.toUpperCase()+"&resolution=1&from="+start+"&to="+end+"&token={{$api_key}}",function(dat){setStock(dat)});
+      return data;
     }
 
-    
+    function getTick(sym){
+      var test;
+      loadStock(times[0],times[-1],sym).then(function(){test = theStock;});
+      return test;
+    }
+
+    function setStock(data){
+      theStock = data;
+    }
 
     function loadCandle(data) {
-      //dataPoints = [];
+      dataPoints.length = 0;
       console.log(data);
       if (data['s'] == "ok") {
         for (var i = 0; i < data['c'].length; i++) {
           dataPoints.push({
-            x: new Date(//var date = new Date(unix_timestamp * 1000);
+            x: new Date(
                 data['t'][i] * 1000
-              // parseInt(points[0].split("-")[0]),
-              // parseInt(points[0].split("-")[1]),
-              // parseInt(points[0].split("-")[2])
             ),
             y: [
               parseFloat(data['o'][i]),
@@ -107,6 +120,8 @@
             ]
           });
         }
+      }else{
+        console.log("error");
       }
       chart.render();
     }
@@ -117,48 +132,85 @@
       <div class="row">
         <div class="col-6 col-lg-3">.col-6 .col-sm-3
         </div>
-        <div class="col-6 col-lg-3">.col-6 .col-sm-3
+        <div class="col-6 col-lg-3">
+          <table class="table table-sm table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Stock</th>
+                <th scope="col">Jan</th>
+                <th scope="col">Mar</th>
+                <th scope="col">Now</th>
+              </tr>
+            </thead>
+            <tbody id="stockRankBody">
+              <!-- <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr> -->
+            </tbody>
+          </table>
         </div>
 
   <!-- Force next columns to break to new line -->
         <div class="w-100">
           <br>
         </div>
-
         <div class="col-6 col-lg-3">
-          <div class="container">
-            <div class="row">
-              <div class='col-sm-6'>
-                <div class="form-group">
-                  <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+          <form  onsubmit="getUnixDate();return false">
+            <div class="container">
+              <div class="row">
+                <div class='col-sm-6'>
+                  <div class="form-group">
+                    <input type="text" name="symbol" id="sym" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class='col-sm-6'>
+                  <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                      <input type='text' class="form-control" name="datetimepicker1" id='datetimepicker1box'/>
+                      <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class='col-sm-6'>
+                  <div class="form-group">
+                    <div class='input-group date' id='datetimepicker2'>
+                      <input type='text' class="form-control" name="datetimepicker2" id='datetimepicker2box'/>
+                      <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="container">
-            <div class="row">
-              <div class='col-sm-6'>
-                <div class="form-group">
-                  <div class='input-group date' id='datetimepicker2'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <br>
-        <input type="button" name="submit" value="Submit" onclick="getUnixDate();return false">
+          <br>
+          <input type="submit" name="submit" value="Submit">
+        </form>
         <div class="col-6 col-lg-3">
-          <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+          <div id="chartContainer" style="height: 370px; width: 700px;"></div>
         </div>
       </div>
     </body>
