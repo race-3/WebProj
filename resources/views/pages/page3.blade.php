@@ -182,11 +182,13 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-12">
                     <h4 id="sectionTitle">Coronavirus Employment Effects</h4>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-4">
                     <div id="item2">
@@ -222,8 +224,8 @@
                             is over 4 percent. Wages shrank for the first time for the first time since the Great Recession in 2008.</h4>
                     </div>
                 </div>
-                <div class="col-md-4"
-                     <div id="item3">
+                <div class="col-md-4">
+                     <div id="item4">
                          <h4 id="headerTitle">US Initial Jobless Claims, January 2020 - April 2020 (in thousands of claims)</h4>
                          <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=ijcusa&v=202005211247V20191105&d1=20200101&d2=20200521&h=300&w=600' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
                          <br />
@@ -242,24 +244,82 @@
                             over the course of the last 2 months, it is still very high and could go up further if there is a second wave. Whether everyone who lost their job will get it back wgen the pandemic is over is something that still
                             remains to be seen.</h4>
                      </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 id="sectionTitle">Coronavirus Government Spending Effects</h4>
+                </div>
             </div>
 
             <div class="row">
                 <div class="col-md-4">
                     <div id="item5">
-                        <h4 id="headerTitle">nationL DEBT</h4>
-
+                        <h4 id="headerTitle">US National Debt (in millions of dollars)</h4>
                         <iframe src='https://tradingeconomics.com/embed/?s=unitedstagovdeb&v=202005091013v20191105&h=300&w=600&ref=/united-states/government-debt' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
                         <br />
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <br><h4 id="footnote">The CARES Act, signed by Congress on March 25th and by the President on March 27th, was an almost $2 trillion dollar spending package that added a significant amount to the national debt between the months
+                                of March and April. The US National Debt exceeded $25 trillion in May.</h4>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div id="item4">
+                    <div id="item6">
+                        <h4 id="headerTitle">US Government Debt to GDP (Percent)</h4>
+                        <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=usadebt2gdp&v=202002101806V20191105&d1=20100604&h=300&w=600' height='300' width='600'  frameborder='0' scrolling='no'></iframe><br />
+                        <br />
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <br><h4 id="footnote">While the coronavirus hasn't had the biggest impact on the debt to GDP ratio, it has been steadily rising over the course of the past decade, reaching a high not seen before since the Great Depression.
+                                While we are still experiencing the effects of the coronavirus and with discussion of another possible spending package, it is possible that we might get close to exceeding the all time high of 118.9%, as the
+                                coronavirus has not only increased government debt, but has also shrank the economy.</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="item6">
+                        <h4 id="headerTitle">US Government Spending (in billions of dollars)</h4>
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstagovspe&v=202006011208v20191105&h=300&w=600&ref=/united-states/government-spending' height='300' width='600'  frameborder='0' scrolling='no'></iframe><br />
+                        <br />
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <br><h4 id="footnote">US Government spending has increased significantly higher after the Republicans passed the Tax Cuts bill in 2018, but the coronavirus pandemic has also added a $2.4 trillion spending package on top of
+                                any spending package that Congress passed previously.</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 id="sectionTitle">Coronavirus Consumer Related Effects</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="item7">
                         <h4 id="headerTitle">US Consumer Spending, January 2017 - April 2020 (in millions of dollars)</h4>
                         <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=unitedstaconspe&v=202004291429V20191105&type=type=line&h=300&w=600' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
                         <br />
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
                         <h4 id="footnote">Consumer spending (both for essential goods and non essential goods) makes up 70% of the US economy (Per Marketplace). It is often a good indicator of how the economy is expected to grow. It has been rising
                             consistently the last few years, but up to January of this year, it takes a sharp downturn. This is related to the unemployment rate - people are not getting paid, so they can't spend money. </h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="item8">
+                        <h4 id="headerTitle">Gas Prices (in cents per liter)</h4>
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstgaspri&v=202005272252v20191105&h=300&w=600&ref=/united-states/gasoline-prices' height='300' width='600'  frameborder='0' scrolling='no'></iframe><br />
                     </div>
                 </div>
             </div>
