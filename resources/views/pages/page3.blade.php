@@ -470,21 +470,21 @@
                 document.documentElement.scrollTop = 0;
             }
 
-
+            /*
             function advanceLeft() {
                 current = document.getElementsByClassName("nav-item");
                 if(current.length) {
-                    window.location.href = "{{route("page2")}}";
+                    window.location.href = "route("page2")";
                 }
                 else {
                     current = document.getElementsByClassName("nav-item");
                     if (current.length) {
-                        window.location.href = "{{route("page3")}}";
+                        window.location.href = "route("page3")";
                     }
                     else {
                         current = document.getElementsByClassName("nav-item");
                         if (current.length) {
-                            window.location.href = "{{route("page1")}}";
+                            window.location.href = "route("page1")";
                         }
                     }
                 }
@@ -493,22 +493,22 @@
             function advanceRight() {
                 current = document.getElementsByClassName("nav-item");
                 if(current.length) {
-                    window.location.href = "{{route("page3")}}";
+                    window.location.href = "route("page3")";
                 }
                 else {
                     current = document.getElementsByClassName("nav-item");
                     if (current.length) {
-                        window.location.href = "{{route("page1")}}";
+                        window.location.href = "route("page1")";
                     }
                     else {
                         current = document.getElementsByClassName("nav-item");
                         if (current.length) {
-                            window.location.href = "{{route("page2")}}";
+                            window.location.href = "route("page2")";
                         }
                     }
                 }
             }
-
+            */
         </script>
         </body>
 </html>
