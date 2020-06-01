@@ -353,6 +353,7 @@
                     <div id="item10">
                         <h4 id="headerTitle">US Consumer Spending Growth, April 2019 - April 2020 (Percent)</h4>
                         <iframe src='https://tradingeconomics.com/embed/?s=unitedstaperspe&v=202005291252v20191105&h=300&w=600&ref=/united-states/personal-spending' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <br />
 
                         <h4 id="subtitle">Average Change</h4>
                         <p><b>Pre-Coronavirus</b>: +.34%</p>
@@ -366,6 +367,42 @@
                             slightly, but a second wave and quarantine could still prevent growth in consumer spending</h4>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div id="item11">
+                        <h4 id="headerTitle">US Retail Sales Growth, April 2019 - April 2020 (Percent)</h4>
+                        <iframe src='https://tradingeconomics.com/embed/?s=usaretailsalesyoy&v=202005151251v20191105&h=300&w=600&ref=/united-states/retail-sales-annual' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <br />
+
+                        <h4 id="subtitle">Average Change</h4>
+                        <p><b>Pre-Coronavirus</b>: +3.84%</p>
+                        <p><b>During the pandemic</b>: -4.475%</p>
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <h4 id="footnote">Despite online shopping taking over significant sales from retail, it has been growing consistently prior to the coronavirus pandemic, which lead to malls shutting down and stores only allowing limited numbers of people
+                            into stores at the same time to prevent the spread. The single largest drop, 21.6% between March and April, is the single largest month to month drop since the data was first taken back in 1990.</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="item12">
+                        <h4 id="headerTitle">US Housing Value Growth, April 2019 - April 2020 (Percent)</h4>
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstahouind&v=202005261310v20191105&h=300&w=600&ref=/united-states/housing-index' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <br />
+
+                        <h4 id="subtitle">Average Change</h4>
+                        <p><b>Pre-Coronavirus</b>: +.475%</p>
+                        <p><b>During the pandemic</b>: +.43%</p>
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+                        <h4 id="footnote">The coronavirus has not had as large of an impact on home value. This could be due to the drop in mortgate interest percent - as that drops, more people are inclined to take out a loan and buy a house. However, the rate of
+                            growth did drop to its lowest percent over the course of the last year, which could be signs of slowdown or decline.</h4>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
 
         <script>
