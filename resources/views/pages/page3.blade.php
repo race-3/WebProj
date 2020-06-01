@@ -83,6 +83,7 @@
                 -moz-box-shadow: 0 8px 6px -6px black;
                 box-shadow: 0 8px 6px -6px black;
                 margin-top: 20px;
+                transition: 0.5s;
             }
 
             [id*='item']:hover {
@@ -169,7 +170,7 @@
                 background-color: darkturquoise;
                 color: black;
                 padding: 15px;
-                transition: 0.3s;
+                transition: 0.5s;
             }
 
             #nextbtn {
@@ -181,7 +182,7 @@
                 background-color: darkturquoise;
                 color: black;
                 padding: 15px;
-                transition: 0.3s;
+                transition: 0.5s;
             }
 
             #prevbtn {
@@ -193,7 +194,7 @@
                 background-color: darkturquoise;
                 color: black;
                 padding: 15px;
-                transition: 0.3s;
+                transition: 0.5s;
             }
 
             #homebtn {
@@ -205,7 +206,7 @@
                 background-color: darkturquoise;
                 color: black;
                 padding: 15px;
-                transition: 0.3s;
+                transition: 0.5s;
             }
 
             #topbtn:hover,
@@ -226,6 +227,18 @@
             <span class="slider round"></span>
         </label>
         </h4>
+
+        <div>
+        <p>
+            <a href="#COVIDEmployment"><b>Coronavirus Employment Data</b></a>
+        </p>
+        <p>
+            <a href="#COVIDGovSP"><b>Coronavirus Government Spending</b></a>
+        </p>
+        <p>
+            <a href="#COVIDConsumerRE"><b>Coronavirus Consumer Effects</b></a>
+        </p>
+        </div>
 
         <button onclick="toTop()" id="topbtn">Top</button>
         <button onclick="toNext()" id="nextbtn">Next</button>
@@ -248,7 +261,7 @@
             <br>
             <div class="row">
                 <div class="col-md-12">
-                    <h4 id="sectionTitle">Coronavirus Employment Effects</h4>
+                    <a id="sectionTitle" name="COVIDEmployment">Coronavirus Employment Effects</a>
                 </div>
             </div>
 
@@ -313,7 +326,7 @@
             <br>
             <div class="row">
                 <div class="col-md-12">
-                    <h4 id="sectionTitle">Coronavirus Government Spending Effects</h4>
+                    <a id="sectionTitle" name="COVIDGovSP">Coronavirus Government Spending Effects</a>
                 </div>
             </div>
 
@@ -363,7 +376,7 @@
             <br>
             <div class="row">
                 <div class="col-md-12">
-                    <h4 id="sectionTitle">Coronavirus Consumer Related Effects</h4>
+                    <a id="sectionTitle" name="COVIDConsumerRE">Coronavirus Consumer Related Effects</a>
                 </div>
             </div>
 
