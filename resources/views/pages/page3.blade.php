@@ -319,10 +319,53 @@
                 <div class="col-md-4">
                     <div id="item8">
                         <h4 id="headerTitle">Gas Prices (in cents per liter)</h4>
-                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstgaspri&v=202005272252v20191105&h=300&w=600&ref=/united-states/gasoline-prices' height='300' width='600'  frameborder='0' scrolling='no'></iframe><br />
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstgaspri&v=202005272252v20191105&h=300&w=600&ref=/united-states/gasoline-prices' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <br />
+
+                        <h4 id="subtitle">Average Cost per Liter (4 liters = 1 gallon)</h4>
+                        <p><b>Pre-Coronavirus</b>: 69 cents per liter</p>
+                        <p><b>During the pandemic</b>: 58 cents per liter</p>
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <br><h4 id="footnote">Travel being limited meant that gas prices were inevitably going to go down. The pollution maps show just how much emissions have reduced during the pandemic, and gas prices have also followed accordingly.
+                                While some of this is to blame on the Russia-Saudi Arabia oil dispute, the coronavirus tanking the oil market is what lead to the sharp drop in prices. The price of oil per barrel fell to a low of -$35 </h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="item9">
+                        <h4 id="headerTitle">US 30-Year Mortgage Interest Rate (Percent)</h4>
+                        <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=unitedstamorrat&v=202005271133V20191105&d1=20190602&h=300&w=600' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <br />
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <br><h4 id="footnote">The 30 year mortgage yield hit its all time low on May 6th (3.4%). While the rate has been dropping steadily, primarily due to uncertainty over an impending recession, the rate dropped significantly after the
+                                coronavirus became more of an issue in the US. There was a temporary spike in March, but it later declined back to its level around 3.4 - 3.6%. Should we officially enter a recession, it is likely that the rate will drop
+                                even further.</h4>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="item10">
+                        <h4 id="headerTitle">US Consumer Spending Growth, April 2019 - April 2020 (Percent)</h4>
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstaperspe&v=202005291252v20191105&h=300&w=600&ref=/united-states/personal-spending' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+
+                        <h4 id="subtitle">Average Change</h4>
+                        <p><b>Pre-Coronavirus</b>: +.34%</p>
+                        <p><b>During the pandemic</b>: -4.975%</p>
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <h4 id="footnote">US consumer spending has been rising steadily as the economy grew consistently. Despite people spending more on food, cleaning supplies, and other essentials, entertainment, travel, and non essential spending
+                            dropped significantly after quarantines were in order across the country. The largest growth was between March and April, where it dropped over 13% compared to the previous month. As states starts to open, this could improve
+                            slightly, but a second wave and quarantine could still prevent growth in consumer spending</h4>
+                    </div>
+                </div>
         </div>
 
         <script>
