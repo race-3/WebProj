@@ -72,6 +72,7 @@
             #mainContainer {
                 margin-left: 50px;
                 margin-right: 50px;
+                top: 100px;
             }
 
             [id*='item'] {
@@ -160,19 +161,14 @@
             }
 
             #topbtn {
-                display: none;
                 position: fixed;
                 bottom: 20px;
                 right: 30px;
                 z-index: 99;
                 font-size: 20px;
-                border: none;
-                outline: none;
                 background-color: darkturquoise;
                 color: black;
-                cursor: pointer;
                 padding: 15px;
-                border-radius: 4px;
             }
 
             #topbtn:hover {
@@ -452,14 +448,15 @@
                 }
             }
 
-            //Scroll to top of page button instantly
-            var topbutton = document.getElementById("topbtn");
-
             //If the user scrolls past a certain point, display the button
-            window.onscroll = function() { scroll() };
+            window.onscroll = function() {
+                scroll();
+                myFunction();
+            };
 
             //If the user scrolls past a certain point, display the button
             function scroll() {
+                var topbutton = document.getElementById("topbtn");
                 if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                     topbutton.style.display = "block";
                 }
