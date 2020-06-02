@@ -283,9 +283,11 @@
             .sections {
                 display: none;
                 position: absolute;
-                background-color: #999999;
+                background-color: #F1F1F1;
                 z-index: 2;
                 min-width: 300px;
+                opacity: 1;
+                transform: 0.5s;
             }
 
             .sections a {
@@ -295,12 +297,13 @@
             }
 
             .sections a:hover {
-                background-color: #999999;
+                background-color: #F1F1F1;
             }
 
             .jumpToMenu:hover
             .sections {
                 display: block;
+                background-color: #999999;
             }
 
             .jumpToMenu:hover
