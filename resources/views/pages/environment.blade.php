@@ -174,9 +174,15 @@
         </div>
         <div class="col-md-3">
             <div id="item5">
-                <h3>Stuff</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                <h4 class="cardTitle">Various identified impacts</h4>
+                <ul>
+                    <li>Air quality</li>
+                    <li>Water quality</li>
+                    <li>Wildlife impacts</li>
+                    <li>Deforestation</li>
+                    <li>Carbon emissions</li>
+                    <li>Food production</li>
+                </ul>
             </div>
         </div>
     </div>
