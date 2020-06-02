@@ -90,6 +90,16 @@
                 background-color: #999999;
             }
 
+            /*
+            a {
+                text-align: center;
+                padding-top: 10px;
+                padding-bottom: 5px;
+                font-weight: 700;
+                color: gray();
+            }
+            */
+
             .switch {
                 position: relative;
                 display: inline-block;
@@ -216,6 +226,11 @@
                 background-color: darkcyan;
             }
 
+            #jumpTo {
+                text-align: center;
+                align-content: center;
+            }
+
         </style>
     </head>
 
@@ -228,16 +243,13 @@
         </label>
         </h4>
 
-        <div>
-        <p>
+        <div id="jumpTo">
+            <h5>Jump to: </h5>
             <a href="#COVIDEmployment"><b>Coronavirus Employment Data</b></a>
-        </p>
-        <p>
+            <br>
             <a href="#COVIDGovSP"><b>Coronavirus Government Spending</b></a>
-        </p>
-        <p>
+            <br>
             <a href="#COVIDConsumerRE"><b>Coronavirus Consumer Effects</b></a>
-        </p>
         </div>
 
         <button onclick="toTop()" id="topbtn">Top</button>
