@@ -31,22 +31,39 @@
               background: #111;
             }
             .card-title{
-              color: #111;
+              color: blue;
               font-family: 'Helvetica Neue', sans-serif;
-              font-size: 16px;
-              font-weight: bold;
+              font-size: 12px;
+              font-weight: 900;
               letter-spacing: -1px;
               line-height: 1;
-              text-align: center;
+              text-align: left;
             }
             .card-text{
-              color:blue;
+              color: #111; 
+              font-family: 'Lato', sans-serif; 
+              font-size: 4px; 
+              font-weight: 300; 
+              text-align: left;
             }
             .card{
               margin: 3px;
             }
-            #newsRows{
+            .card:hover{
+              margin-right: -1px;
+              margin-top: -1px;
+            }
+            .newsrow{
               margin-left: 20px;
+            }
+            .carousel-control-next{
+              right:-30px;
+            }
+            .carousel-control-prev{
+              left:-35px;
+            }
+            input[type="submit"]{
+              color: blue;
             }
         </style>
 
@@ -55,6 +72,7 @@
     var chart;
     var stockName;
     var theStock;
+    var newsCount = 0;
     var curDate = Math.round((new Date()).getTime() / 1000);
     var times = [1577865651,1580603364 ,1583108964,1585783779,1588375764,1591054179]; //by month
     var someStocks =[["Apple","AAPL"],["Ford","F"],["Disney","DIS"],["American Airlines","AAL"],["Microsoft","MSFT"],["Bank of America","BAC"],["Tesla","TSLA"],["Uber","UBER"],["Starbucks","SBUX"],["AT&T","T"]];
@@ -94,10 +112,11 @@
       // for (var i = someStocks.length - 1; i >= 0; i--) {
       //   loadRanking(i);
       // }
+
+      //getLastestNews();
       for (var i = someStocks.length - 1; i >= 0; i--) {
-        getCompanyNews(i);  
+        //getCompanyNews(i);  
       }
-      getLastestNews();//.then(function(){console.log(theStock);});
     }); // end of 
 
     function getUnixDate() {
@@ -171,7 +190,6 @@
     function getLastestNews (){
       var data = $.getJSON("https://finnhub.io/api/v1/news?category=general&token={{$api_key}}",
         function(dat){
-          console.log(dat);
           generateNewsCard(dat);
         }
       );
@@ -180,24 +198,33 @@
 
     function generateNewsCard(data){
       var headline, summary;
-      $('#news').append("<div id='newsRows' class='row'>");
+      var page = Math.floor(newsCount/9);
       for (var i = 0; i < data.length; i++) {
+        while(page >= $(".carousel-item").length){
+          $(".carousel-inner").append("<div class='carousel-item'><div class='row newsrow'></div></div>");
+          $(".carousel-indicators").append("<li data-target='#carouselExampleIndicators' data-slide-to='"
+            +page
+            +"'></li>");
+        }
+
         headline = data[i]["headline"].toLowerCase();
         summary = data[i]["summary"].toLowerCase();
+
         if(headline.includes("corona") || headline.includes("covid") || summary.includes("corona") || summary.includes("covid")){
-          $('#newsRows').append("<div class='card' style='width: 18rem;'><img class='card-img-top' src="
+          $($('.newsrow')[page]).append("<div class='card' style='width: 18rem;'><img class='card-img-top' src="
             +data[i]["image"]
             +" alt='Card image cap'><div class='card-body'><h5 class='card-title'>"
-            +headline.slice(0,20)
+            +data[i]["headline"]
             +"</h5><p class='card-text'>"
-            +summary.slice(0,20)
-            +"</p><a href="
+            +data[i]["summary"].slice(0,100)
+            +"...</p><a href="
             +data[i]["url"]
             +" class='btn btn-primary'>View</a></div></div>"
-          ); 
+          );
+          newsCount++;
+          page = Math.floor(newsCount /9);
         }
       }
-      $('#news').append("</div>");
     }
 
     function setStock(data){
@@ -234,7 +261,26 @@
       <div class="row">
         <div class="col-lg-4 ">
           <div id="news">
-            
+            <h2></h2>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class='row newsrow'>
+                  </div>
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
           </div>
         </div>
         <div class="col-lg-4 ">
