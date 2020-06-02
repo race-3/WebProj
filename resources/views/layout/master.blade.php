@@ -56,7 +56,7 @@
     .corner{
         float: right;
         text-align: right;
-        display: block; 
+        display: block;
     }
     .counter{
         width: 50px;
@@ -139,6 +139,8 @@
                     <div class="counter extra">
                         <h2 class="timer count-title count-number" data-to="100" data-speed="1500">
                             <div class="title-text"></div>
+                            <!-- <i class="fa fa-medkit icon" aria-hidden="true"></i> -->
+                            <div class="count-text ">Location</div>
                         </h2>
                     </div>
                 </div>
@@ -149,7 +151,7 @@
                             <i class="fa fa-medkit icon" aria-hidden="true"></i>
                             <div class="count-text ">Cases</div>
                         </h2>
-                        
+
                     </div>
                 </div>
                 <div class="col less">
@@ -159,7 +161,7 @@
                             <i class="fas fa-skull-crossbones icon"></i>
                             <div class="count-text ">Deaths</div>
                         </h2>
-                        
+
                     </div>
                 </div>
                 <div class="col less">
