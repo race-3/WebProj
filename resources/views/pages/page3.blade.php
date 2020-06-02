@@ -237,6 +237,7 @@
     <body>
         <h3 id="title1">Economic Impacts of COVID-19</h3>
         <h4 id="title-footnote">Non-stock market related economic changes since the start of the coronavirus pandemic</h4>
+        
         <h4 id="switchText">Dark Mode  <label class="switch">
             <input type="checkbox" onclick="darkmode()">
             <span class="slider round"></span>
