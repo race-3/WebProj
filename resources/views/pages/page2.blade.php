@@ -35,7 +35,8 @@
     var stockName;
     var theStock;
     var curDate = Math.round((new Date()).getTime() / 1000);
-    var times = [1577865651,1580603364 ,1583108964,1585783779,1588375764,1591054179 ];
+    var times = [1577865651,1580603364 ,1583108964,1585783779,1588375764,1591054179];
+    var someStocks =["AAPL"];
     $(function() {
       $('#datetimepicker1').datetimepicker();
       $('#datetimepicker2').datetimepicker();
@@ -68,6 +69,9 @@
       $('#sym').val("AAPL");
       loadStock(times[0] ,curDate,$('#sym').val()).then(function(){loadCandle(theStock);});
 
+      for (var i = someStocks.length - 1; i >= 0; i--) {
+        loadRanking(i);
+      }
     }); // end of 
 
     function getUnixDate() {
@@ -93,10 +97,12 @@
       return data;
     }
 
-    function getTick(sym){
-      var test;
-      loadStock(times[0],times[-1],sym).then(function(){test = theStock;});
-      return test;
+    function loadRanking(i){
+          loadStock(times[0],times[1],someStocks[i]).then(value =>{
+          if (theStock['s'] == "ok") {
+            $('#stockRankBody').append("<tr><th scope='row'>"+someStocks[i]+"</th><td>Mark</td><td>Otto</td><td>@mdo</td></tr>");
+          }
+        });
     }
 
     function setStock(data){
@@ -136,6 +142,7 @@
           <table class="table table-sm table-dark">
             <thead>
               <tr>
+                <th scope="col">Name</th>
                 <th scope="col">Stock</th>
                 <th scope="col">Jan</th>
                 <th scope="col">Mar</th>
@@ -143,23 +150,6 @@
               </tr>
             </thead>
             <tbody id="stockRankBody">
-              <!-- <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr> -->
             </tbody>
           </table>
         </div>
@@ -184,7 +174,8 @@
                     <div class='input-group date' id='datetimepicker1'>
                       <input type='text' class="form-control" name="datetimepicker1" id='datetimepicker1box'/>
                       <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
+                        <span class="glyphicon glyphicon-calendar">
+                        </span>
                       </span>
                     </div>
                   </div>
