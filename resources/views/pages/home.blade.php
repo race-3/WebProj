@@ -41,6 +41,8 @@
             =lnms&tbm=nws&sa=X&ved=2ahUKEwigqvbvzcXpAhWJpZ4KHbdzDbIQ_AUoAXoECCIQAw&biw=1707&bih=838&dpr=1.13">News Updates</a>
         <br><a href="https://sharedsystems.dhsoha.state.or.us/DHSForms/Served/le2279a.pdf">Information on Testing (Local)</a>
         <br><a href="https://www.google.com/maps/search/coronavirus+testing/@45.4991224,-122.7832994,12z">Testing Sites in the Portland area</a>
+        <br><a href="https://www.google.com/search?q=coronavirus+vaccine&rlz=1C1SQJL_enUS790US790&source=lnms&tbm=
+            nws&sa=X&ved=2ahUKEwjCm_3N9ePpAhXI7Z4KHVX-BgQQ_AUoAXoECAwQAw&biw=1707&bih=838&dpr=1.13">Vaccine Updates</a>
         <br><a href="https://www.worldometers.info/coronavirus/">Statistics (Worldwide)</a>
         <br><a href="https://www.worldometers.info/coronavirus/country/us/">Statistics (USA)</a>
     </div>
