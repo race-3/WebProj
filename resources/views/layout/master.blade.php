@@ -55,14 +55,13 @@
     }
     .corner{
         float: right;
-        text-align: right;
         display: block;
     }
     .counter{
         width: 50px;
         max-width: 100px;
         color: white;
-
+        max-height: auto;
         margin: 0px;
     }
     .less{
