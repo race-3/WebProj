@@ -102,6 +102,11 @@
               width: 140px;
               margin: 0px 5px 10px 15px;
             }
+            @media only screen and (max-width: 650px) {
+              .card{
+                max-width: 150px;
+              }
+            }
         </style>
 
   <script type="text/javascript">
