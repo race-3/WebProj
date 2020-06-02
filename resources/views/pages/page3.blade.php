@@ -125,7 +125,7 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background-color: #ccc;
+                background-color: #F1F1F1;
                 -webkit-transition: .4s;
                 transition: .4s;
             }
@@ -237,6 +237,53 @@
                 font-size: 18px;
             }
 
+            .menubtn {
+                background-color: #DC143C;
+                color: lightgray;
+                padding: 15px;
+                border: none;
+                font-size: 15px;
+                font-weight: 700;
+                left: 45%;
+                margin-right: -55%;
+                display: inline-block;
+            }
+
+            .jumpToMenu {
+                position: relative;
+                display: inline-block;
+                left: 50%;
+                margin-right: -50%;
+            }
+
+            .sections {
+                display: none;
+                position: absolute;
+                background-color: #999999;
+                z-index: 2;
+                min-width: 300px;
+            }
+
+            .sections a {
+                color: black;
+                padding: 10px 15px;
+                display: block;
+            }
+
+            .sections a:hover {
+                background-color: #999999;
+            }
+
+            .jumpToMenu:hover
+            .sections {
+                display: block;
+            }
+
+            .jumpToMenu:hover
+            .menubtn {
+                background-color: #DC143C;
+            }
+
         </style>
     </head>
 
@@ -250,13 +297,22 @@
         </label>
         </h4>
 
-        <div id="jumpTo">
+        <!-- <div id="jumpTo">
             <h5>Jump to: </h5>
             <a href="#COVIDEmployment"><b>Coronavirus Employment Data</b></a>
             <br>
             <a href="#COVIDGovSP"><b>Coronavirus Government Spending</b></a>
             <br>
             <a href="#COVIDConsumerRE"><b>Coronavirus Consumer Effects</b></a>
+        </div> -->
+
+        <div class="jumpToMenu">
+            <button class="menubtn">Jump to:</button>
+            <div class="sections">
+                <a href="#COVIDEmployment"><b>Coronavirus Employment Data</b></a>
+                <a href="#COVIDGovSP"><b>Coronavirus Government Spending</b></a>
+                <a href="#COVIDConsumerRE"><b>Coronavirus Consumer Effects</b></a>
+            </div>
         </div>
 
         <button onclick="toTop()" id="topbtn">Top</button>
@@ -273,6 +329,11 @@
                         <p>This data uses charts that gather data from between 1 - 3 years to present. As such, not all of it is relevant to the ongoing coronavirus pandemic. To distinguish between relevant and irrelevant data, the information and any analysis of the data will be listed as such:</p>
                         <p><b>Pre-Coronavirus</b>: Anything prior to January 2020, when the first case was confirmed in the United States</p>
                         <p><b>During the pandemic</b>: Anything from January 2020 onward</p>
+                        <p>Subjects covered on this page include:</p>
+                        <p>1. Coronavirus effects on employment in the US. Jobs-related numbers</p>
+                        <p>2. Coronavirus effects on government spending and national debt</p>
+                        <p>3. Coronavirus effects on the consumer, including spending and interest rates</p>
+                        <p>Go to the <b>Jump To</b> button above to jump ahead to a particular section.</p>
                     </div>
                 </div>
             </div>
