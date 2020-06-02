@@ -28,6 +28,25 @@
                 color: red;
             }
             body{
+              background: #111;
+            }
+            .card-title{
+              color: #111;
+              font-family: 'Helvetica Neue', sans-serif;
+              font-size: 16px;
+              font-weight: bold;
+              letter-spacing: -1px;
+              line-height: 1;
+              text-align: center;
+            }
+            .card-text{
+              color:blue;
+            }
+            .card{
+              margin: 3px;
+            }
+            #newsRows{
+              margin-left: 20px;
             }
         </style>
 
@@ -39,6 +58,7 @@
     var curDate = Math.round((new Date()).getTime() / 1000);
     var times = [1577865651,1580603364 ,1583108964,1585783779,1588375764,1591054179]; //by month
     var someStocks =[["Apple","AAPL"],["Ford","F"],["Disney","DIS"],["American Airlines","AAL"],["Microsoft","MSFT"],["Bank of America","BAC"],["Tesla","TSLA"],["Uber","UBER"],["Starbucks","SBUX"],["AT&T","T"]];
+
     $(function() {
       $('#datetimepicker1').datetimepicker();
       $('#datetimepicker2').datetimepicker();
@@ -75,7 +95,7 @@
       //   loadRanking(i);
       // }
       for (var i = someStocks.length - 1; i >= 0; i--) {
-        //getCompanyNews(i).then(function(){console.log(theStock);});  
+        getCompanyNews(i);  
       }
       getLastestNews();//.then(function(){console.log(theStock);});
     }); // end of 
@@ -98,7 +118,7 @@
     }
 
     function loadStock(start, end, sym){
-      //console.log(start,end,sym);
+      console.log(start,end,sym);
       var data = $.getJSON("https://finnhub.io/api/v1/stock/candle?symbol="+sym.toUpperCase()+"&resolution=1&from="+start+"&to="+end+"&token={{$api_key}}",function(dat){setStock(dat)});
       return data;
     }
@@ -142,7 +162,7 @@
       today = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate();
       var data = $.getJSON("https://finnhub.io/api/v1/company-news?symbol="+someStocks[i][1]+"&from=2020-01-01&to="+today+"&token={{$api_key}}",
         function(dat){
-          setStock(dat)
+          generateNewsCard(dat);
         }
       );
       return data;
@@ -160,11 +180,12 @@
 
     function generateNewsCard(data){
       var headline, summary;
+      $('#news').append("<div id='newsRows' class='row'>");
       for (var i = 0; i < data.length; i++) {
         headline = data[i]["headline"].toLowerCase();
         summary = data[i]["summary"].toLowerCase();
         if(headline.includes("corona") || headline.includes("covid") || summary.includes("corona") || summary.includes("covid")){
-          $('#news').append("<div class='card' style='width: 18rem;'><img class='card-img-top' src="
+          $('#newsRows').append("<div class='card' style='width: 18rem;'><img class='card-img-top' src="
             +data[i]["image"]
             +" alt='Card image cap'><div class='card-body'><h5 class='card-title'>"
             +headline.slice(0,20)
@@ -176,6 +197,7 @@
           ); 
         }
       }
+      $('#news').append("</div>");
     }
 
     function setStock(data){
@@ -210,12 +232,12 @@
     <body>
       <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-4 spaced">
+        <div class="col-lg-4 ">
           <div id="news">
             
           </div>
         </div>
-        <div class="col-lg-4 spaced">
+        <div class="col-lg-4 ">
           <table class="table table-sm table-dark">
             <thead>
               <tr>
@@ -230,7 +252,7 @@
             </tbody>
           </table>
         </div>
-        <div class="col-lg-4 spaced">
+        <div class="col-lg-4 ">
           <div class="row">
           <form  onsubmit="getUnixDate();return false">
             <div class="container">
