@@ -207,6 +207,8 @@
                 color: black;
                 padding: 15px;
                 transition: 0.5s;
+                border-color: black;
+                border-radius: 30px;
             }
 
             #nextbtn {
@@ -219,6 +221,8 @@
                 color: black;
                 padding: 15px;
                 transition: 0.5s;
+                border-color: black;
+                border-radius: 30px;
             }
 
             #prevbtn {
@@ -231,6 +235,8 @@
                 color: black;
                 padding: 15px;
                 transition: 0.5s;
+                border-color: black;
+                border-radius: 30px;
             }
 
             #homebtn {
@@ -243,6 +249,8 @@
                 color: black;
                 padding: 15px;
                 transition: 0.5s;
+                border-color: black;
+                border-radius: 30px;
             }
 
             #topbtn:hover,
@@ -250,6 +258,9 @@
             #nextbtn:hover,
             #homebtn:hover {
                 background-color: darkcyan;
+                -ms-transform: scale(1.1);
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1);
             }
 
             #jumpTo {
@@ -268,6 +279,7 @@
                 left: 48%;
                 margin-right: -48%;
                 display: inline-block;
+                border-radius: 10px;
             }
 
             .jumpToMenu {
