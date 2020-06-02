@@ -244,16 +244,16 @@
                 border: none;
                 font-size: 15px;
                 font-weight: 700;
-                left: 45%;
-                margin-right: -55%;
+                left: 48%;
+                margin-right: -48%;
                 display: inline-block;
             }
 
             .jumpToMenu {
                 position: relative;
                 display: inline-block;
-                left: 50%;
-                margin-right: -50%;
+                left: 48%;
+                margin-right: -48%;
             }
 
             .sections {
@@ -506,6 +506,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-4">
                     <div id="item10">
@@ -560,7 +561,64 @@
                 </div>
             </div>
 
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <a id="sectionTitle" name="COVIDGDPEffects">Coronavirus GDP Related Effects</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="item13">
+                        <h4 id="headerTitle">US GDP from Agriculture, April 2017 - April 2020 (in billions of dollars)</h4>
+                        <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=unitedstagdpfroagr&v=202004111017V20191105&d1=20170603&h=300&w=600' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <br />
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <h4 id="footnote">Surprisingly, the coronavirus has not had as profound of an impact on slowing down the US GDP from agriculture, despite many stories on farmers throwing out crops they can't sell, tariffs imposed on US agriculture,
+                            and it being harder to go to restaurants. If there is a noticeable trend, the first half of 2020 has had a lower percentage increase over the previous 3 periods, which could be signs of slowdown.</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="item14">
+                        <h4 id="headerTitle">US GDP from Construction, April 2017 - April 2020 (in billions of dollars)</h4>
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstagdpfrocon&v=202004111017v20191105&h=300&w=600&ref=/united-states/gdp-from-construction' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <br />
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <h4 id="footnote">US GDP from construction has been trending downward for the last 3 years or so. While construction has been designated as an essential business by many states, social distancing guidelines have slowed down progress
+                            according to many states. That being said, it is crucial to stop the spread of the virus more than anything else.</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="item15">
+                        
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="item16">
+                        <h4 id="headerTitle">US GDP from Agriculture, April 2017 - April 2020 (in billions of dollars)</h4>
+                        <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=unitedstagdpfroagr&v=202004111017V20191105&d1=20170603&h=300&w=600' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <br />
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <h4 id="footnote">Surprisingly, the coronavirus has not had as profound of an impact on slowing down the US GDP from agriculture, despite many stories on farmers throwing out crops they can't sell, tariffs imposed on US agriculture,
+                            and it being harder to go to restaurants. If there is a noticeable trend, the first half of 2020 has had a lower percentage increase over the previous 3 periods, which could be signs of slowdown.</h4>
+                    </div>
+                </div>
+
         </div>
+
+
 
         <script>
             //Javascript code. Miscellaneous effect functions.
