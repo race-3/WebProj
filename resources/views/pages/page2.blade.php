@@ -26,6 +26,7 @@
         <style>
             body{
               background: #111;
+              overflow-x: hidden;
             }
             #chartContainer{
               height: 370px;
@@ -69,7 +70,9 @@
               margin-bottom: 25px;
             }
             .carousel-indicators{
-              top: 30px;
+              top: -15px;
+              height: 20px;
+              max-height: 20px;
             }
             h2{
               margin-bottom: 25px;
@@ -94,6 +97,16 @@
               padding: 10px;
               margin: 0 0 24px;
             }
+            .forex-chart{
+              height: 80px;
+              width: 140px;
+              margin: 0px 5px 10px 15px;
+            }
+            @media only screen and (max-width: 650px) {
+              .card{
+                max-width: 150px;
+              }
+            }
         </style>
 
   <script type="text/javascript">
@@ -101,14 +114,18 @@
     var chart;
     var stockName;
     var theStock;
+    var oanda = [];
     var newsCount = 0;
-    var curDate = Math.round((new Date()).getTime() / 1000);
+    var today = new Date();
+    var curDate = Math.round(today.getTime() / 1000);
+    today = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate();
     var times = [1577865651,1580603364 ,1583108964,1585783779,1588375764,1591054179]; //by month
     var someStocks =[["Apple","AAPL"],["Ford","F"],["Disney","DIS"],["American Airlines","AAL"],["Microsoft","MSFT"],["Bank of America","BAC"],["Tesla","TSLA"],["Uber","UBER"],["Starbucks","SBUX"],["AT&T","T"]];
 
     $(function() {
       $('#datetimepicker1').datetimepicker();
       $('#datetimepicker2').datetimepicker();
+      $("#datetimepicker2").val(today.replace('-','/'));
       chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
         theme: "dark1", // "light1", "light2", "dark1", "dark2"
@@ -136,24 +153,30 @@
         }]
       });
       $('#sym').val("AAPL");
-      // loadStock(times[0] ,curDate,$('#sym').val()).then(function(){loadCandle(theStock);});
+      loadStock(times[0] ,curDate,$('#sym').val()).then(function(){loadCandle(theStock);});
 
-      // for (var i = someStocks.length - 1; i >= 0; i--) {
-      //   loadRanking(i);
-      // }
+      setTimeout(function(){
+        for (var i = someStocks.length - 1; i >= 0; i--) {
+          loadRanking(i);
+        }
+      },1500);
 
-      // getLastestNews();
-      // for (var i = someStocks.length - 1; i >= 0; i--) {
-      //   getCompanyNews(i);  
-      // }
-    }); // end of 
+      setTimeout(function(){
+        getLastestNews();
+        for (var i = someStocks.length - 1; i >= 0; i--) {
+          getCompanyNews(i);  
+        }
+      },3200);
+
+      setTimeout(function(){
+        getForexSym();
+      },5000);
+    });  
 
     function getUnixDate() {
       var date1 = $('#datetimepicker1').data("DateTimePicker").date();
       var date2 = $('#datetimepicker2').data("DateTimePicker").date();
       var sym = $('#sym').val();
-      console.log(date1,date2);
-      console.log(sym);
       if( date1 && date2 ){
         date1 = date1.unix();
         date2 = date2.unix();
@@ -166,7 +189,6 @@
     }
 
     function loadStock(start, end, sym){
-      console.log(start,end,sym);
       var data = $.getJSON("https://finnhub.io/api/v1/stock/candle?symbol="+sym.toUpperCase()+"&resolution=1&from="+start+"&to="+end+"&token={{$api_key}}",function(dat){setStock(dat)});
       return data;
     }
@@ -206,8 +228,6 @@
     }
 
     function getCompanyNews(i){
-      var today = new Date();
-      today = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate();
       var data = $.getJSON("https://finnhub.io/api/v1/company-news?symbol="+someStocks[i][1]+"&from=2020-01-01&to="+today+"&token={{$api_key}}",
         function(dat){
           generateNewsCard(dat);
@@ -239,22 +259,95 @@
         headline = data[i]["headline"].toLowerCase();
         summary = data[i]["summary"].toLowerCase();
 
-        if(headline.includes("corona") || headline.includes("covid") || summary.includes("corona") || summary.includes("covid")){
-          $($('.newsrow')[page]).append("<a href="
-            +data[i]["url"]
-            +"><div class='card' style='width: 18rem;'><img class='card-img-top' src="
+        if((headline.includes("corona") || headline.includes("covid") || summary.includes("corona") || summary.includes("covid")) && ($(".card-title:contains('"+data[i]["headline"]+"')").length ==0 )){
+          $($('.newsrow')[page]).append("<div class='card' style='width: 18rem;'><img class='card-img-top' src='"
             +data[i]["image"]
-            +" alt='Card image cap'><div class='card-body'><h5 class='card-title'>"
+            +"'><div class='card-body'><h5 class='card-title'>"
             +data[i]["headline"]
             +"</h5><p class='card-text'>"
             +data[i]["summary"].slice(0,100)
             +"...</p>"
-            +" class='btn btn-primary'>Click to View</div></div></a>"
+            +"<a href="
+            +data[i]["url"]
+            +" class='btn btn-primary'>Click to View</a></div></div>"
           );
           newsCount++;
           page = Math.floor(newsCount /9);
         }
       }
+    }
+
+    function getForexSym(){
+      var data = $.getJSON("https://finnhub.io/api/v1/forex/symbol?exchange=oanda&token={{$api_key}}",
+        function(dat){
+          for (var i = dat.length - 1; i >= 0; i--) {
+            if(dat[i]["description"].includes("USD"))
+              oanda.push(dat[i]["symbol"].slice(6));
+          }
+          loadForexGraphs();
+        }
+      );
+      return data;
+    }
+
+    function loadForexGraphs(){
+      if (oanda.length > 0) {
+        for (var i = 0; i < oanda.length -1; i++) {
+          getForex(i);
+        }
+      }
+    }
+
+    function getForex(i){
+      var success = $.getJSON("https://finnhub.io/api/v1/forex/candle?symbol=OANDA:"
+            +oanda[i]
+            +"&resolution=D&from="
+            +times[0]
+            +"&to="
+            +curDate
+            +"&token={{$api_key}}",
+            function(data){
+              if (data['s'] == "ok") {
+                loadForexGraph(data, i);
+              }else{
+                console.log("Error: failed to load forex "+oanda[i]);
+              }
+            }
+      );
+      return success;
+    }
+
+    function loadForexGraph(data, j){
+      var points = [];
+      for (var i = 0; i < data["c"].length;i++) {
+        points.push({
+          x: new Date(
+              data['t'][i] * 1000
+          ),
+          y: parseFloat(data['c'][i])
+        });             
+      }
+      $('#forex').append("<div id='chartContainer"+j+"' class='forex-chart'></div>");
+      graph = new CanvasJS.Chart("chartContainer"+j, {
+        animationEnabled: true,
+        theme: "dark1",
+        title:{
+          text: oanda[j].replace("_","/")
+        },
+        axisY:{
+          includeZero: false
+        },
+        axisX: {
+          interval: 1,
+          valueFormatString: "MMM"
+        },
+        data: [{        
+          type: "line",
+              indexLabelFontSize: 16,
+          dataPoints: points
+        }]
+      });
+      graph.render();
     }
 
     function setStock(data){
@@ -263,7 +356,6 @@
 
     function loadCandle(data) {
       dataPoints.length = 0;
-      console.log(data);
       if (data['s'] == "ok") {
         for (var i = 0; i < data['c'].length; i++) {
           dataPoints.push({
@@ -327,9 +419,12 @@
             <tbody id="stockRankBody">
             </tbody>
           </table>
+          <div class="row">
+            <div id="forex" class="row"></div>
+          </div>
         </div>
         <div class="col-lg-4 ">
-          <h2 class="stocks-title">Display Graph for stock</h2>
+          <h2 class="stocks-title">Display Graph of a Stock</h2>
           <div class="row">
           <form  onsubmit="getUnixDate();return false">
             <div class="container">
@@ -344,7 +439,7 @@
                 <div class='col-sm-6'>
                   <div class="form-group">
                     <div class='input-group date' id='datetimepicker1'>
-                      <input type='text' class="form-control" name="datetimepicker1" id='datetimepicker1box'/>
+                      <input type='text' class="form-control" name="datetimepicker1" id='datetimepicker1box' value="01/01/2020" />
                       <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar">
                         </span>
@@ -359,7 +454,7 @@
                 <div class='col-sm-6'>
                   <div class="form-group">
                     <div class='input-group date' id='datetimepicker2'>
-                      <input type='text' class="form-control" name="datetimepicker2" id='datetimepicker2box'/>
+                      <input type='text' class="form-control" name="datetimepicker2" id='datetimepicker2box' value="06/02/2020" />
                       <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                       </span>
