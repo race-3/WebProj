@@ -63,7 +63,7 @@
               left:-35px;
             }
             input[type="submit"]{
-              color: blue;
+              color: white;
             }
         </style>
 
@@ -343,7 +343,8 @@
           </form>
         </div>
         <div class="row">
-          <div id="chartContainer" style="height: 370px;"></div>
+          <br>
+          <div id="chartContainer" style="height: 370px;width: 90%;"></div>
         </div>
         </div>
       </div>
