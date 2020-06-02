@@ -244,8 +244,8 @@
                 border: none;
                 font-size: 15px;
                 font-weight: 700;
-                left: 50%;
-                margin-right: -50%;
+                left: 45%;
+                margin-right: -55%;
                 display: inline-block;
             }
 
@@ -329,6 +329,11 @@
                         <p>This data uses charts that gather data from between 1 - 3 years to present. As such, not all of it is relevant to the ongoing coronavirus pandemic. To distinguish between relevant and irrelevant data, the information and any analysis of the data will be listed as such:</p>
                         <p><b>Pre-Coronavirus</b>: Anything prior to January 2020, when the first case was confirmed in the United States</p>
                         <p><b>During the pandemic</b>: Anything from January 2020 onward</p>
+                        <p>Subjects covered on this page include:</p>
+                        <p>1. Coronavirus effects on employment in the US. Jobs-related numbers</p>
+                        <p>2. Coronavirus effects on government spending and national debt</p>
+                        <p>3. Coronavirus effects on the consumer, including spending and interest rates</p>
+                        <p>Go to the <b>Jump To</b> button above to jump ahead to a particular section.</p>
                     </div>
                 </div>
             </div>
