@@ -88,6 +88,11 @@
 
             [id*='item']:hover {
                 background-color: #999999;
+
+                /* zoom effect v1 */
+                -ms-transform: scale(1.05); /* IE 9 */
+                -webkit-transform: scale(1.05); /* Safari 3-8 */
+                transform: scale(1.05);
             }
 
             /*
@@ -229,6 +234,7 @@
             #jumpTo {
                 text-align: center;
                 align-content: center;
+                font-size: 18px;
             }
 
         </style>
@@ -237,7 +243,7 @@
     <body>
         <h3 id="title1">Economic Impacts of COVID-19</h3>
         <h4 id="title-footnote">Non-stock market related economic changes since the start of the coronavirus pandemic</h4>
-        
+
         <h4 id="switchText">Dark Mode  <label class="switch">
             <input type="checkbox" onclick="darkmode()">
             <span class="slider round"></span>
