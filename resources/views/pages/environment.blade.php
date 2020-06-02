@@ -152,6 +152,39 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-md-3">
+            <div id="item5">
+                <h4 class="cardTitle">Various identified impacts</h4>
+                <ul>
+                    <li>Air quality</li>
+                    <ul>
+                        <li>Due to the coronavirus outbreak's impact on travel and industry, many regions and the
+                            planet as a whole experienced a drop in air pollution.</li>
+                    </ul>
+                    <li>Water quality</li>
+                    <ul>
+                        <li>In Venice, the water in the canals cleared and experienced greater water flow and
+                            visibility of fish.</li>
+                    </ul>
+                    <li>Wildlife impacts</li>
+                    <ul>
+                        <li>Demand for fish and fish prices have both decreased due to the pandemic</li>
+                        <li>As people stayed at home due to lockdown and travel restrictions, some animals have
+                            been spotted in cities.</li>
+                    </ul>
+                    <li>Deforestation</li>
+                    <ul>
+                        <li>The disruption from the pandemic provided cover for illegal deforestation operations.</li>
+                    </ul>
+                    <li>Carbon emissions</li>
+                    <ul>
+                        <li>A study published in May 2020 found that the daily global carbon emissions during the
+                            lockdown measures in early April fell by 17% and could lead to an annual carbon
+                            emissions decline of up to 7%.</li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
         <div class="col-lg-4">
             <div id="item3">
                 <h4 class="cardTitle">NOx Concentrations in China</h4>
@@ -179,19 +212,6 @@
                 <h4 class="cardTitle">With the distraction of Covid 19, illegal deforestation has spiked</h4>
                 <img src="images/deforestation.jpg" alt="Amazon deforestation August through March 2008 through 2020" id="deforestationImg">
                 by Rhett A. Butler on 11 April 2020 "Despite COVID, Amazon deforestation races higher" https://news.mongabay.com/
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div id="item5">
-                <h4 class="cardTitle">Various identified impacts</h4>
-                <ul>
-                    <li>Air quality</li>
-                    <li>Water quality</li>
-                    <li>Wildlife impacts</li>
-                    <li>Deforestation</li>
-                    <li>Carbon emissions</li>
-                    <li>Food production</li>
-                </ul>
             </div>
         </div>
     </div>
