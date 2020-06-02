@@ -90,8 +90,8 @@
                 background-color: #999999;
 
                 /* zoom effect v1 */
-                -ms-transform: scale(1.05); /* IE 9 */
-                -webkit-transform: scale(1.05); /* Safari 3-8 */
+                -ms-transform: scale(1.05);
+                -webkit-transform: scale(1.05);
                 transform: scale(1.05);
             }
 
