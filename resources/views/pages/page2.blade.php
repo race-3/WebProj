@@ -26,6 +26,7 @@
         <style>
             body{
               background: #111;
+              overflow-x: hidden;
             }
             #chartContainer{
               height: 370px;
@@ -101,6 +102,7 @@
     var chart;
     var stockName;
     var theStock;
+    var oanda = [];
     var newsCount = 0;
     var curDate = Math.round((new Date()).getTime() / 1000);
     var times = [1577865651,1580603364 ,1583108964,1585783779,1588375764,1591054179]; //by month
@@ -146,6 +148,7 @@
       // for (var i = someStocks.length - 1; i >= 0; i--) {
       //   getCompanyNews(i);  
       // }
+      getForexSym();
     }); // end of 
 
     function getUnixDate() {
@@ -257,6 +260,78 @@
       }
     }
 
+    function getForexSym(){
+      var data = $.getJSON("https://finnhub.io/api/v1/forex/symbol?exchange=oanda&token={{$api_key}}",
+        function(dat){
+          for (var i = dat.length - 1; i >= 0; i--) {
+            if(dat[i]["description"].includes("USD"))
+              oanda.push(dat[i]["symbol"].slice(6));
+          }
+          console.log(oanda);
+          loadForexGraphs();
+        }
+      );
+      return data;
+    }
+
+    function loadForexGraphs(){
+      if (oanda.length > 0) {
+        for (var i = 0; i < oanda.length -1; i++) {
+          getForex(i);
+        }
+      }
+    }
+
+    function getForex(i){
+
+              console.log("starting "+oanda[i]);
+      var success = $.getJSON("https://finnhub.io/api/v1/forex/candle?symbol=OANDA:"
+            +oanda[i]
+            +"&resolution=D&from="
+            +times[0]
+            +"&to="
+            +curDate
+            +"&token={{$api_key}}",
+            function(data){
+              if (data['s'] == "ok") {
+                loadForexGraph(data, i);
+              }else{
+                console.log("Error: failed to load forex "+oanda[i]);
+              }
+            }
+      );
+      return success;
+    }
+
+    function loadForexGraph(data, j){
+      var points = [];
+      for (var i = 0; i < data["c"].length;i++) {
+        points.push({
+          x: new Date(
+              data['t'][i] * 1000
+          ),
+          y: parseFloat(data['c'][i])
+        });             
+      }
+      $('#forex').append("<div id='chartContainer"+j+"' style='height: 120px; width: 10%;'></div>");
+      graph = new CanvasJS.Chart("chartContainer"+j, {
+        animationEnabled: true,
+        theme: "dark1",
+        title:{
+          text: oanda[j]
+        },
+        axisY:{
+          includeZero: false
+        },
+        data: [{        
+          type: "line",
+              indexLabelFontSize: 16,
+          dataPoints: points
+        }]
+      });
+      graph.render();
+    }
+
     function setStock(data){
       theStock = data;
     }
@@ -314,6 +389,9 @@
           </div>
         </div>
         <div class="col-lg-4 ">
+          <div class="row">
+            <div id="forex"></div>
+          </div>
           <table class="table table-sm table-dark">
             <thead>
               <tr>
