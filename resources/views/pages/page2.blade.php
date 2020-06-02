@@ -27,6 +27,8 @@
             #title1 {
                 color: red;
             }
+            body{
+            }
         </style>
 
   <script type="text/javascript">
@@ -67,11 +69,11 @@
         }]
       });
       $('#sym').val("AAPL");
-      loadStock(times[0] ,curDate,$('#sym').val()).then(function(){loadCandle(theStock);});
+      //loadStock(times[0] ,curDate,$('#sym').val()).then(function(){loadCandle(theStock);});
 
-      for (var i = someStocks.length - 1; i >= 0; i--) {
-        loadRanking(i);
-      }
+      // for (var i = someStocks.length - 1; i >= 0; i--) {
+      //   loadRanking(i);
+      // }
     }); // end of 
 
     function getUnixDate() {
@@ -161,10 +163,11 @@
   </script>
     </head>
     <body>
+      <div class="container-fluid">
       <div class="row">
-        <div class="col-6 col-lg-3">.col-6 .col-sm-3
+        <div class="col-lg-4 spaced">.col-6 .col-sm-3
         </div>
-        <div class="col-6 col-lg-3">
+        <div class="col-lg-4 spaced">
           <table class="table table-sm table-dark">
             <thead>
               <tr>
@@ -179,10 +182,8 @@
             </tbody>
           </table>
         </div>
-        <div class="w-100">
-          <br>
-        </div>
-        <div class="col-6 col-lg-3">
+        <div class="col-lg-4 spaced">
+          <div class="row">
           <form  onsubmit="getUnixDate();return false">
             <div class="container">
               <div class="row">
@@ -219,15 +220,18 @@
                   </div>
                 </div>
               </div>
+              <div class="row">
+                <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+              </div>
             </div>
-          </div>
-          <br>
-          <input type="submit" name="submit" value="Submit">
-        </form>
-        <div class="col-6 col-lg-3">
-          <div id="chartContainer" style="height: 370px; width: 700px;"></div>
+          </form>
+        </div>
+        <div class="row">
+          <div id="chartContainer" style="height: 370px;"></div>
+        </div>
         </div>
       </div>
+    </div>
     </body>
 </html>
 @endsection
