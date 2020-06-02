@@ -36,7 +36,7 @@
     var theStock;
     var curDate = Math.round((new Date()).getTime() / 1000);
     var times = [1577865651,1580603364 ,1583108964,1585783779,1588375764,1591054179];
-    var someStocks =["AAPL"];
+    var someStocks =[["Apple","AAPL"],["Ford","F"],["Disney","DIS"],["American Airlines","AAL"],["Microsoft","MSFT"],["Bank of America","BAC"],["Tesla","TSLA"],["Uber","UBER"],["Starbucks","SBUX"],["AT&T","T"]];
     $(function() {
       $('#datetimepicker1').datetimepicker();
       $('#datetimepicker2').datetimepicker();
@@ -98,9 +98,9 @@
     }
 
     function loadRanking(i){
-          loadStock(times[0],times[1],someStocks[i]).then(value =>{
+          loadStock(times[0],times[times.length-1],someStocks[i][1]).then(value =>{
           if (theStock['s'] == "ok") {
-            $('#stockRankBody').append("<tr><th scope='row'>"+someStocks[i]+"</th><td>Mark</td><td>Otto</td><td>@mdo</td></tr>");
+            $('#stockRankBody').append("<tr><th scope='row'>"+someStocks[i][0]+"</th><td>"+someStocks[i][1]+"</td><td>"+theStock['c'][0]+"</td><td>"+theStock['c'][Math.round(theStock['c'].length/2)]+"</td><td>"+theStock['c'][theStock['c'].length-1]+"</td></tr>");
           }
         });
     }
