@@ -74,6 +74,10 @@
       // for (var i = someStocks.length - 1; i >= 0; i--) {
       //   loadRanking(i);
       // }
+      for (var i = someStocks.length - 1; i >= 0; i--) {
+        //getCompanyNews(i).then(function(){console.log(theStock);});  
+      }
+      getLastestNews();//.then(function(){console.log(theStock);});
     }); // end of 
 
     function getUnixDate() {
@@ -133,6 +137,47 @@
         });
     }
 
+    function getCompanyNews(i){
+      var today = new Date();
+      today = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate();
+      var data = $.getJSON("https://finnhub.io/api/v1/company-news?symbol="+someStocks[i][1]+"&from=2020-01-01&to="+today+"&token={{$api_key}}",
+        function(dat){
+          setStock(dat)
+        }
+      );
+      return data;
+    }
+
+    function getLastestNews (){
+      var data = $.getJSON("https://finnhub.io/api/v1/news?category=general&token={{$api_key}}",
+        function(dat){
+          console.log(dat);
+          generateNewsCard(dat);
+        }
+      );
+      return data;
+    }
+
+    function generateNewsCard(data){
+      var headline, summary;
+      for (var i = 0; i < data.length; i++) {
+        headline = data[i]["headline"].toLowerCase();
+        summary = data[i]["summary"].toLowerCase();
+        if(headline.includes("corona") || headline.includes("covid") || summary.includes("corona") || summary.includes("covid")){
+          $('#news').append("<div class='card' style='width: 18rem;'><img class='card-img-top' src="
+            +data[i]["image"]
+            +" alt='Card image cap'><div class='card-body'><h5 class='card-title'>"
+            +headline.slice(0,20)
+            +"</h5><p class='card-text'>"
+            +summary.slice(0,20)
+            +"</p><a href="
+            +data[i]["url"]
+            +" class='btn btn-primary'>View</a></div></div>"
+          ); 
+        }
+      }
+    }
+
     function setStock(data){
       theStock = data;
     }
@@ -154,10 +199,10 @@
             ]
           });
         }
+        chart.render();
       }else{
-        console.log("error");
+        console.log("error rendering chart");
       }
-      chart.render();
     }
 
   </script>
@@ -165,7 +210,10 @@
     <body>
       <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-4 spaced">.col-6 .col-sm-3
+        <div class="col-lg-4 spaced">
+          <div id="news">
+            
+          </div>
         </div>
         <div class="col-lg-4 spaced">
           <table class="table table-sm table-dark">
