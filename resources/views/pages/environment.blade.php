@@ -96,9 +96,13 @@
         background-color: #343a40;
     }
 
-    .image__image {
+    .card-img-top {
         width: 100%;
         height: auto;
+    }
+
+    .card {
+        margin-bottom: 20px;
     }
 
 </style>
@@ -199,59 +203,71 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="card">
-                                <img id="img1a" class="image__image" src="https://webassets.tomtom.com/m/fca5824cdb1ffe3/original/Blog-body-image-traffic-data-corona-fig1_1440x850.jpg" alt="Traffic in Milan, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
+                                <img id="img1a" class="card-img-top" src="https://webassets.tomtom.com/m/fca5824cdb1ffe3/original/Blog-body-image-traffic-data-corona-fig1_1440x850.jpg" alt="Traffic in Milan, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
                                 <div class="card-body">
                                     <h5 class="card-title">Milan</h5>
-                                    <p class="card-text">January 24, 2020. Before COVID-19 restrictions.</p>
-                                    <a href="#" class="btn btn-primary" id="milanBtn">After Restrictions</a>
+                                    <p class="card-text" id="milanText">Before COVID-19 restrictions. January 24, 2020.</p>
+                                    <button type="button" class="btn btn-secondary" id="milanBtn2" disabled>Before restrictions</button>
+                                    <button type="button" class="btn btn-primary" id="milanBtn1">After restrictions</button>
                                 </div>
                             </div>
-                            <div class="image1">
-                                <img id="img1b" class="image__image" src="https://webassets.tomtom.com/m/4c4afc257915a43b/original/Blog-body-image-traffic-data-corona-fig2_1440x850.jpg" alt="Traffic in Milan, April 6, 2020. During COVID-19 restrictions." width="1440" height="850">
-                                <label for="img1b">Milan, April 6, 2020. During COVID-19 restrictions.</label>
-                            </div><hr>
                         </div>
                         <div class="col-lg-4">
-                            <div class="image2">
-                                <img id="img2a" class="image__image" src="https://webassets.tomtom.com/m/c3c1d823c69e8e1/original/Blog-body-image-trafic-data-corona-fig3_1440x850.jpg" alt="Traffic in Rome, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
-                                <label for="img2a">Rome, January 24, 2020. Before COVID-19 restrictions.</label>
-                                <img id="img2b" class="image__image" src="https://webassets.tomtom.com/m/56b18ad13e6aca06/original/Blog-body-image-traffic-data-corona-fig4_1440x850.jpg" alt="Traffic in Rome, April 6, 2020. During COVID-19 restrictions." width="1440" height="850">
-                                <label for="img2b">Rome, April 6, 2020. During COVID-19 restrictions.</label>
-                            </div><hr>
+                            <div class="card">
+                                <img id="img2a" class="card-img-top" src="https://webassets.tomtom.com/m/c3c1d823c69e8e1/original/Blog-body-image-trafic-data-corona-fig3_1440x850.jpg" alt="Traffic in Milan, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
+                                <div class="card-body">
+                                    <h5 class="card-title">Rome</h5>
+                                    <p class="card-text" id="romeText">Before COVID-19 restrictions. January 24, 2020.</p>
+                                    <button type="button" class="btn btn-secondary" id="romeBtn2" disabled>Before restrictions</button>
+                                    <button type="button" class="btn btn-primary" id="romeBtn1">After restrictions</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="image3">
-                                <img id="img3a" class="image__image" src="https://webassets.tomtom.com/m/49d80424e577c4d6/original/Blog-body-image-traffic-data-corona-fig5_1440x850.jpg" alt="Traffic in Los Angeles, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
-                                <label for="img3a">Los Angeles, January 24, 2020. Before COVID-19 restrictions.</label>
-                                <img id="img3b" class="image__image" src="https://webassets.tomtom.com/m/443fc4e50b3d9a/original/Blog-body-image-traffic-data-corona-fig6_1440x850.jpg" alt="Traffic in Los Angeles, April 6, 2020. During COVID-19 restrictions." width="1440" height="850">
-                                <label for="img3b">Los Angeles, April 6, 2020. During COVID-19 restrictions.</label>
-                            </div><hr>
+                            <div class="card">
+                                <img id="img3a" class="card-img-top" src="https://webassets.tomtom.com/m/49d80424e577c4d6/original/Blog-body-image-traffic-data-corona-fig5_1440x850.jpg" alt="Traffic in Milan, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
+                                <div class="card-body">
+                                    <h5 class="card-title">Los Angeles</h5>
+                                    <p class="card-text" id="laText">Before COVID-19 restrictions. January 24, 2020.</p>
+                                    <button type="button" class="btn btn-secondary" id="laBtn2" disabled>Before restrictions</button>
+                                    <button type="button" class="btn btn-primary" id="laBtn1">After restrictions</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-4">
-                            <div class="image4">
-                                <img id="img4a" class="image__image" src="https://webassets.tomtom.com/m/4a0f88c907227248/original/Blog-body-image-traffic-data-corona-fig7_1440x850.jpg" alt="Traffic in San Francisco, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
-                                <label for="img4a">San Francisco, January 24, 2020. Before COVID-19 restrictions.</label>
-                                <img id="img4b" class="image__image" src="https://webassets.tomtom.com/m/4395ef7b1bb93b20/original/Blog-body-image-traffic-data-corona-fig8_1440x850.jpg" alt="Traffic in San Francisco, April 6, 2020. During COVID-19 restrictions." width="1440" height="850">
-                                <label for="img4b">San Francisco, April 6, 2020. During COVID-19 restrictions.</label>
-                            </div><hr>
+                            <div class="card">
+                                <img id="img4a" class="card-img-top" src="https://webassets.tomtom.com/m/4a0f88c907227248/original/Blog-body-image-traffic-data-corona-fig7_1440x850.jpg" alt="Traffic in Milan, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
+                                <div class="card-body">
+                                    <h5 class="card-title">Los Angeles</h5>
+                                    <p class="card-text" id="sfText">Before COVID-19 restrictions. January 24, 2020.</p>
+                                    <button type="button" class="btn btn-secondary" id="sfBtn2" disabled>Before restrictions</button>
+                                    <button type="button" class="btn btn-primary" id="sfBtn1">After restrictions</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="image5">
-                                <img id="img5a" class="image__image" src="https://webassets.tomtom.com/m/796ff15ab5838ed4/original/Blog-body-image-traffic-data-corona-fig9_1440x850.jpg" alt="Traffic in London, Easter weekend 2019." width="1440" height="850">
-                                <label for="img5a">London, Easter weekend 2019.</label>
-                                <img id="img5b" class="image__image" src="https://webassets.tomtom.com/m/225dac3ed8d13ed8/original/Blog-body-image-traffic-data-corona-fig10_1440x850.jpg" alt="Traffic in London, Easter weekend 2020." width="1440" height="850">
-                                <label for="img5b">London, Easter weekend 2020.</label>
-                            </div><hr>
+                            <div class="card">
+                                <img id="img5a" class="card-img-top" src="https://webassets.tomtom.com/m/796ff15ab5838ed4/original/Blog-body-image-traffic-data-corona-fig9_1440x850.jpg" alt="Traffic in Milan, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
+                                <div class="card-body">
+                                    <h5 class="card-title">London</h5>
+                                    <p class="card-text" id="londonText">Before COVID-19 restrictions. January 24, 2020.</p>
+                                    <button type="button" class="btn btn-secondary" id="londonBtn2" disabled>Before restrictions</button>
+                                    <button type="button" class="btn btn-primary" id="londonBtn1">After restrictions</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-lg-4">
-                            <div class="image6">
-                                <img id="img6a" class="image__image" src="https://webassets.tomtom.com/m/7d6d4db44c5fa865/original/Blog-body-image-traffic-data-corona-fig11_1440x850.jpg" alt="Traffic in Birmingham, Easter weekend 2019." width="1440" height="850">
-                                <label for="img6a">Birmingham, Easter weekend 2019.</label>
-                                <img id="img6b" class="image__image" src="https://webassets.tomtom.com/m/701709a25944103/original/Blog-body-image-traffic-data-a-corona-fig12_1440x850.jpg" alt="Traffic in Birmingham, Easter weekend 2020." width="1440" height="850">
-                                <label for="img6b">Birmingham, Easter weekend 2020.</label>
-                            </div><hr>
+                            <div class="card">
+                                <img id="img6a" class="card-img-top" src="https://webassets.tomtom.com/m/7d6d4db44c5fa865/original/Blog-body-image-traffic-data-corona-fig11_1440x850.jpg" alt="Traffic in Milan, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
+                                <div class="card-body">
+                                    <h5 class="card-title">Birmingham</h5>
+                                    <p class="card-text" id="birminghamText">Before COVID-19 restrictions. January 24, 2020.</p>
+                                    <button type="button" class="btn btn-secondary" id="birminghamBtn2" disabled>Before restrictions</button>
+                                    <button type="button" class="btn btn-primary" id="birminghamBtn1">After restrictions</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -285,9 +301,100 @@
     });
 
     $(document).ready(function () {
-        $("#milanBtn").click(function (){
+        $("#milanBtn1").click(function (){
             event.preventDefault();
-            $("#image1a").attr("src","https://webassets.tomtom.com/m/4c4afc257915a43b/original/Blog-body-image-traffic-data-corona-fig2_1440x850.jpg");
+            $('#img1a').attr("src", "https://webassets.tomtom.com/m/4c4afc257915a43b/original/Blog-body-image-traffic-data-corona-fig2_1440x850.jpg");
+            $('#milanText').text("During COVID-19 restrictions. April 6, 2020.");
+            $('#milanBtn1').prop("disabled",true);
+            $('#milanBtn2').prop("disabled",false);
+        });
+
+        $("#milanBtn2").click(function (){
+            event.preventDefault();
+            $('#img1a').attr("src", "https://webassets.tomtom.com/m/fca5824cdb1ffe3/original/Blog-body-image-traffic-data-corona-fig1_1440x850.jpg");
+            $('#milanText').text("Before COVID-19 restrictions. January 24, 2020.");
+            $('#milanBtn1').prop("disabled",false);
+            $('#milanBtn2').prop("disabled",true);
+        });
+
+        $("#romeBtn1").click(function (){
+            event.preventDefault();
+            $('#img2a').attr("src", "https://webassets.tomtom.com/m/56b18ad13e6aca06/original/Blog-body-image-traffic-data-corona-fig4_1440x850.jpg");
+            $('#romeText').text("During COVID-19 restrictions. April 6, 2020.");
+            $('#romeBtn1').prop("disabled",true);
+            $('#romeBtn2').prop("disabled",false);
+        });
+
+        $("#romeBtn2").click(function (){
+            event.preventDefault();
+            $('#img2a').attr("src", "https://webassets.tomtom.com/m/c3c1d823c69e8e1/original/Blog-body-image-trafic-data-corona-fig3_1440x850.jpg");
+            $('#romeText').text("Before COVID-19 restrictions. January 24, 2020.");
+            $('#romeBtn1').prop("disabled",false);
+            $('#romeBtn2').prop("disabled",true);
+        });
+
+        $("#laBtn1").click(function (){
+            event.preventDefault();
+            $('#img3a').attr("src", "https://webassets.tomtom.com/m/443fc4e50b3d9a/original/Blog-body-image-traffic-data-corona-fig6_1440x850.jpg");
+            $('#laText').text("During COVID-19 restrictions. April 6, 2020.");
+            $('#laBtn1').prop("disabled",true);
+            $('#laBtn2').prop("disabled",false);
+        });
+
+        $("#laBtn2").click(function (){
+            event.preventDefault();
+            $('#img3a').attr("src", "https://webassets.tomtom.com/m/49d80424e577c4d6/original/Blog-body-image-traffic-data-corona-fig5_1440x850.jpg");
+            $('#laText').text("Before COVID-19 restrictions. January 24, 2020.");
+            $('#laBtn1').prop("disabled",false);
+            $('#laBtn2').prop("disabled",true);
+        });
+
+        $("#sfBtn1").click(function (){
+            event.preventDefault();
+            $('#img4a').attr("src", "https://webassets.tomtom.com/m/4395ef7b1bb93b20/original/Blog-body-image-traffic-data-corona-fig8_1440x850.jpg");
+            $('#sfText').text("During COVID-19 restrictions. April 6, 2020.");
+            $('#sfBtn1').prop("disabled",true);
+            $('#sfBtn2').prop("disabled",false);
+        });
+
+        $("#sfBtn2").click(function (){
+            event.preventDefault();
+            $('#img4a').attr("src", "https://webassets.tomtom.com/m/4a0f88c907227248/original/Blog-body-image-traffic-data-corona-fig7_1440x850.jpg");
+            $('#sfText').text("Before COVID-19 restrictions. January 24, 2020.");
+            $('#sfBtn1').prop("disabled",false);
+            $('#sfBtn2').prop("disabled",true);
+        });
+
+        $("#londonBtn1").click(function (){
+            event.preventDefault();
+            $('#img5a').attr("src", "https://webassets.tomtom.com/m/225dac3ed8d13ed8/original/Blog-body-image-traffic-data-corona-fig10_1440x850.jpg");
+            $('#londonText').text("During COVID-19 restrictions. April 6, 2020.");
+            $('#londonBtn1').prop("disabled",true);
+            $('#londonBtn2').prop("disabled",false);
+        });
+
+        $("#londonBtn2").click(function (){
+            event.preventDefault();
+            $('#img5a').attr("src", "https://webassets.tomtom.com/m/796ff15ab5838ed4/original/Blog-body-image-traffic-data-corona-fig9_1440x850.jpg");
+            $('#londonText').text("Before COVID-19 restrictions. January 24, 2020.");
+            $('#londonBtn1').prop("disabled",false);
+            $('#londonBtn2').prop("disabled",true);
+        });
+
+        $("#birminghamBtn1").click(function (){
+            event.preventDefault();
+            $('#img6a').attr("src", "https://webassets.tomtom.com/m/701709a25944103/original/Blog-body-image-traffic-data-a-corona-fig12_1440x850.jpg");
+            $('#birminghamText').text("During COVID-19 restrictions. April 6, 2020.");
+            $('#birminghamBtn1').prop("disabled",true);
+            $('#birminghamBtn2').prop("disabled",false);
+        });
+
+        $("#birminghamBtn2").click(function (){
+            event.preventDefault();
+            $('#img6a').attr("src", "https://webassets.tomtom.com/m/7d6d4db44c5fa865/original/Blog-body-image-traffic-data-corona-fig11_1440x850.jpg");
+            $('#birminghamText').text("Before COVID-19 restrictions. January 24, 2020.");
+            $('#birminghamBtn1').prop("disabled",false);
+            $('#birminghamBtn2').prop("disabled",true);
         });
     });
 
