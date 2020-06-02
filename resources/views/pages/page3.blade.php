@@ -312,6 +312,7 @@
                 <a href="#COVIDEmployment"><b>Coronavirus Employment Data</b></a>
                 <a href="#COVIDGovSP"><b>Coronavirus Government Spending</b></a>
                 <a href="#COVIDConsumerRE"><b>Coronavirus Consumer Effects</b></a>
+                <a href="#COVIDGDPEffects"><b>Coronavirus GDP Effects</b></a>
             </div>
         </div>
 
@@ -333,6 +334,7 @@
                         <p>1. Coronavirus effects on employment in the US. Jobs-related numbers</p>
                         <p>2. Coronavirus effects on government spending and national debt</p>
                         <p>3. Coronavirus effects on the consumer, including spending and interest rates</p>
+                        <p>4. Coronavirus effects on US GDP and economic growth</p>
                         <p>Go to the <b>Jump To</b> button above to jump ahead to a particular section.</p>
                     </div>
                 </div>
