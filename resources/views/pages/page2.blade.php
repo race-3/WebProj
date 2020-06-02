@@ -35,14 +35,14 @@
     var stockName;
     var theStock;
     var curDate = Math.round((new Date()).getTime() / 1000);
-    var times = [1577865651,1580603364 ,1583108964,1585783779,1588375764,1591054179];
+    var times = [1577865651,1580603364 ,1583108964,1585783779,1588375764,1591054179]; //by month
     var someStocks =[["Apple","AAPL"],["Ford","F"],["Disney","DIS"],["American Airlines","AAL"],["Microsoft","MSFT"],["Bank of America","BAC"],["Tesla","TSLA"],["Uber","UBER"],["Starbucks","SBUX"],["AT&T","T"]];
     $(function() {
       $('#datetimepicker1').datetimepicker();
       $('#datetimepicker2').datetimepicker();
       chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
-        theme: "light2", // "light1", "light2", "dark1", "dark2"
+        theme: "dark1", // "light1", "light2", "dark1", "dark2"
         exportEnabled: true,
         title: stockName,
         subtitles: [{
@@ -92,7 +92,7 @@
     }
 
     function loadStock(start, end, sym){
-      console.log(start,end,sym);
+      //console.log(start,end,sym);
       var data = $.getJSON("https://finnhub.io/api/v1/stock/candle?symbol="+sym.toUpperCase()+"&resolution=1&from="+start+"&to="+end+"&token={{$api_key}}",function(dat){setStock(dat)});
       return data;
     }
@@ -100,7 +100,33 @@
     function loadRanking(i){
           loadStock(times[0],times[times.length-1],someStocks[i][1]).then(value =>{
           if (theStock['s'] == "ok") {
-            $('#stockRankBody').append("<tr><th scope='row'>"+someStocks[i][0]+"</th><td>"+someStocks[i][1]+"</td><td>"+theStock['c'][0]+"</td><td>"+theStock['c'][Math.round(theStock['c'].length/2)]+"</td><td>"+theStock['c'][theStock['c'].length-1]+"</td></tr>");
+            var stock = [theStock['c'][0],theStock['c'][Math.round(theStock['c'].length/2)],theStock['c'][theStock['c'].length-1]];
+            var text1, text2;
+            if(stock[0] > stock[1]){
+              text1 = "red";
+            }else{
+              text1 = "green";
+            }
+            if (stock[1] > stock[2]) {
+              text2 = "red";
+            }else{
+              text2 = "green";
+            }
+            $('#stockRankBody').append("<tr><th scope='row'>"
+              +someStocks[i][0]
+              +"</th><td>"
+              +someStocks[i][1]
+              +"</td><td>"
+              +stock[0]
+              +"</td><td style='color:"
+              +text1
+              +";'>"
+              +stock[1]
+              +"</td><td style='color:"
+              +text2
+              +";'>"
+              +stock[2]
+              +"</td></tr>");
           }
         });
     }
@@ -153,8 +179,6 @@
             </tbody>
           </table>
         </div>
-
-  <!-- Force next columns to break to new line -->
         <div class="w-100">
           <br>
         </div>
