@@ -96,6 +96,11 @@
         background-color: #343a40;
     }
 
+    .image__image {
+        width: 100%;
+        height: auto;
+    }
+
 </style>
 
 <body>
@@ -193,9 +198,15 @@
                 <div class="container-fluid" id="imgContainer2">
                     <div class="row">
                         <div class="col-lg-4">
-                            <div class="image1">
+                            <div class="card">
                                 <img id="img1a" class="image__image" src="https://webassets.tomtom.com/m/fca5824cdb1ffe3/original/Blog-body-image-traffic-data-corona-fig1_1440x850.jpg" alt="Traffic in Milan, January 24, 2020. Before COVID-19 restrictions." width="1440" height="850">
-                                <label for="img1a">Milan, January 24, 2020. Before COVID-19 restrictions.</label>
+                                <div class="card-body">
+                                    <h5 class="card-title">Milan</h5>
+                                    <p class="card-text">January 24, 2020. Before COVID-19 restrictions.</p>
+                                    <a href="#" class="btn btn-primary" id="milanBtn">After Restrictions</a>
+                                </div>
+                            </div>
+                            <div class="image1">
                                 <img id="img1b" class="image__image" src="https://webassets.tomtom.com/m/4c4afc257915a43b/original/Blog-body-image-traffic-data-corona-fig2_1440x850.jpg" alt="Traffic in Milan, April 6, 2020. During COVID-19 restrictions." width="1440" height="850">
                                 <label for="img1b">Milan, April 6, 2020. During COVID-19 restrictions.</label>
                             </div><hr>
@@ -271,6 +282,13 @@
 
     $("#nav-china-tab").click(function() {
         $("#nasaCredit").show();
+    });
+
+    $(document).ready(function () {
+        $("#milanBtn").click(function (){
+            event.preventDefault();
+            $("#image1a").attr("src","https://webassets.tomtom.com/m/4c4afc257915a43b/original/Blog-body-image-traffic-data-corona-fig2_1440x850.jpg");
+        });
     });
 
     function selectState(state) {
