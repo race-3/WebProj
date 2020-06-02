@@ -139,7 +139,8 @@
                     <div class="counter extra">
                         <h2 class="timer count-title count-number" data-to="100" data-speed="1500">
                             <div class="title-text"></div>
-                            <!-- <i class="fa fa-medkit icon" aria-hidden="true"></i> -->
+                            <!-- <i class="fas fa-laptop-house" aria-hidden="true"></i> -->
+                            <i class="fas fa-map-marked-alt"></i>
                             <div class="count-text ">Location</div>
                         </h2>
                     </div>
