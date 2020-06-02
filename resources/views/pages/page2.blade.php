@@ -24,11 +24,12 @@
 
         <!-- Styles -->
         <style>
-            #title1 {
-                color: red;
-            }
             body{
               background: #111;
+            }
+            #chartContainer{
+              height: 370px;
+              width: 90%;
             }
             .card-title{
               color: blue;
@@ -47,7 +48,7 @@
               text-align: left;
             }
             .card{
-              margin: 3px;
+              margin: 0px 3px 3px 3px;
             }
             .card:hover{
               margin-right: -1px;
@@ -64,6 +65,34 @@
             }
             input[type="submit"]{
               color: white;
+              margin-left: 15px;
+              margin-bottom: 25px;
+            }
+            .carousel-indicators{
+              top: 30px;
+            }
+            h2{
+              margin-bottom: 25px;
+              font-weight: 200;
+
+            }
+            .news-title{
+              color: #f2f2f2;
+              background: #ff4a4a; 
+              line-height: 37px; 
+              font-weight: 700; 
+              padding: 10px;
+              margin-top:0px; 
+              font-family: 'Libre Baskerville', serif;
+            }
+            .stocks-title{
+              color: #f2f2f2;
+              font-family: 'Lobster', cursive; 
+              background: #4a4aff;
+              text-transform: uppercase;
+              line-height: 37px; 
+              padding: 10px;
+              margin: 0 0 24px;
             }
         </style>
 
@@ -107,16 +136,16 @@
         }]
       });
       $('#sym').val("AAPL");
-      //loadStock(times[0] ,curDate,$('#sym').val()).then(function(){loadCandle(theStock);});
+      // loadStock(times[0] ,curDate,$('#sym').val()).then(function(){loadCandle(theStock);});
 
       // for (var i = someStocks.length - 1; i >= 0; i--) {
       //   loadRanking(i);
       // }
 
-      //getLastestNews();
-      for (var i = someStocks.length - 1; i >= 0; i--) {
-        //getCompanyNews(i);  
-      }
+      // getLastestNews();
+      // for (var i = someStocks.length - 1; i >= 0; i--) {
+      //   getCompanyNews(i);  
+      // }
     }); // end of 
 
     function getUnixDate() {
@@ -211,15 +240,16 @@
         summary = data[i]["summary"].toLowerCase();
 
         if(headline.includes("corona") || headline.includes("covid") || summary.includes("corona") || summary.includes("covid")){
-          $($('.newsrow')[page]).append("<div class='card' style='width: 18rem;'><img class='card-img-top' src="
+          $($('.newsrow')[page]).append("<a href="
+            +data[i]["url"]
+            +"><div class='card' style='width: 18rem;'><img class='card-img-top' src="
             +data[i]["image"]
             +" alt='Card image cap'><div class='card-body'><h5 class='card-title'>"
             +data[i]["headline"]
             +"</h5><p class='card-text'>"
             +data[i]["summary"].slice(0,100)
-            +"...</p><a href="
-            +data[i]["url"]
-            +" class='btn btn-primary'>View</a></div></div>"
+            +"...</p>"
+            +" class='btn btn-primary'>Click to View</div></div></a>"
           );
           newsCount++;
           page = Math.floor(newsCount /9);
@@ -261,7 +291,7 @@
       <div class="row">
         <div class="col-lg-4 ">
           <div id="news">
-            <h2></h2>
+            <h2 class="news-title">Stock Related Corona Virus News</h2>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -299,6 +329,7 @@
           </table>
         </div>
         <div class="col-lg-4 ">
+          <h2 class="stocks-title">Display Graph for stock</h2>
           <div class="row">
           <form  onsubmit="getUnixDate();return false">
             <div class="container">
@@ -337,14 +368,14 @@
                 </div>
               </div>
               <div class="row">
-                <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+                <input type="submit" name="submit" value="Display Graph" class="btn btn-primary">
               </div>
             </div>
           </form>
         </div>
         <div class="row">
           <br>
-          <div id="chartContainer" style="height: 370px;width: 90%;"></div>
+          <div id="chartContainer"></div>
         </div>
         </div>
       </div>

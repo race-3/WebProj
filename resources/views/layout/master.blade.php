@@ -20,10 +20,10 @@
     function getStateData(){
       var data = $.getJSON("https://finnhub.io/api/v1/covid19/us?token=br3gesfrh5rai6tghlig",
         function(dat){
-            $($(".count-number")[0]).text(dat[29]["state"]);
-            $($(".count-number")[1]).text(dat[29]["case"]);
-            $($(".count-number")[2]).text(dat[29]["death"]);
-            $($(".count-number")[3]).text(dat[29]["updated"].split(" ")[0]);
+            $($(".title-text")[0]).text(dat[29]["state"]);
+            $($(".title-text")[1]).text(dat[29]["case"]);
+            $($(".title-text")[2]).text(dat[29]["death"]);
+            $($(".title-text")[3]).text(dat[29]["updated"].split(" ")[0]);
             $(".count-text").last().text(dat[29]["updated"].split(" ")[1]);
             displayStates(dat);
         }
@@ -36,10 +36,10 @@
         setInterval(function(){
             x = Math.floor((Math.random() * data.length));
             dateTime = data[x]["updated"].split(" ");
-            $($(".count-number")[0]).text(data[x]["state"]);
-            $($(".count-number")[1]).text(data[x]["case"]);
-            $($(".count-number")[2]).text(data[x]["death"]);
-            $($(".count-number")[3]).text(dateTime[0]);
+            $($(".title-text")[0]).text(data[x]["state"]);
+            $($(".title-text")[1]).text(data[x]["case"]);
+            $($(".title-text")[2]).text(data[x]["death"]);
+            $($(".title-text")[3]).text(dateTime[0]);
             $(".count-text").last().text(dateTime[1]);
         },10000);
     }
@@ -55,21 +55,27 @@
     }
     .corner{
         float: right;
+        text-align: right;
+        display: block; 
     }
     .counter{
         width: 50px;
         max-width: 100px;
+        color: white;
+
+        margin: 0px;
     }
     .less{
         right: -100px;
+        max-width: 100px;
     }
     .extra{
         max-width: 200px;
         width: 200px;
-        margin-right: 100px;
     }
     .count-number.count-title {
         font-size:24px;
+        margin-bottom: 0px;
     }
     .count-text{
         font-size: 12px;
@@ -82,12 +88,19 @@
             font-size: 6px;
         }
         .counter{
+            padding:0px;
             max-width: 10px;
         }
         .extra{
-            max-width: 20px;
-            width: 20px;
-            margin-right: 10px;
+            max-width: 50px;
+            width: 50px;
+            margin-right: 50px;
+        }
+        .less{
+            width: 50px;
+            max-width: 50px;
+            right: 0px;
+            padding: 0px;
         }
     }
 }
@@ -124,26 +137,36 @@
             <div class="row text-center">
                 <div class="col">
                     <div class="counter extra">
-                        <h2 class="timer count-title count-number" data-to="100" data-speed="1500">0</h2>
+                        <h2 class="timer count-title count-number" data-to="100" data-speed="1500">
+                            <div class="title-text"></div>
+                        </h2>
                     </div>
                 </div>
                 <div class="col less">
-                    <div class="counter row">
-                        <h2 class="timer count-title count-number" data-to="1700" data-speed="1500">0</h2>
-                        <i class="fa fa-medkit" aria-hidden="true"></i>
-                        <div class="count-text ">Cases</div>
+                    <div class="counter ">
+                        <h2 class="timer count-title count-number" data-to="1700" data-speed="1500">
+                            <div class="title-text"></div>
+                            <i class="fa fa-medkit icon" aria-hidden="true"></i>
+                            <div class="count-text ">Cases</div>
+                        </h2>
+                        
                     </div>
                 </div>
                 <div class="col less">
-                    <div class="counter row">
-                        <h2 class="timer count-title count-number" data-to="11900" data-speed="1500">0</h2>
-                        <i class="fas fa-skull-crossbones"></i>
-                        <div class="count-text ">Deaths</div>
+                    <div class="counter">
+                        <h2 class="timer count-title count-number" data-to="11900" data-speed="1500">
+                            <div class="title-text"></div>
+                            <i class="fas fa-skull-crossbones icon"></i>
+                            <div class="count-text ">Deaths</div>
+                        </h2>
+                        
                     </div>
                 </div>
-                <div class="col">
+                <div class="col less">
                     <div class="counter extra">
-                        <h2 class="timer count-title count-number" data-to="157" data-speed="1500">0</h2>
+                        <h2 class="timer count-title count-number" data-to="157" data-speed="1500">
+                            <div class="title-text"></div>
+                        </h2>
                         <p class="count-text "></p>
                     </div>
                 </div>
