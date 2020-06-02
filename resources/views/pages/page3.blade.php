@@ -597,24 +597,62 @@
                 </div>
                 <div class="col-md-4">
                     <div id="item15">
-                        
+                        <h4 id="headerTitle">US GDP from Manufacturing, April 2017 - April 2020 (in billions of dollars)</h4>
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstagdpfroman&v=202004111017v20191105&h=300&w=600&ref=/united-states/gdp-from-manufacturing' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <br />
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <h4 id="footnote">US manufacturing has been on the decline since fears of a recession last year. In the wake of outbreaks occurring at various plants, as well as stay at home orders, this has slowed down manufacuring a bit, but the
+                            numbers show that while manufacturing isn't growing, it is keeping steady for now. </h4>
+                    </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-4">
                     <div id="item16">
-                        <h4 id="headerTitle">US GDP from Agriculture, April 2017 - April 2020 (in billions of dollars)</h4>
-                        <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=unitedstagdpfroagr&v=202004111017V20191105&d1=20170603&h=300&w=600' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <h4 id="headerTitle">US Gross National Product, April 2017 - April 2020 (in billions of dollars)</h4>
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstagronatpro&v=202006011208v20191105&h=300&w=600&ref=/united-states/gross-national-product' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
                         <br />
 
                         <button class="button" id="footnotebtn" onclick="fade()"></button>
                         <span id="btnText">Hide Footnote</span>
 
-                        <h4 id="footnote">Surprisingly, the coronavirus has not had as profound of an impact on slowing down the US GDP from agriculture, despite many stories on farmers throwing out crops they can't sell, tariffs imposed on US agriculture,
-                            and it being harder to go to restaurants. If there is a noticeable trend, the first half of 2020 has had a lower percentage increase over the previous 3 periods, which could be signs of slowdown.</h4>
+                        <h4 id="footnote">This is where we can see the greatest impact the coronavirus has had on the collective economy. The US GNP dropped by alomst $300 billion between December 2019 to present day. This is primarily due to many sectors
+                            of the economy being shut down or being significantly cut, such as the leisure and travel sectors. </h4>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div id="item17">
+                        <h4 id="headerTitle">US Gross Domestic Product (GDP), 2010 - 2020 (in billions of dollars)</h4>
+                        <iframe src='https://tradingeconomics.com/embed/?s=wgdpus&projection=te&v=202003061721v20191105&h=300&w=600&ref=/united-states/gdp' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <br />
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <h4 id="footnote">US GDP has been increasing steadily since the Great Recession in 2008. Economic growth was steady. We can see here just how impactful the coronavirus has been, as it dropped 6 months of growth in about 3 months. The
+                            numbers don't show how long it will take to fully recover. Economists predict it can take up to a decade to make up all the damage the pandemic has caused.</h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="item18">
+                        <h4 id="headerTitle">US GDP Growth, April 2017 - April 2020 (Percent)</h4>
+                        <iframe src='https://tradingeconomics.com/embed/?s=gdp+cqoq&v=202005281332v20191105&h=300&w=600&ref=/united-states/gdp-growth' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <br />
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <h4 id="footnote">We can also see here just how destructive the coronavirus has been on GDP growth. Prior to this, GDP was rising at a steady 2 - 2.5% per 6 month, and in the first 5 months of 2020 alone, it has shrank by 5%, which
+                            is the lowest drop since the 2008 recession. Economists are split on if we have seen the worst yet or if it is yet to come.</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
         </div>
 
