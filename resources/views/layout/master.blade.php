@@ -15,6 +15,11 @@
     #title {
         font-size: x-large;
     }
+
+    #nav-item-btn {
+        position: absolute;
+        float: right;
+    }
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -34,8 +39,15 @@
             <li class="nav-item">
                 <li class="{{ Request::is('page3') ? 'active' : '' }}"><a class="nav-link" href="{{ route("page3") }}">Economic Effects</a></li>
             </li>
+            <li class="nav-item-btn">
+                <!-- <button onclick="location.href = '{{route("page3")}}'" id="myButton" class="float-left submit-button" >Home</button>
+                    <button onclick="location.href = '{{route("page3")}}'" id="myButton" class="float-left submit-button" >Home</button>
+                -->
+            </li>
         </ul>
     </div>
+
+
 </nav>
 
 @yield('content')
