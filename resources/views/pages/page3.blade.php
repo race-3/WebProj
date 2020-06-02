@@ -320,7 +320,7 @@
 
             .jumpToMenu:hover
             .menubtn {
-                background-color: #DC143C;
+                background-color: #BC143C;
             }
 
         </style>
