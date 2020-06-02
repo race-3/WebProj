@@ -16,21 +16,27 @@
         <style>
             #title1 {
                 text-align: center;
-                padding: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
                 font-weight: 700;
+                border: none;
             }
 
             #title-footnote {
                 text-align: center;
-                padding: 3px;
+                padding-top: 3px;
+                padding-bottom: 3px;
                 font-style: italic;
                 color: darkgray;
+                border: none;
             }
 
             #headerTitle {
                 text-align: center;
-                padding: 3px;
+                padding-top: 3px;
+                padding-bottom: 3px;
                 font-weight: 700;
+                border: none;
             }
 
             #sectionTitle {
@@ -39,6 +45,7 @@
                 padding-bottom: 5px;
                 font-weight: 700;
                 color: gray();
+                border: none;
             }
 
             #switchText {
@@ -47,10 +54,15 @@
                 padding-bottom: 5px;
                 font-weight: 700;
                 font-size: 175%;
+                border: none;
             }
 
             #subtitle {
                 color: gray;
+                padding-top: 3px;
+                padding-bottom: 3px;
+                font-weight: 400;
+                border: none;
             }
 
             #footnote {
@@ -58,15 +70,24 @@
                 font-style: italic;
                 opacity: 1;
                 transition: opacity 1s;
+                padding-top: 3px;
+                padding-bottom: 3px;
+                border: none;
             }
 
             #footnote.hide {
                 opacity: 0;
+                padding-top: 3px;
+                padding-bottom: 3px;
+                border: none;
             }
 
             #btnText {
                 vertical-align: bottom;
                 font-size: small;
+                padding-top: 3px;
+                padding-bottom: 3px;
+                border: none;
             }
 
             #mainContainer {
@@ -254,6 +275,9 @@
                 display: inline-block;
                 left: 48%;
                 margin-right: -48%;
+                padding-top: 3px;
+                padding-bottom: 3px;
+                border-radius: 30px;
             }
 
             .sections {
