@@ -597,41 +597,24 @@
                 </div>
                 <div class="col-md-4">
                     <div id="item15">
-                        <h4 id="headerTitle">Map of Construction Related Laws across states</h4>
-                        <h3 id="headerTitle">Credit to jon2606 on Tableau Public for the interactive chart.</h3>
-                        <div class='tableauPlaceholder' id='viz1591129624250' style='position: relative'>
-                            <noscript><a href='#'>
-                                    <img alt=' ' src='https://public.tableau.com/static/images/Z7/Z7BWWDBH2/1_rss.png'
-                                         style='border: none' />
-                                </a></noscript>
-                            <object class='tableauViz'  style='display:none;'>
-                                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                                <param name='embed_code_version' value='3' />
-                                <param name='path' value='shared&#47;Z7BWWDBH2' />
-                                <param name='toolbar' value='no' />
-                                <param name='static_image'
-                                       value='https://public.tableau.com/static/images/Z7/Z7BWWDBH2/1.png' />
-                                <param name='animate_transition' value='yes' />
-                                <param name='display_static_image' value='yes' />
-                                <param name='display_spinner' value='yes' />
-                                <param name='display_overlay' value='yes' />
-                                <param name='display_count' value='yes' />
-                            </object></div>
-
-                        <script type='text/javascript'>
-                            var divElement = document.getElementById('viz1591129624250');
-                            var vizElement = divElement.getElementsByTagName('object')[0];
-                            vizElement.style.minWidth='350px';
-                            vizElement.style.maxWidth='600px';
-                            vizElement.style.width='100%';
-                            vizElement.style.height='367px';
-                            var scriptElement = document.createElement('script');
-                            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                            vizElement.parentNode.insertBefore(scriptElement, vizElement);
-                        </script>
-                    </div>
+                        
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="item16">
+                        <h4 id="headerTitle">US GDP from Agriculture, April 2017 - April 2020 (in billions of dollars)</h4>
+                        <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=unitedstagdpfroagr&v=202004111017V20191105&d1=20170603&h=300&w=600' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <br />
+
+                        <button class="button" id="footnotebtn" onclick="fade()"></button>
+                        <span id="btnText">Hide Footnote</span>
+
+                        <h4 id="footnote">Surprisingly, the coronavirus has not had as profound of an impact on slowing down the US GDP from agriculture, despite many stories on farmers throwing out crops they can't sell, tariffs imposed on US agriculture,
+                            and it being harder to go to restaurants. If there is a noticeable trend, the first half of 2020 has had a lower percentage increase over the previous 3 periods, which could be signs of slowdown.</h4>
+                    </div>
+                </div>
 
         </div>
 
