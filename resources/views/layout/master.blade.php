@@ -12,97 +12,11 @@
 <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-<script type="text/javascript">
-    $(function(){
-        getStateData();
-    });
 
-    function getStateData(){
-      var data = $.getJSON("https://finnhub.io/api/v1/covid19/us?token=br3gesfrh5rai6tghlig",
-        function(dat){
-            $($(".title-text")[0]).text(dat[29]["state"]);
-            $($(".title-text")[1]).text(dat[29]["case"]);
-            $($(".title-text")[2]).text(dat[29]["death"]);
-            $($(".title-text")[3]).text(dat[29]["updated"].split(" ")[0]);
-            $(".count-text").last().text(dat[29]["updated"].split(" ")[1]);
-            displayStates(dat);
-        }
-      );
-      return data;
-    }
-
-    function displayStates(data){
-        var x;
-        setInterval(function(){
-            x = Math.floor((Math.random() * data.length));
-            dateTime = data[x]["updated"].split(" ");
-            $($(".title-text")[0]).text(data[x]["state"]);
-            $($(".title-text")[1]).text(data[x]["case"]);
-            $($(".title-text")[2]).text(data[x]["death"]);
-            $($(".title-text")[3]).text(dateTime[0]);
-            $(".count-text").last().text(dateTime[1]);
-        },10000);
-    }
-</script>
 <style>
     #title {
         font-size: x-large;
     }
-
-    #nav-item-btn {
-        position: absolute;
-        float: right;
-    }
-    .corner{
-        float: right;
-        display: block;
-    }
-    .counter{
-        width: 50px;
-        max-width: 100px;
-        color: white;
-        max-height: auto;
-        margin: 0px;
-    }
-    .less{
-        right: -100px;
-        max-width: 100px;
-    }
-    .extra{
-        max-width: 200px;
-        width: 200px;
-    }
-    .count-number.count-title {
-        font-size:24px;
-        margin-bottom: 0px;
-    }
-    .count-text{
-        font-size: 12px;
-    }
-    @media only screen and (max-width: 990px) {
-        .count-number.count-title {
-            font-size:12px;
-        }
-        .count-text{
-            font-size: 6px;
-        }
-        .counter{
-            padding:0px;
-            max-width: 10px;
-        }
-        .extra{
-            max-width: 50px;
-            width: 50px;
-            margin-right: 50px;
-        }
-        .less{
-            width: 50px;
-            max-width: 50px;
-            right: 0px;
-            padding: 0px;
-        }
-    }
-}
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -130,52 +44,7 @@
         </ul>
     </div>
 
-    <div class="corner" >
-      <div class="container">
-        <section id="our-stats">
-            <div class="row text-center">
-                <div class="col">
-                    <div class="counter extra">
-                        <h2 class="timer count-title count-number" data-to="100" data-speed="1500">
-                            <div class="title-text"></div>
-                            <!-- <i class="fas fa-laptop-house" aria-hidden="true"></i> -->
-                            <i class="fas fa-map-marked-alt"></i>
-                            <div class="count-text ">Location</div>
-                        </h2>
-                    </div>
-                </div>
-                <div class="col less">
-                    <div class="counter ">
-                        <h2 class="timer count-title count-number" data-to="1700" data-speed="1500">
-                            <div class="title-text"></div>
-                            <i class="fa fa-medkit icon" aria-hidden="true"></i>
-                            <div class="count-text ">Cases</div>
-                        </h2>
 
-                    </div>
-                </div>
-                <div class="col less">
-                    <div class="counter">
-                        <h2 class="timer count-title count-number" data-to="11900" data-speed="1500">
-                            <div class="title-text"></div>
-                            <i class="fas fa-skull-crossbones icon"></i>
-                            <div class="count-text ">Deaths</div>
-                        </h2>
-
-                    </div>
-                </div>
-                <div class="col less">
-                    <div class="counter extra">
-                        <h2 class="timer count-title count-number" data-to="157" data-speed="1500">
-                            <div class="title-text"></div>
-                        </h2>
-                        <p class="count-text "></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    </div>
 </nav>
 
 @yield('content')
