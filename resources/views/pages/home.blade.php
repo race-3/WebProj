@@ -144,7 +144,7 @@
             $($(".title-text")[2]).text(data[x]["death"]);
             $($(".title-text")[3]).text(dateTime[0]);
             $(".count-text").last().text(dateTime[1]);
-        },10000);
+        },4500);
     }
 </script>
 @endsection

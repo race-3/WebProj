@@ -98,13 +98,27 @@
               margin: 0 0 24px;
             }
             .forex-chart{
-              height: 80px;
-              width: 140px;
-              margin: 0px 5px 10px 15px;
+              height: 120px;
+              width: 600px;
+              margin: 0px 25px 10px 25px;
+              text-align: center;
+            }
+            .forex-title{
+              color: #f2f2f2;
+              font-family: 'Lobster', cursive; 
+              background: #4a4a4a;
+              text-transform: uppercase;
+              line-height: 37px; 
+              padding: 10px 30px 10px 30px;
+              margin: 20px 0px 4px;
             }
             @media only screen and (max-width: 650px) {
               .card{
                 max-width: 150px;
+              }
+              .forex-chart{
+                height: 100px;
+                width: 400px;
               }
             }
         </style>
@@ -401,8 +415,8 @@
               <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Stock</th>
-                <th scope="col">Jan</th>
-                <th scope="col">Mar</th>
+                <th scope="col">Before Lockdown</th>
+                <th scope="col">Mid Lockdown</th>
                 <th scope="col">Now</th>
               </tr>
             </thead>
@@ -410,7 +424,9 @@
             </tbody>
           </table>
           <div class="row">
-            <div id="forex" class="row"></div>
+            <div id="forex" class="row d-flex justify-content-center">
+              <h2 class="forex-title">USD Exchange Rates</h2>
+            </div>
           </div>
         </div>
         <div class="col-lg-4 ">
