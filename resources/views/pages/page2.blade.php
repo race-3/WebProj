@@ -113,7 +113,6 @@
     var dataPoints = [];
     var chart;
     var stockName;
-    var theStock;
     var oanda = [];
     var newsCount = 0;
     var today = new Date();
@@ -153,24 +152,24 @@
         }]
       });
       $('#sym').val("AAPL");
-      loadStock(times[0] ,curDate,$('#sym').val()).then(function(){loadCandle(theStock);});
+      loadStock(times[0] ,curDate,$('#sym').val()).then(function(data){loadCandle(data);});
 
       setTimeout(function(){
         for (var i = someStocks.length - 1; i >= 0; i--) {
           loadRanking(i);
         }
-      },1500);
+      },800);
 
       setTimeout(function(){
-        getLastestNews();
+        getLastestNews().then(data =>{generateNewsCard(data)});
         for (var i = someStocks.length - 1; i >= 0; i--) {
-          getCompanyNews(i);  
+          getCompanyNews(i).then(data =>{generateNewsCard(data)});
         }
-      },3200);
+      },1200);
 
       setTimeout(function(){
         getForexSym();
-      },5000);
+      },2000);
     });  
 
     function getUnixDate() {
@@ -181,22 +180,23 @@
         date1 = date1.unix();
         date2 = date2.unix();
         if (date2 > date1){
-          loadStock(date1,date2,sym).then(function(){loadCandle(theStock);});
+          loadCandle(loadStock(date1,date2,sym));
         }else{
           alert("Second date has to be after the first.");
         }
       }
     }
 
-    function loadStock(start, end, sym){
-      var data = $.getJSON("https://finnhub.io/api/v1/stock/candle?symbol="+sym.toUpperCase()+"&resolution=1&from="+start+"&to="+end+"&token={{$api_key}}",function(dat){setStock(dat)});
-      return data;
+    async function loadStock(start, end, sym){
+      var data = await fetch("https://finnhub.io/api/v1/stock/candle?symbol="+sym.toUpperCase()+"&resolution=1&from="+start+"&to="+end+"&token={{$api_key}}");
+      var blob = await data.json();
+      return blob;
     }
 
     function loadRanking(i){
           loadStock(times[0],times[times.length-1],someStocks[i][1]).then(value =>{
-          if (theStock['s'] == "ok") {
-            var stock = [theStock['c'][0],theStock['c'][Math.round(theStock['c'].length/2)],theStock['c'][theStock['c'].length-1]];
+          if (value['s'] == "ok") {
+            var stock = [value['c'][0],value['c'][Math.round(value['c'].length/2)],value['c'][value['c'].length-1]];
             var text1, text2;
             if(stock[0] > stock[1]){
               text1 = "red";
@@ -227,22 +227,16 @@
         });
     }
 
-    function getCompanyNews(i){
-      var data = $.getJSON("https://finnhub.io/api/v1/company-news?symbol="+someStocks[i][1]+"&from=2020-01-01&to="+today+"&token={{$api_key}}",
-        function(dat){
-          generateNewsCard(dat);
-        }
-      );
-      return data;
+    async function getCompanyNews(i){
+      var data = await fetch("https://finnhub.io/api/v1/company-news?symbol="+someStocks[i][1]+"&from=2020-01-01&to="+today+"&token={{$api_key}}");
+      var response = await data.json();
+      return response;
     }
 
-    function getLastestNews (){
-      var data = $.getJSON("https://finnhub.io/api/v1/news?category=general&token={{$api_key}}",
-        function(dat){
-          generateNewsCard(dat);
-        }
-      );
-      return data;
+    async function getLastestNews (){
+      var data = await fetch("https://finnhub.io/api/v1/news?category=general&token={{$api_key}}");
+      var response = await data.json();
+      return response;
     }
 
     function generateNewsCard(data){
@@ -348,10 +342,6 @@
         }]
       });
       graph.render();
-    }
-
-    function setStock(data){
-      theStock = data;
     }
 
     function loadCandle(data) {
