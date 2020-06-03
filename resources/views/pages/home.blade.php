@@ -1,6 +1,7 @@
 @extends('layout.master')
 
 @section('content')
+
 <head>
     <title>Laravel</title>
 
@@ -20,6 +21,10 @@
             font-weight: 500;
             border: none;
         }
+
+        .timer {
+            text-align: center;
+        }
     </style>
 
 </head>
@@ -30,17 +35,46 @@
 </div>
 
 <div class="container">
-    <div class="row">
-        <div class="col-s-12" id="description">
-            This is a website dedicated to exploring some of the effects COVID-19 has had on various aspects of life.
-            Instead of investigating infection rates, recovery rates, or death rates, we explore other effects and statistics,
-            such as changes in the stock market or air quality.
-        </div>
-    </div>
 
     <div class="row">
         <div class="col-md-12">
-            Alex copy stuff here
+            <div class="row">
+                <div class="col-3">
+                    <div class="counter extra">
+                        <h2 class="timer count-title count-number" data-to="100" data-speed="1500">
+                            <div class="count-text ">Location    <i class="fas fa-map-marked-alt"></i></div>
+                            <br><div class="title-text"></div>
+                            <!-- <i class="fas fa-laptop-house" aria-hidden="true"></i> -->
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="counter ">
+                        <h2 class="timer count-title count-number" data-to="1700" data-speed="1500">
+                            <div class="count-text ">Cases    <i class="fa fa-medkit icon" aria-hidden="true"></i></div>
+                            <br><div class="title-text"></div>
+                        </h2>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="counter">
+                        <h2 class="timer count-title count-number" data-to="11900" data-speed="1500">
+                            <div class="count-text ">Deaths    <i class="fas fa-skull-crossbones icon"></i></div>
+                            <br><div class="title-text"></div>
+                        </h2>
+
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="counter extra">
+                        <h2 class="timer count-title count-number" data-to="157" data-speed="1500">
+                            <div class="title-text"></div>
+                            <br><p class="count-text "></p>
+                        </h2>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -68,11 +102,49 @@
             <br><a href="https://www.worldometers.info/coronavirus/country/us/">Statistics (USA)</a>
         </div>
         </div>
+
+    <br><div class="row">
+        <div class="col-s-12" id="description">
+            This is a website dedicated to exploring some of the effects COVID-19 has had on various aspects of life.
+            Instead of investigating infection rates, recovery rates, or death rates, we explore other effects and statistics,
+            such as changes in the stock market or air quality.
+        </div>
     </div>
-
-
 
 </div>
 
 </body>
+
+<script type="text/javascript">
+    $(function(){
+        getStateData();
+    });
+
+    function getStateData(){
+        var data = $.getJSON("https://finnhub.io/api/v1/covid19/us?token=br3gesfrh5rai6tghlig",
+            function(dat){
+                $($(".title-text")[0]).text(dat[29]["state"]);
+                $($(".title-text")[1]).text(dat[29]["case"]);
+                $($(".title-text")[2]).text(dat[29]["death"]);
+                $($(".title-text")[3]).text(dat[29]["updated"].split(" ")[0]);
+                $(".count-text").last().text(dat[29]["updated"].split(" ")[1]);
+                displayStates(dat);
+            }
+        );
+        return data;
+    }
+
+    function displayStates(data){
+        var x;
+        setInterval(function(){
+            x = Math.floor((Math.random() * data.length));
+            dateTime = data[x]["updated"].split(" ");
+            $($(".title-text")[0]).text(data[x]["state"]);
+            $($(".title-text")[1]).text(data[x]["case"]);
+            $($(".title-text")[2]).text(data[x]["death"]);
+            $($(".title-text")[3]).text(dateTime[0]);
+            $(".count-text").last().text(dateTime[1]);
+        },10000);
+    }
+</script>
 @endsection
