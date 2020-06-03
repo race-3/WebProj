@@ -428,7 +428,7 @@
                 <div class="col-md-4">
                      <div id="item4">
                          <h4 id="headerTitle">US Initial Jobless Claims, January 2020 - April 2020 (in thousands of claims)</h4>
-                         <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=ijcusa&v=202005211247V20191105&d1=20200101&d2=20200521&h=300&w=600' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                         <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=ijcusa&v=202005211247V20191105&d1=20200101&d2=20200521&h=300&w=600' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
                          <br />
 
                          <h4 id="subtitle">Average Change Per Week</h4>
@@ -486,7 +486,7 @@
                 <div class="col-md-4">
                     <div id="item6">
                         <h4 id="headerTitle">US Government Spending (in billions of dollars)</h4>
-                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstagovspe&v=202006011208v20191105&h=300&w=600&ref=/united-states/government-spending' height='300' width='600'  frameborder='0' scrolling='no'></iframe><br />
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstagovspe&v=202006011208v20191105&h=300&w=600&ref=/united-states/government-spending' height='300' width='100%'  frameborder='0' scrolling='no'></iframe><br />
                         <br />
 
                         <button class="button" id="footnotebtn" onclick="fade()"></button>
@@ -522,7 +522,7 @@
                 <div class="col-md-4">
                     <div id="item8">
                         <h4 id="headerTitle">Gas Prices (in cents per liter)</h4>
-                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstgaspri&v=202005272252v20191105&h=300&w=600&ref=/united-states/gasoline-prices' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstgaspri&v=202005272252v20191105&h=300&w=600&ref=/united-states/gasoline-prices' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
                         <br />
 
                         <h4 id="subtitle">Average Cost per Liter (4 liters = 1 gallon)</h4>
@@ -539,7 +539,7 @@
                 <div class="col-md-4">
                     <div id="item9">
                         <h4 id="headerTitle">US 30-Year Mortgage Interest Rate (Percent)</h4>
-                        <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=unitedstamorrat&v=202005271133V20191105&d1=20190602&h=300&w=600' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=unitedstamorrat&v=202005271133V20191105&d1=20190602&h=300&w=600' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
                         <br />
 
                         <button class="button" id="footnotebtn" onclick="fade()"></button>
@@ -556,7 +556,7 @@
                 <div class="col-md-4">
                     <div id="item10">
                         <h4 id="headerTitle">US Consumer Spending Growth, April 2019 - April 2020 (Percent)</h4>
-                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstaperspe&v=202005291252v20191105&h=300&w=600&ref=/united-states/personal-spending' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstaperspe&v=202005291252v20191105&h=300&w=600&ref=/united-states/personal-spending' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
                         <br />
 
                         <h4 id="subtitle">Average Change</h4>
@@ -574,7 +574,7 @@
                 <div class="col-md-4">
                     <div id="item11">
                         <h4 id="headerTitle">US Retail Sales Growth, April 2019 - April 2020 (Percent)</h4>
-                        <iframe src='https://tradingeconomics.com/embed/?s=usaretailsalesyoy&v=202005151251v20191105&h=300&w=600&ref=/united-states/retail-sales-annual' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <iframe src='https://tradingeconomics.com/embed/?s=usaretailsalesyoy&v=202005151251v20191105&h=300&w=600&ref=/united-states/retail-sales-annual' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
                         <br />
 
                         <h4 id="subtitle">Average Change</h4>
@@ -591,7 +591,7 @@
                 <div class="col-md-4">
                     <div id="item12">
                         <h4 id="headerTitle">US Housing Value Growth, April 2019 - April 2020 (Percent)</h4>
-                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstahouind&v=202005261310v20191105&h=300&w=600&ref=/united-states/housing-index' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstahouind&v=202005261310v20191105&h=300&w=600&ref=/united-states/housing-index' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
                         <br />
 
                         <h4 id="subtitle">Average Change</h4>
@@ -617,7 +617,7 @@
                 <div class="col-md-4">
                     <div id="item13">
                         <h4 id="headerTitle">US GDP from Agriculture, April 2017 - April 2020 (in billions of dollars)</h4>
-                        <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=unitedstagdpfroagr&v=202004111017V20191105&d1=20170603&h=300&w=600' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <iframe src='https://d3fy651gv2fhd3.cloudfront.net/embed/?s=unitedstagdpfroagr&v=202004111017V20191105&d1=20170603&h=300&w=600' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
                         <br />
 
                         <button class="button" id="footnotebtn" onclick="fade()"></button>
@@ -630,7 +630,7 @@
                 <div class="col-md-4">
                     <div id="item14">
                         <h4 id="headerTitle">US GDP from Construction, April 2017 - April 2020 (in billions of dollars)</h4>
-                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstagdpfrocon&v=202004111017v20191105&h=300&w=600&ref=/united-states/gdp-from-construction' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstagdpfrocon&v=202004111017v20191105&h=300&w=600&ref=/united-states/gdp-from-construction' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
                         <br />
 
                         <button class="button" id="footnotebtn" onclick="fade()"></button>
@@ -643,7 +643,7 @@
                 <div class="col-md-4">
                     <div id="item15">
                         <h4 id="headerTitle">US GDP from Manufacturing, April 2017 - April 2020 (in billions of dollars)</h4>
-                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstagdpfroman&v=202004111017v20191105&h=300&w=600&ref=/united-states/gdp-from-manufacturing' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstagdpfroman&v=202004111017v20191105&h=300&w=600&ref=/united-states/gdp-from-manufacturing' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
                         <br />
 
                         <button class="button" id="footnotebtn" onclick="fade()"></button>
@@ -666,7 +666,7 @@
                 <div class="col-md-4">
                     <div id="item16">
                         <h4 id="headerTitle">US Gross National Product, April 2017 - April 2020 (in billions of dollars)</h4>
-                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstagronatpro&v=202006011208v20191105&h=300&w=600&ref=/united-states/gross-national-product' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <iframe src='https://tradingeconomics.com/embed/?s=unitedstagronatpro&v=202006011208v20191105&h=300&w=600&ref=/united-states/gross-national-product' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
                         <br />
 
                         <button class="button" id="footnotebtn" onclick="fade()"></button>
@@ -679,7 +679,7 @@
                 <div class="col-md-4">
                     <div id="item17">
                         <h4 id="headerTitle">US Gross Domestic Product (GDP), 2010 - 2020 (in billions of dollars)</h4>
-                        <iframe src='https://tradingeconomics.com/embed/?s=wgdpus&projection=te&v=202003061721v20191105&h=300&w=600&ref=/united-states/gdp' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <iframe src='https://tradingeconomics.com/embed/?s=wgdpus&projection=te&v=202003061721v20191105&h=300&w=600&ref=/united-states/gdp' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
                         <br />
 
                         <button class="button" id="footnotebtn" onclick="fade()"></button>
@@ -692,7 +692,7 @@
                 <div class="col-md-4">
                     <div id="item18">
                         <h4 id="headerTitle">US GDP Growth, April 2017 - April 2020 (Percent)</h4>
-                        <iframe src='https://tradingeconomics.com/embed/?s=gdp+cqoq&v=202005281332v20191105&h=300&w=600&ref=/united-states/gdp-growth' height='300' width='600'  frameborder='0' scrolling='no'></iframe>
+                        <iframe src='https://tradingeconomics.com/embed/?s=gdp+cqoq&v=202005281332v20191105&h=300&w=600&ref=/united-states/gdp-growth' height='300' width='100%'  frameborder='0' scrolling='no'></iframe>
                         <br />
 
                         <button class="button" id="footnotebtn" onclick="fade()"></button>
