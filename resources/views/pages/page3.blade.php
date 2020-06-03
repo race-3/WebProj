@@ -108,12 +108,14 @@
             }
 
             [id*='item']:hover {
+                /*
                 background-color: #999999;
 
-                /* zoom effect v1 */
+                 zoom effect v1
                 -ms-transform: scale(1.05);
                 -webkit-transform: scale(1.05);
                 transform: scale(1.05);
+                */
             }
 
             /*
