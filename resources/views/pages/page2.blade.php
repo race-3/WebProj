@@ -34,7 +34,6 @@
             }
             .card-title{
               color: blue;
-              font-family: 'Helvetica Neue', sans-serif;
               font-size: 12px;
               font-weight: 900;
               letter-spacing: -1px;
@@ -43,7 +42,6 @@
             }
             .card-text{
               color: #111; 
-              font-family: 'Lato', sans-serif; 
               font-size: 4px; 
               font-weight: 300; 
               text-align: left;
@@ -86,13 +84,10 @@
               font-weight: 700; 
               padding: 10px;
               margin-top:0px; 
-              font-family: 'Libre Baskerville', serif;
             }
             .stocks-title{
               color: #f2f2f2;
-              font-family: 'Lobster', cursive; 
               background: #4a4aff;
-              text-transform: uppercase;
               line-height: 37px; 
               padding: 10px;
               margin: 0 0 24px;
@@ -105,12 +100,17 @@
             }
             .forex-title{
               color: #f2f2f2;
-              font-family: 'Lobster', cursive; 
               background: #4a4a4a;
-              text-transform: uppercase;
               line-height: 37px; 
               padding: 10px 30px 10px 30px;
               margin: 20px 0px 4px;
+              max-height: 57px;
+            }
+            #forex{
+              height: 360px;
+              max-height: 360px;
+              overflow-y: scroll;
+              max-width: 600px;
             }
             @media only screen and (max-width: 650px) {
               .card{
