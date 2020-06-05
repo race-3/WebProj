@@ -171,24 +171,24 @@
       $('#datetimepicker2').datetimepicker();
       
       $('#sym').val("AAPL");
-      // loadChartStartup();
+      loadChartStartup();
 
-      // setTimeout(function(){
-      //   for (var i = someStocks.length - 1; i >= 0; i--) {
-      //     loadRanking(i);
-      //   }
-      // },800);
+      setTimeout(function(){
+        for (var i = someStocks.length - 1; i >= 0; i--) {
+          loadRanking(i);
+        }
+      },800);
 
-      // setTimeout(function(){
+      setTimeout(function(){
         getLastestNews().then(data =>{generateNewsCard(data)});
-      //   for (var i = someStocks.length - 1; i >= 0; i--) {
-      //     getCompanyNews(i).then(data =>{generateNewsCard(data)});
-      //   }
-      // },1200);
+        for (var i = someStocks.length - 1; i >= 0; i--) {
+          getCompanyNews(i).then(data =>{generateNewsCard(data)});
+        }
+      },1200);
 
-      // setTimeout(function(){
-      //   getForexSym();
-      // },2000);
+      setTimeout(function(){
+        getForexSym();
+      },2000);
     });  
 
     async function loadChartStartup(){
