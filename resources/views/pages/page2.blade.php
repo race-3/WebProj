@@ -21,6 +21,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
         <!-- Styles -->
         <style>
@@ -112,6 +113,14 @@
               overflow-y: scroll;
               max-width: 600px;
             }
+            #sym{
+              max-width: 40%;
+              margin:0px 15px 0px 15px;
+            }
+            #sym2{
+              max-width: 40%;
+              margin-right:5px;
+            }
             @media only screen and (max-width: 650px) {
               .card{
                 max-width: 150px;
@@ -130,17 +139,16 @@
     var newsCount = 0;
     var today = new Date();
     var curDate = Math.round(today.getTime() / 1000);
-    today = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate();
+    var box2Holder = "MSFT";
     var times = [1577865651,1580603364 ,1583108964,1585783779,1588375764,1591054179]; //by month
     var someStocks =[["Apple","AAPL"],["Ford","F"],["Disney","DIS"],["American Airlines","AAL"],["Microsoft","MSFT"],["Bank of America","BAC"],["Tesla","TSLA"],["Uber","UBER"],["Starbucks","SBUX"],["AT&T","T"]];
 
     $(function() {
       $('#datetimepicker1').datetimepicker();
+      $("#datetimepicker2box").val(today);
       $('#datetimepicker2').datetimepicker();
-      $("#datetimepicker2").val(today.replace('-','/'));
       
       $('#sym').val("AAPL");
-      $('#sym2').val("MSFT");
       loadChartStartup();
 
       setTimeout(function(){
@@ -245,7 +253,8 @@
     }
 
     async function getCompanyNews(i){
-      var data = await fetch("https://finnhub.io/api/v1/company-news?symbol="+someStocks[i][1]+"&from=2020-01-01&to="+today+"&token={{$api_key}}");
+      var todayDate = today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate();
+      var data = await fetch("https://finnhub.io/api/v1/company-news?symbol="+someStocks[i][1]+"&from=2020-01-01&to="+todayDate+"&token={{$api_key}}");
       var response = await data.json();
       return response;
     }
@@ -361,10 +370,22 @@
       graph.render();
     }
 
+    function oneStockTwoStock(){
+      var toggle = $("#sym2");
+      if(toggle.hasClass("d-none")){
+        toggle.removeClass('d-none');
+        toggle.val(box2Holder);
+        $("#toggleTwo").removeClass("fa-plus").removeClass("btn-primary").addClass("fa-minus").addClass("btn-danger");
+      }else{
+        box2Holder = toggle.val();
+        toggle.addClass('d-none');
+        $("#toggleTwo").removeClass("fa-minus").removeClass("btn-danger").addClass("fa-plus").addClass("btn-primary");
+      }
+    }
+
     function loadCandle(data1, data2, sym1, sym2) {
       var data = [data1,data2];
       var dataPoints = [[],[]];
-      console.log(data);
       if(data[0]['s'] == "ok" && !data[1]){
         for (var i = 0; i < data[0]['c'].length; i++) {
           dataPoints[0].push({
@@ -424,7 +445,7 @@
         }
         chart = new CanvasJS.Chart("chartContainer", {
           animationEnabled: true,
-          theme: "dark1", // "light1", "light2", "dark1", "dark2"
+          theme: "dark1",
           exportEnabled: true,
           title:{
             text: sym1 +" vs " + sym2
@@ -466,7 +487,7 @@
         });
         chart.render();
       }else {
-        console.log("error rendering chart");
+        console.log("Error Rendering Chart");
       }
     }
 
@@ -527,9 +548,11 @@
               <div class="row">
                 <div class='col-sm-6'>
                   <div class="form-group">
-                    <input type="text" name="symbol" id="sym" class="form-control">
-                    <br>
-                    <input type="text" name="symbol2" id="sym2" class="form-control">
+                    <div class="row form-group input-group">
+                      <input type="text" name="symbol" id="sym" class="form-control">
+                      <i id="toggleTwo" class="fa btn btn-primary fa-plus" onclick="oneStockTwoStock()"></i>
+                      <input type="text" name="symbol2" id="sym2" class="form-control d-none">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -552,7 +575,7 @@
                 <div class='col-sm-6'>
                   <div class="form-group">
                     <div class='input-group date' id='datetimepicker2'>
-                      <input type='text' class="form-control" name="datetimepicker2" id='datetimepicker2box' value="06/02/2020" />
+                      <input type='text' class="form-control" name="datetimepicker2" id='datetimepicker2box' />
                       <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                       </span>
