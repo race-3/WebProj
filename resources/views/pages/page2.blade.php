@@ -416,7 +416,6 @@
     async function newOnBoard(stock){
       var data = await fetch("https://finnhub.io/api/v1/stock/symbol?exchange=US&token={{$api_key}}");
       var blob = await data.json();
-      console.log(blob);
       var name = false;
       for (var i = blob.length - 1; i >= 0; i--) {
         if(blob[i]["symbol"] == stock){
@@ -431,8 +430,6 @@
       if(name && !exists){
         someStocks.push([name,stock]);
         loadRanking(someStocks.length-1);
-      }else{
-        console.log("not us stock maybe?")
       }
     }
 
