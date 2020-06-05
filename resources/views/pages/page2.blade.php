@@ -139,6 +139,10 @@
               max-width: 40%;
               margin-right:5px;
             }
+            iframe, .modal-body{
+              width: 100%;
+              height:600px;
+            }
             @media only screen and (max-width: 650px) {
               .card{
                 max-width: 150px;
@@ -176,7 +180,7 @@
       // },800);
 
       // setTimeout(function(){
-      //   getLastestNews().then(data =>{generateNewsCard(data)});
+        getLastestNews().then(data =>{generateNewsCard(data)});
       //   for (var i = someStocks.length - 1; i >= 0; i--) {
       //     getCompanyNews(i).then(data =>{generateNewsCard(data)});
       //   }
@@ -305,14 +309,22 @@
             +"</h5><p class='card-text'>"
             +data[i]["summary"].slice(0,100)
             +"...</p>"
-            +"<a href="
+            +"<button data-toggle='modal' data-target='#myModal' onclick=loadModal('"
             +data[i]["url"]
-            +" class='btn btn-primary'>Click to View</a></div></div>"
+            +"','"
+            +data[i]["headline"].split(' ').join('_')
+            +"') class='btn btn-primary'>Click to Preview</button></div></div>"
           );
           newsCount++;
           page = Math.floor(newsCount /9);
         }
       }
+    }
+
+    function loadModal(link, header){
+      $("#modal-title").text(header.split('_').join(' '));
+      $("#modal-link").attr("href",link);
+      $("#modal-iframe").attr("src",link);
     }
 
     function getForexSym(){
@@ -637,6 +649,23 @@
           <br>
           <div id="chartContainer"></div>
         </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="modal-title"></h4>
+          </div>
+          <div class="modal-body">
+              <iframe id="modal-iframe" src="" frameborder="0" allowtransparency="true"></iframe>  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <a id="modal-link" href=""><button type="button" class="btn btn-primary">Go to Link</button></a>
+          </div>
         </div>
       </div>
     </div>
