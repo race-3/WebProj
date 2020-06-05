@@ -149,24 +149,24 @@
       $('#datetimepicker2').datetimepicker();
       
       $('#sym').val("AAPL");
-      loadChartStartup();
+      // loadChartStartup();
 
-      setTimeout(function(){
-        for (var i = someStocks.length - 1; i >= 0; i--) {
-          loadRanking(i);
-        }
-      },800);
+      // setTimeout(function(){
+      //   for (var i = someStocks.length - 1; i >= 0; i--) {
+      //     loadRanking(i);
+      //   }
+      // },800);
 
-      setTimeout(function(){
-        getLastestNews().then(data =>{generateNewsCard(data)});
-        for (var i = someStocks.length - 1; i >= 0; i--) {
-          getCompanyNews(i).then(data =>{generateNewsCard(data)});
-        }
-      },1200);
+      // setTimeout(function(){
+      //   getLastestNews().then(data =>{generateNewsCard(data)});
+      //   for (var i = someStocks.length - 1; i >= 0; i--) {
+      //     getCompanyNews(i).then(data =>{generateNewsCard(data)});
+      //   }
+      // },1200);
 
-      setTimeout(function(){
-        getForexSym();
-      },2000);
+      // setTimeout(function(){
+      //   getForexSym();
+      // },2000);
     });  
 
     async function loadChartStartup(){
@@ -218,38 +218,39 @@
       return blob;
     }
 
-    function loadRanking(i){
-          loadStock(times[0],times[times.length-1],someStocks[i][1]).then(value =>{
-          if (value['s'] == "ok") {
-            var stock = [value['c'][0],value['c'][Math.round(value['c'].length/2)],value['c'][value['c'].length-1]];
-            var text1, text2;
-            if(stock[0] > stock[1]){
-              text1 = "red";
-            }else{
-              text1 = "green";
-            }
-            if (stock[1] > stock[2]) {
-              text2 = "red";
-            }else{
-              text2 = "green";
-            }
-            $('#stockRankBody').append("<tr><th scope='row'>"
-              +someStocks[i][0]
-              +"</th><td>"
-              +someStocks[i][1]
-              +"</td><td>"
-              +stock[0]
-              +"</td><td style='color:"
-              +text1
-              +";'>"
-              +stock[1]
-              +"</td><td style='color:"
-              +text2
-              +";'>"
-              +stock[2]
-              +"</td></tr>");
+    function loadRanking(num){
+      console.log("someStocks[num][1]");
+      loadStock(times[0],times[times.length-1],someStocks[num][1]).then(value =>{
+        if (value['s'] == "ok") {
+          var stock = [value['c'][0],value['c'][Math.round(value['c'].length/2)],value['c'][value['c'].length-1]];
+          var text1, text2;
+          if(stock[0] > stock[1]){
+            text1 = "red";
+          }else{
+            text1 = "green";
           }
-        });
+          if (stock[1] > stock[2]) {
+            text2 = "red";
+          }else{
+            text2 = "green";
+          }
+          $('#stockRankBody').append("<tr><th scope='row'>"
+            +someStocks[num][0]
+            +"</th><td>"
+            +someStocks[num][1]
+            +"</td><td>"
+            +stock[0]
+            +"</td><td style='color:"
+            +text1
+            +";'>"
+            +stock[1]
+            +"</td><td style='color:"
+            +text2
+            +";'>"
+            +stock[2]
+            +"</td></tr>");
+        }
+      });
     }
 
     async function getCompanyNews(i){
@@ -383,10 +384,37 @@
       }
     }
 
-    function loadCandle(data1, data2, sym1, sym2) {
+    async function newOnBoard(stock){
+      var data = await fetch("https://finnhub.io/api/v1/stock/symbol?exchange=US&token={{$api_key}}");
+      var blob = await data.json();
+      console.log(blob);
+      var name = false;
+      for (var i = blob.length - 1; i >= 0; i--) {
+        if(blob[i]["symbol"] == stock){
+          name = blob[i]["description"];
+        }
+      }
+      var exists = false;
+      for (var i = someStocks.length - 1; i >= 0; i--) {
+        if(someStocks[i][1] == stock)
+          exists = true;
+      }
+      if(name && !exists){
+        console.log(someStocks);
+        someStocks.push([name,stock]);
+        console.log(someStocks[someStocks.length-1]);
+        loadRanking[someStocks.length-1];
+        console.log("it ran");
+      }else{
+        console.log("not us stock maybe?")
+      }
+    }
+
+    async function loadCandle(data1, data2, sym1, sym2) {
       var data = [data1,data2];
       var dataPoints = [[],[]];
       if(data[0]['s'] == "ok" && !data[1]){
+        await newOnBoard(sym1);
         for (var i = 0; i < data[0]['c'].length; i++) {
           dataPoints[0].push({
             x: new Date(
@@ -428,6 +456,8 @@
         });
         chart.render();
       }else if (data[0]['s'] == "ok" && data[1]['s'] == "ok") {
+        await newOnBoard(sym1);
+        await newOnBoard(sym2);
         for (var num = 0; num != 2; num++){
           for (var i = 0; i < data[num]['c'].length; i++) {
             dataPoints[num].push({
