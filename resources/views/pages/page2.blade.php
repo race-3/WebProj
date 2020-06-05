@@ -124,7 +124,6 @@
         </style>
 
   <script type="text/javascript">
-    var dataPoints = [];
     var chart;
     var stockName;
     var oanda = [];
@@ -139,34 +138,10 @@
       $('#datetimepicker1').datetimepicker();
       $('#datetimepicker2').datetimepicker();
       $("#datetimepicker2").val(today.replace('-','/'));
-      chart = new CanvasJS.Chart("chartContainer", {
-        animationEnabled: true,
-        theme: "dark1", // "light1", "light2", "dark1", "dark2"
-        exportEnabled: true,
-        title: stockName,
-        subtitles: [{
-          text: ""
-        }],
-        axisX: {
-          interval: 1,
-          valueFormatString: "MMM DD HH:00"
-        },
-        axisY: {
-          includeZero: false,
-          prefix: "$",
-          title: "Price"
-        },
-        toolTip: {
-          content: "Date: {x}<br /><strong>Price:</strong><br />Open: {y[0]}, Close: {y[3]}<br />High: {y[1]}, Low: {y[2]}"
-        },
-        data: [{
-          type: "candlestick",
-          yValueFormatString: "$##0.00",
-          dataPoints: dataPoints
-        }]
-      });
+      
       $('#sym').val("AAPL");
-      loadStock(times[0] ,curDate,$('#sym').val()).then(function(data){loadCandle(data);});
+      $('#sym2').val("MSFT");
+      loadChartStartup();
 
       setTimeout(function(){
         for (var i = someStocks.length - 1; i >= 0; i--) {
@@ -186,15 +161,43 @@
       },2000);
     });  
 
-    function getUnixDate() {
+    async function loadChartStartup(){
+      var stock1 = $('#sym').val();
+      var stock2 = $('#sym2').val();
+      var first = await loadStock(times[0] ,curDate,stock1);
+      if(stock2 != ""){
+        var second =  await loadStock(times[0],curDate,stock2);
+        var loading = await loadCandle(first, second, stock1, stock2);
+      }else{
+        var loading = await loadCandle(first, false, stock1, false);
+      }
+    }
+
+    function toogleDataSeries(e) {
+      if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+        e.dataSeries.visible = false;
+      } else {
+        e.dataSeries.visible = true;
+      }
+      e.chart.render();
+    }
+
+    async function getUnixDate() {
       var date1 = $('#datetimepicker1').data("DateTimePicker").date();
       var date2 = $('#datetimepicker2').data("DateTimePicker").date();
       var sym = $('#sym').val();
+      var sym2 = $('#sym2').val();
       if( date1 && date2 ){
         date1 = date1.unix();
         date2 = date2.unix();
-        if (date2 > date1){
-          loadCandle(loadStock(date1,date2,sym));
+        if (date2 > date1 && date2 <= curDate){
+          var data1 = await loadStock(date1,date2,sym);
+          if(sym2 != ""){
+            var data2 = await loadStock(date1,date2,sym2);
+            await loadCandle(data1,data2, sym, sym2);
+          }else{
+            await loadCandle(data1,false, sym, false);
+          }
         }else{
           alert("Second date has to be after the first.");
         }
@@ -358,24 +361,111 @@
       graph.render();
     }
 
-    function loadCandle(data) {
-      dataPoints.length = 0;
-      if (data['s'] == "ok") {
-        for (var i = 0; i < data['c'].length; i++) {
-          dataPoints.push({
+    function loadCandle(data1, data2, sym1, sym2) {
+      var data = [data1,data2];
+      var dataPoints = [[],[]];
+      console.log(data);
+      if(data[0]['s'] == "ok" && !data[1]){
+        for (var i = 0; i < data[0]['c'].length; i++) {
+          dataPoints[0].push({
             x: new Date(
-                data['t'][i] * 1000
+                data[0]['t'][i] * 1000
             ),
             y: [
-              parseFloat(data['o'][i]),
-              parseFloat(data['h'][i]),
-              parseFloat(data['l'][i]),
-              parseFloat(data['c'][i])
+              parseFloat(data[0]['o'][i]),
+              parseFloat(data[0]['h'][i]),
+              parseFloat(data[0]['l'][i]),
+              parseFloat(data[0]['c'][i])
             ]
           });
         }
+        chart = new CanvasJS.Chart("chartContainer", {
+          animationEnabled: true,
+          theme: "dark1", // "light1", "light2", "dark1", "dark2"
+          exportEnabled: true,
+          title: stockName,
+          subtitles: [{
+            text: ""
+          }],
+          axisX: {
+            interval: 1,
+            valueFormatString: "MMM DD HH:00"
+          },
+          axisY: {
+            includeZero: false,
+            prefix: "$",
+            title: "Price"
+          },
+          toolTip: {
+            content: "Date: {x}<br /><strong>Price:</strong><br />Open: {y[0]}, Close: {y[3]}<br />High: {y[1]}, Low: {y[2]}"
+          },
+          data: [{
+            type: "candlestick",
+            yValueFormatString: "$##0.00",
+            dataPoints: dataPoints[0]
+          }]
+        });
         chart.render();
-      }else{
+      }else if (data[0]['s'] == "ok" && data[1]['s'] == "ok") {
+        for (var num = 0; num != 2; num++){
+          for (var i = 0; i < data[num]['c'].length; i++) {
+            dataPoints[num].push({
+              x: new Date(
+                  data[num]['t'][i] * 1000
+              ),
+              y: [
+                parseFloat(data[num]['o'][i]),
+                parseFloat(data[num]['h'][i]),
+                parseFloat(data[num]['l'][i]),
+                parseFloat(data[num]['c'][i])
+              ]
+            });
+          }
+        }
+        chart = new CanvasJS.Chart("chartContainer", {
+          animationEnabled: true,
+          theme: "dark1", // "light1", "light2", "dark1", "dark2"
+          exportEnabled: true,
+          title:{
+            text: sym1 +" vs " + sym2
+          },
+          axisX: {
+            valueFormatString: "MMM DD HH:00"
+          },
+          axisY: {
+            includeZero:false, 
+            prefix: "$",
+            title: "Price (in USD)"
+          },
+          toolTip: {
+            shared: true
+          },
+          legend: {
+            cursor: "pointer",
+            itemclick: toogleDataSeries
+          },
+          toolTip: {
+            content: "Date: {x}<br /><strong>Price:</strong><br />Open: {y[0]}, Close: {y[3]}<br />High: {y[1]}, Low: {y[2]}",
+            shared: true
+          },
+          data: [{
+            type: "candlestick",
+            showInLegend: true,
+            name: sym1,
+            yValueFormatString: "$###0.00",
+            xValueFormatString: "MMMM YY",
+            dataPoints: dataPoints[0]
+          },
+          {
+            type: "candlestick",
+            showInLegend: true,
+            name: sym2,
+            yValueFormatString: "$###0.00",
+            dataPoints: dataPoints[1]
+          }]
+        });
+        chart.render();
+      }else {
         console.log("error rendering chart");
       }
     }
@@ -438,6 +528,8 @@
                 <div class='col-sm-6'>
                   <div class="form-group">
                     <input type="text" name="symbol" id="sym" class="form-control">
+                    <br>
+                    <input type="text" name="symbol2" id="sym2" class="form-control">
                   </div>
                 </div>
               </div>
