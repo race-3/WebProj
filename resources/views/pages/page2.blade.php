@@ -11,7 +11,6 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
 
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 
         <meta charset="utf-8">
@@ -219,7 +218,6 @@
     }
 
     function loadRanking(num){
-      console.log("someStocks[num][1]");
       loadStock(times[0],times[times.length-1],someStocks[num][1]).then(value =>{
         if (value['s'] == "ok") {
           var stock = [value['c'][0],value['c'][Math.round(value['c'].length/2)],value['c'][value['c'].length-1]];
@@ -400,11 +398,8 @@
           exists = true;
       }
       if(name && !exists){
-        console.log(someStocks);
         someStocks.push([name,stock]);
-        console.log(someStocks[someStocks.length-1]);
-        loadRanking[someStocks.length-1];
-        console.log("it ran");
+        loadRanking(someStocks.length-1);
       }else{
         console.log("not us stock maybe?")
       }
